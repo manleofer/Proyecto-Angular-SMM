@@ -6,16 +6,18 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ProyectoAngular';
 
   mostrarMenu: boolean = false;
-  fMostrarMenu(){
+  fMostrarMenu() {
     this.mostrarMenu = !this.mostrarMenu;
   }
 
+  colorEstado = {
+    "color": "red",
+    "background-color": "blue"
+  };
 }
-
-
