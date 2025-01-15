@@ -35,27 +35,32 @@
     <p>Descripción</p>
     <div id="divNgIf"></div>
     <div id="divNgFor"></div>
-    <div  id="divNgSwitch">
+    <div  id="divNgSwitch" class="container">
       <h2>Directiva ngSwitch</h2>
-
-      <p [ngSwitch]="colorTexto">
+      <!--Párrafo que cambiará de color en cada caso-->
+      <p [ngSwitch]="colorTexto" class="text-justify">
 
         <span *ngSwitchCase="'red'" style= "color: red;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.</span>
+          oculta o muestra el HTML.<br>
+          Ejemplo: Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
 
         <span *ngSwitchCase="'blue'" style= "color: blue;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.</span>
+          oculta o muestra el HTML.<br>
+          Ejemplo: Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
 
-        <span *ngSwitchDefault style= "color: black;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+        <span *ngSwitchDefault style= "color: black;"><strong>Definición:</strong> Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.</span>
+          oculta o muestra el HTML.<br>
+          <strong>Ejemplo:</strong> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
       </p>
-
-      <button (click)="cambiarColorTexto('red')">Cambiar a rojo</button>
-      <button (click)="cambiarColorTexto('blue')">Cambiar a azul</button>
-      <button (click)="cambiarColorTexto('default')">Cambiar a color por defecto</button>
+      <div class="d-flex justify-content-center gap-3 mt-3">
+        <!--Botones para cambiar el color del párrafo-->
+        <button (click)="cambiarColorTexto('red')" class="btn btn-danger">Cambiar a rojo</button>
+        <button (click)="cambiarColorTexto('blue')" class="btn btn-primary">Cambiar a azul</button>
+        <button (click)="cambiarColorTexto('default')" class="btn btn-dark">Cambiar a color por defecto</button>
+      </div>
     </div>
   </div>
   <div id="dirAtributo">
