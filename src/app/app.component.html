@@ -30,30 +30,43 @@
 </nav>
 
 <div id="directivas" class="divContenido">
+  <div id="dirDefinicion" class="container">
+    <h1>DIRECTIVAS</h1>
+    <p><strong>Definición:</strong><br>
+      Las directivas son elementos que se aplican a etiquetas HTML y añaden funcionalidad a la etiqueta donde se
+      aplican.<br>
+      Sirven para modificar la estructura del DOM y para modificar la apariencia de las aplicaciones.<br>
+      <strong>Tipos:</strong><br>
+      Estructurales, de Atributos y Componentes.
+    </p>
+  </div>
   <div id="dirEstructurales">
     <h1>Directivas estructurales</h1>
     <p>Descripción</p>
     <div id="divNgIf"></div>
     <div id="divNgFor"></div>
-    <div  id="divNgSwitch" class="container">
+    <div id="divNgSwitch" class="container">
       <h2>Directiva ngSwitch</h2>
       <!--Párrafo que cambiará de color en cada caso-->
       <p [ngSwitch]="colorTexto" class="text-justify">
 
-        <span *ngSwitchCase="'red'" style= "color: red;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+        <span *ngSwitchCase="'red'" style="color: red;"><strong>Definición:</strong><br> Es una directiva estructural similar
+          al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
           oculta o muestra el HTML.<br>
-          Ejemplo: Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
+          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
 
-        <span *ngSwitchCase="'blue'" style= "color: blue;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+        <span *ngSwitchCase="'blue'" style="color: blue;"><strong>Definición:</strong><br> Es una directiva estructural similar
+          al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
           oculta o muestra el HTML.<br>
-          Ejemplo: Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
+          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
 
-        <span *ngSwitchDefault style= "color: black;"><strong>Definición:</strong> Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+        <span *ngSwitchDefault style="color: black;"><strong>Definición:</strong><br> Es una directiva estructural similar
+          al ngIf y se utiliza como el switch en lógica de programación. En esta
           directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
           oculta o muestra el HTML.<br>
-          <strong>Ejemplo:</strong> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
+          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
       </p>
       <div class="d-flex justify-content-center gap-3 mt-3">
         <!--Botones para cambiar el color del párrafo-->
@@ -68,6 +81,20 @@
     <p>Descripción</p>
     <div id="divNgStyle"></div>
     <div id="divNgModel"></div>
-    <div id="divNgClass"></div>
+    <div id="divNgClass" class="container">
+      <h2>Directiva ngClass</h2>
+      <!--Párrafo con atributo ngClass-->
+      <p [ngClass]="{'claseParrafoResaltado' : parrafoResaltado, 'claseParrafoPorDefecto' : !parrafoResaltado}">
+        <strong>Definición:</strong><br> Es una directiva de atributo que permite aplicar, añadir o eliminar clases CSS a
+        elementos HTML.<br>
+        <strong>Ejemplo:</strong><br> Al pulsar un botón, la clase CSS del párrafo cambia.
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 mt-3">
+        <!--Botones para cambiar la clase del párrafo-->
+        <button (click)="cambiarAParrafoResaltado()" class="btn btn-primary">Resaltar Párrafo</button>
+        <button (click)="cambiarAParrafoPorDefecto()" class="btn btn-dark">Párrafo por defecto</button>
+      </div>
+    </div>
   </div>
 </div>
