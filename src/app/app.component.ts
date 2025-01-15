@@ -18,6 +18,18 @@ export class AppComponent {
   cambiarColorTexto(nuevoColor: string) {
     this.colorTexto = nuevoColor;
   }
+
+  //Crear una variable booleana inicializada el false para que la clase del párrafo sea la clase por defecto
+  parrafoResaltado : boolean = false;
+
+  //Crear métodos para cambiar de clase al párrafo
+  cambiarAParrafoResaltado() {
+    this.parrafoResaltado = true;
+  }
+
+  cambiarAParrafoPorDefecto() {
+    this.parrafoResaltado = false;
+  }
 }
 
 
