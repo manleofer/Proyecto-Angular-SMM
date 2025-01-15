@@ -1,51 +1,68 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">Angular</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul id="menuPrincipal" class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuDirectivas">Directivas</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuComponentes">Componentes</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuEventos">Eventos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuEnrutamiento">Enrutamiento</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuFormulario">Formularios</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="menuDatos">Acceso a datos</a>
-              </li>
-          </ul>
-      </div>
+    <a class="navbar-brand" href="#">Angular</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul id="menuPrincipal" class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuDirectivas">Directivas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuComponentes">Componentes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuEventos">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuEnrutamiento">Enrutamiento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuFormulario">Formularios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="menuDatos">Acceso a datos</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <div id="directivas" class="divContenido">
   <div id="dirEstructurales">
-      <h1>Directivas estructurales</h1>
-      <p>Descripción</p>
-      <div id="divNgIf"></div>
-      <div id="divNgFor"></div>
-      <div id="divNgSwitch"></div>
+    <h1>Directivas estructurales</h1>
+    <p>Descripción</p>
+    <div id="divNgIf"></div>
+    <div id="divNgFor"></div>
+    <div  id="divNgSwitch">
+      <h2>Directiva ngSwitch</h2>
+
+      <p [ngSwitch]="colorTexto">
+
+        <span *ngSwitchCase="'red'" style= "color: red;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
+          oculta o muestra el HTML.</span>
+
+        <span *ngSwitchCase="'blue'" style= "color: blue;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
+          oculta o muestra el HTML.</span>
+
+        <span *ngSwitchDefault style= "color: black;">Es una directiva estructural similar al ngIf y se utiliza como el switch en lógica de programación. En esta
+          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
+          oculta o muestra el HTML.</span>
+      </p>
+
+      <button (click)="cambiarColorTexto('red')">Cambiar a rojo</button>
+      <button (click)="cambiarColorTexto('blue')">Cambiar a azul</button>
+      <button (click)="cambiarColorTexto('default')">Cambiar a color por defecto</button>
+    </div>
   </div>
   <div id="dirAtributo">
-      <h1>Directivas de atributos</h1>
-      <p>Descripción</p>
-      <div id="divNgStyle"></div>
-      <div id="divNgModel"></div>
-      <div id="divNgClass"></div>
+    <h1>Directivas de atributos</h1>
+    <p>Descripción</p>
+    <div id="divNgStyle"></div>
+    <div id="divNgModel"></div>
+    <div id="divNgClass"></div>
   </div>
 </div>
-
-
-
-
