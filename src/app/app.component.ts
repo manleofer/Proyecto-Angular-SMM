@@ -8,11 +8,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'ProyectoAngular';
 
+
   //Crear una variable y definir el color inicial del texto del párrafo
   colorTexto : string = 'black';
+
+  //Array (de tipo string) donde se almacenan las tareas
+  tareas: string[] = [];
 
   //Crear un método para cambiar el color del texto al pulsar los botones
   cambiarColorTexto(nuevoColor: string) {
@@ -30,6 +35,21 @@ export class AppComponent {
   cambiarAParrafoPorDefecto() {
     this.parrafoResaltado = false;
   }
+
+
+  //Método para agregar una tarea al string de tareas
+  agregarTarea() {
+    const inputTarea = <HTMLInputElement>document.getElementById("inputTarea");
+    // <HTMLInputElement> Es una aserción de tipo propia de TypeScript, que indica el tipo de elemento HTML que se maneja
+    const nuevaTarea = inputTarea.value;
+
+    this.tareas.push(nuevaTarea);
+    inputTarea.value = ""   //Para resetear el valor del input después de agregar cada tarea
+
+
+  }
+
+
 }
 
 
