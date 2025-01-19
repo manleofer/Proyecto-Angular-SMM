@@ -73,8 +73,6 @@ export class AppComponent {
       this.formularioValido = true;
     } 
   }
-
-
 }
 
 
