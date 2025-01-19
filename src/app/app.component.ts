@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'ProyectoAngular';
 
-<<<<<<< HEAD
+  //Creamos una variable booleana iniciada en false y la cambiamos al hacer click
   mostrarMenu: boolean = false;
   fMostrarMenu() {
     this.mostrarMenu = !this.mostrarMenu;
@@ -21,7 +21,6 @@ export class AppComponent {
     "color": "red",
     "background-color": "blue"
   };
-=======
   //Crear una variable y definir el color inicial del texto del párrafo
   colorTexto : string = 'black';
 
@@ -41,5 +40,4 @@ export class AppComponent {
   cambiarAParrafoPorDefecto() {
     this.parrafoResaltado = false;
   }
->>>>>>> develop
 }
