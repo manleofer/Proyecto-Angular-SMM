@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'ProyectoAngular';
 
+<<<<<<< HEAD
   mostrarMenu: boolean = false;
   fMostrarMenu() {
     this.mostrarMenu = !this.mostrarMenu;
@@ -20,4 +21,25 @@ export class AppComponent {
     "color": "red",
     "background-color": "blue"
   };
+=======
+  //Crear una variable y definir el color inicial del texto del párrafo
+  colorTexto : string = 'black';
+
+  //Crear un método para cambiar el color del texto al pulsar los botones
+  cambiarColorTexto(nuevoColor: string) {
+    this.colorTexto = nuevoColor;
+  }
+
+  //Crear una variable booleana inicializada el false para que la clase del párrafo sea la clase por defecto
+  parrafoResaltado : boolean = false;
+
+  //Crear métodos para cambiar de clase al párrafo
+  cambiarAParrafoResaltado() {
+    this.parrafoResaltado = true;
+  }
+
+  cambiarAParrafoPorDefecto() {
+    this.parrafoResaltado = false;
+  }
+>>>>>>> develop
 }
