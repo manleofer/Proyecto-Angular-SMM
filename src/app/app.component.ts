@@ -6,11 +6,21 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ProyectoAngular';
 
+  //Creamos una variable booleana iniciada en false y la cambiamos al hacer click
+  mostrarMenu: boolean = false;
+  fMostrarMenu() {
+    this.mostrarMenu = !this.mostrarMenu;
+  }
+
+  colorEstado = {
+    "color": "red",
+    "background-color": "blue"
+  };
   //Crear una variable y definir el color inicial del texto del párrafo
   colorTexto : string = 'black';
 
@@ -31,5 +41,3 @@ export class AppComponent {
     this.parrafoResaltado = false;
   }
 }
-
-

@@ -1,13 +1,24 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Angular</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul id="menuPrincipal" class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" id="menuDirectivas">Directivas</a>
+          <a
+            class="nav-link"
+            href="#"
+            id="menuDirectivas"
+            (click)="fMostrarMenu()"
+            >Directivas</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="menuComponentes">Componentes</a>
@@ -29,72 +40,145 @@
   </div>
 </nav>
 
-<div id="directivas" class="divContenido">
-  <div id="dirDefinicion" class="container">
-    <h1>DIRECTIVAS</h1>
-    <p><strong>Definición:</strong><br>
-      Las directivas son elementos que se aplican a etiquetas HTML y añaden funcionalidad a la etiqueta donde se
-      aplican.<br>
-      Sirven para modificar la estructura del DOM y para modificar la apariencia de las aplicaciones.<br>
-      <strong>Tipos:</strong><br>
-      Estructurales, de Atributos y Componentes.
-    </p>
-  </div>
-  <div id="dirEstructurales">
-    <h1>Directivas estructurales</h1>
-    <p>Descripción</p>
-    <div id="divNgIf"></div>
-    <div id="divNgFor"></div>
-    <div id="divNgSwitch" class="container">
-      <h2>Directiva ngSwitch</h2>
-      <!--Párrafo que cambiará de color en cada caso-->
-      <p [ngSwitch]="colorTexto" class="text-justify">
-
-        <span *ngSwitchCase="'red'" style="color: red;"><strong>Definición:</strong><br> Es una directiva estructural similar
-          al ngIf y se utiliza como el switch en lógica de programación. En esta
-          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.<br>
-          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
-
-        <span *ngSwitchCase="'blue'" style="color: blue;"><strong>Definición:</strong><br> Es una directiva estructural similar
-          al ngIf y se utiliza como el switch en lógica de programación. En esta
-          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.<br>
-          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
-
-        <span *ngSwitchDefault style="color: black;"><strong>Definición:</strong><br> Es una directiva estructural similar
-          al ngIf y se utiliza como el switch en lógica de programación. En esta
-          directiva se pueden crear los diferentes casos que deseamos evaluar y cuando se cumple la condición esperada,
-          oculta o muestra el HTML.<br>
-          <strong>Ejemplo:</strong><br> Seleccionar un botón, al pulsarlo, este texto explicativo cambiará de color.</span>
+<ng-container *ngIf="mostrarMenu">
+  <div id="directivas" class="divContenido">
+    <div id="dirDefinicion" class="container">
+      <h1>DIRECTIVAS</h1>
+      <p>
+        <strong>Definición:</strong><br />
+        Las directivas son elementos que se aplican a etiquetas HTML y añaden
+        funcionalidad a la etiqueta donde se aplican.<br />
+        Sirven para modificar la estructura del DOM y para modificar la
+        apariencia de las aplicaciones.<br />
+        <strong>Tipos:</strong><br />
+        Estructurales, de Atributos y Componentes.
       </p>
-      <div class="d-flex justify-content-center gap-3 mt-3">
-        <!--Botones para cambiar el color del párrafo-->
-        <button (click)="cambiarColorTexto('red')" class="btn btn-danger">Cambiar a rojo</button>
-        <button (click)="cambiarColorTexto('blue')" class="btn btn-primary">Cambiar a azul</button>
-        <button (click)="cambiarColorTexto('default')" class="btn btn-dark">Cambiar a color por defecto</button>
+    </div>
+    <ng-container *ngIf="mostrarMenu">
+      <div id="directivas" class="divContenido">
+        <div id="dirEstructurales">
+          <h1>Directivas estructurales</h1>
+          <p>Descripción</p>
+          <div id="divNgIf" class="container">
+            <h2>Directiva ngIf</h2>
+            <p class="text-justify">
+              <span
+                ><strong>Definición:</strong><br />
+                Es una directiva estructural que permite incluir o excluir un
+                elemento del DOM en función de una expresión booleana. Si la
+                expresión evaluada es true, el contenido del elemento es
+                insertado en el DOM; si es false, el contenido es eliminado del
+                DOM.<br />
+                <strong>Ejemplo:</strong><br />
+                Al hacer click en Directivas te muestra todas las directivas,
+                esto esta hecho como ejemplo de ngIf</span
+              >
+            </p>
+          </div>
+
+          <div id="divNgFor"></div>
+          <div id="divNgSwitch" class="container">
+            <h2>Directiva ngSwitch</h2>
+            <!--Párrafo que cambiará de color en cada caso-->
+            <p [ngSwitch]="colorTexto" class="text-justify">
+              <span *ngSwitchCase="'red'" style="color: red"
+                ><strong>Definición:</strong><br />
+                Es una directiva estructural similar al ngIf y se utiliza como
+                el switch en lógica de programación. En esta directiva se pueden
+                crear los diferentes casos que deseamos evaluar y cuando se
+                cumple la condición esperada, oculta o muestra el HTML.<br />
+                <strong>Ejemplo:</strong><br />
+                Seleccionar un botón, al pulsarlo, este texto explicativo
+                cambiará de color.</span
+              >
+
+              <span *ngSwitchCase="'blue'" style="color: blue"
+                ><strong>Definición:</strong><br />
+                Es una directiva estructural similar al ngIf y se utiliza como
+                el switch en lógica de programación. En esta directiva se pueden
+                crear los diferentes casos que deseamos evaluar y cuando se
+                cumple la condición esperada, oculta o muestra el HTML.<br />
+                <strong>Ejemplo:</strong><br />
+                Seleccionar un botón, al pulsarlo, este texto explicativo
+                cambiará de color.</span
+              >
+
+              <span *ngSwitchDefault style="color: black"
+                ><strong>Definición:</strong><br />
+                Es una directiva estructural similar al ngIf y se utiliza como
+                el switch en lógica de programación. En esta directiva se pueden
+                crear los diferentes casos que deseamos evaluar y cuando se
+                cumple la condición esperada, oculta o muestra el HTML.<br />
+                <strong>Ejemplo:</strong><br />
+                Seleccionar un botón, al pulsarlo, este texto explicativo
+                cambiará de color.</span
+              >
+            </p>
+            <div class="d-flex justify-content-center gap-3 mt-3">
+              <!--Botones para cambiar el color del párrafo-->
+              <button (click)="cambiarColorTexto('red')" class="btn btn-danger">
+                Cambiar a rojo
+              </button>
+              <button
+                (click)="cambiarColorTexto('blue')"
+                class="btn btn-primary"
+              >
+                Cambiar a azul
+              </button>
+              <button
+                (click)="cambiarColorTexto('default')"
+                class="btn btn-dark"
+              >
+                Cambiar a color por defecto
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div id="dirAtributo">
+      <h1>Directivas de atributos</h1>
+      <p>Descripción</p>
+      <div id="divNgStyle" class="container">
+        <h2>Directiva ngStyle</h2>
+        <strong>Definición:</strong><br />
+        Es una directiva de atributo que permite vincular un objeto a los
+        estilos CSS de un elemento HTML de manera dinámica.<br />
+        <strong>Ejemplo:</strong><br />
+        <p [ngStyle]="colorEstado">
+          Recibe un conjunto de propiedades CSS como un valor, y Agular
+          actualiza los estilos del elemento en el DOM en función de las
+          propiedades.(Aquí se vería aplicado y por eso sale el fondo azul con
+          letras en rojo).
+        </p>
+      </div>
+      <div id="divNgModel"></div>
+      <div id="divNgClass" class="container">
+        <h2>Directiva ngClass</h2>
+        <!--Párrafo con atributo ngClass-->
+        <p
+          [ngClass]="{
+            claseParrafoResaltado: parrafoResaltado,
+            claseParrafoPorDefecto: !parrafoResaltado
+          }"
+        >
+          <strong>Definición:</strong><br />
+          Es una directiva de atributo que permite aplicar, añadir o eliminar
+          clases CSS a elementos HTML.<br />
+          <strong>Ejemplo:</strong><br />
+          Al pulsar un botón, la clase CSS del párrafo cambia.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <!--Botones para cambiar la clase del párrafo-->
+          <button (click)="cambiarAParrafoResaltado()" class="btn btn-primary">
+            Resaltar Párrafo
+          </button>
+          <button (click)="cambiarAParrafoPorDefecto()" class="btn btn-dark">
+            Párrafo por defecto
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  <div id="dirAtributo">
-    <h1>Directivas de atributos</h1>
-    <p>Descripción</p>
-    <div id="divNgStyle"></div>
-    <div id="divNgModel"></div>
-    <div id="divNgClass" class="container">
-      <h2>Directiva ngClass</h2>
-      <!--Párrafo con atributo ngClass-->
-      <p [ngClass]="{'claseParrafoResaltado' : parrafoResaltado, 'claseParrafoPorDefecto' : !parrafoResaltado}">
-        <strong>Definición:</strong><br> Es una directiva de atributo que permite aplicar, añadir o eliminar clases CSS a
-        elementos HTML.<br>
-        <strong>Ejemplo:</strong><br> Al pulsar un botón, la clase CSS del párrafo cambia.
-      </p>
-
-      <div class="d-flex justify-content-center gap-3 mt-3">
-        <!--Botones para cambiar la clase del párrafo-->
-        <button (click)="cambiarAParrafoResaltado()" class="btn btn-primary">Resaltar Párrafo</button>
-        <button (click)="cambiarAParrafoPorDefecto()" class="btn btn-dark">Párrafo por defecto</button>
-      </div>
-    </div>
-  </div>
-</div>
+</ng-container>
