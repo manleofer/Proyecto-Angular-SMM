@@ -56,11 +56,12 @@
         según el orden en el que se han ido añadiendo.
         <br>
       </p>
-      <div id="funcionTarea">
-        <input id="inputTarea" placeholder="Introduce el nombre de la tarea">
-        <button id="btnAgregarTarea" (click)="agregarTarea()">Añadir Tarea</button>
-
-        <table *ngIf="tareas.length > 0" class="table">
+      <div id="funcionTarea" style="width: 600px; margin: auto;">
+        <input id="inputTarea" class="form-control" type="text" style="width: 300px" placeholder="Introduce la tarea">
+        <button id="btnAgregarTarea" class="btn btn-primary" style="margin-top: 10px" (click)="agregarTarea()">Añadir Tarea</button>
+        <br>
+        <table *ngIf="tareas.length > 0" class="table" style="margin-top: 20px;">
+          <caption style="caption-side: top;"><strong>Lista de Tareas</strong></caption>
           <thead>
             <tr>
               <th>Número</th>
