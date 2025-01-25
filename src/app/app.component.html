@@ -90,31 +90,7 @@
             según el orden en el que se han ido añadiendo.
             <br>
           </p>
-          <div id="funcionTarea" style="width: 600px; margin: auto;">
-            <input id="inputTarea" class="form-control" type="text" style="width: 300px"
-              placeholder="Introduce la tarea">
-            <button id="btnAgregarTarea" class="btn btn-primary" style="margin-top: 10px"
-              (click)="agregarTarea()">Añadir
-              Tarea</button>
-            <br>
-            <table *ngIf="tareas.length > 0" class="table" style="margin-top: 20px;">
-              <caption style="caption-side: top;"><strong>Lista de Tareas</strong></caption>
-              <thead>
-                <tr>
-                  <th>Número</th>
-                  <th>Tarea</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let tarea of tareas; let i = index">
-                  <!-- "index" es una propiedad/variable que proporciona la directiva ngFor que obtiene directamente la posición/índice de un elemento en un array -->
-                  <td>{{i + 1}}</td> <!-- Mostrar el número de la tarea (posición en el array + 1) -->
-                  <td>{{tarea}}</td> <!-- Mostrar el string de la tarea -->
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+          <app-tareas></app-tareas>
         </div>
 
         <div id="divNgSwitch" class="container">
@@ -176,7 +152,7 @@
         través de atributos. Estas directivas no crean ni destruyen elementos en
         el DOM.
       </p>
-      
+
       <div id="divNgStyle" class="container">
         <h2>Directiva ngStyle</h2>
         <strong>Definición:</strong><br />
@@ -277,4 +253,43 @@
     </div>
 
   </div>
-</ng-container>   
+</ng-container>
+
+
+<div id="componentes" class="divContenido">
+  <div id="compDefinicion" class="container">
+    <h1>COMPONENTES</h1>
+    <p style="text-align: justify;">
+      <strong>Definición:</strong><br />
+      Un componente es un bloque o módulo que encapsula una determinada funcionalidad de la interfaz de usuario.
+      Esto permite que se pueda reutilizar en distintas parte de la aplicación sin tener que volver a codificar.
+    </p>
+
+    <span>Cada componente tiene tres elementos clave:
+      <ul>
+        <li><strong>Clase (TypeScript)</strong>: Elemento que contiene la lógica del componente</li>
+        <li><strong>Plantilla (HTML)</strong>: Elemento que define la estructura y el diseño visual del componente</li>
+        <li><strong>Estilo (CSS)</strong>: Elemento que aporta el estilo visual del componente</li>
+      </ul>
+    </span>
+  </div>
+
+  <div id="compTareas" class="container">
+    <h2>EJEMPLO: Lista de tareas </h2>
+    <p style="text-align: justify;"> En este ejemplo, se ha creado un componente llamado "tareas" que resuelve en sí
+      mismo la funcionalidad de
+      añadir tareas a una lista, mostrando dichas tareas en una tabla y asignándole un índice según el orden en el
+      que se han ido añadiendo.
+    </p>
+
+    <span><i>(Este componente se reutiliza en la vista de Directivas, al explicar la directiva ngFor)</i></span><br>
+    <br>
+
+    <app-tareas></app-tareas>
+  </div>
+</div>
+
+<footer>
+  <app-footer></app-footer>
+</footer>
+
