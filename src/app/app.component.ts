@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TareasComponent } from "./tareas/tareas.component";
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, TareasComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -26,9 +27,6 @@ export class AppComponent {
   };
   //Crear una variable y definir el color inicial del texto del párrafo
   colorTexto : string = 'black';
-
-  //Array (de tipo string) donde se almacenan las tareas
-  tareas: string[] = [];
 
   //Objeto "registro" en JSON
   registro = {
@@ -60,17 +58,6 @@ export class AppComponent {
   cambiarAParrafoPorDefecto() {
     this.parrafoResaltado = false;
   }
-
-
-  //Método para agregar una tarea al string de tareas
-  agregarTarea() {
-    const inputTarea = <HTMLInputElement>document.getElementById("inputTarea");
-    // <HTMLInputElement> Es una aserción de tipo propia de TypeScript, que indica el tipo de elemento HTML que se maneja
-    const nuevaTarea = inputTarea.value;
-    this.tareas.push(nuevaTarea);
-    inputTarea.value = ""   //Para resetear el valor del input después de agregar cada tarea
-  }
-
 
   //Método para validar campos del formulario
   validarFormulario() {
