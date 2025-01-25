@@ -90,31 +90,7 @@
             según el orden en el que se han ido añadiendo.
             <br>
           </p>
-          <div id="funcionTarea" style="width: 600px; margin: auto;">
-            <input id="inputTarea" class="form-control" type="text" style="width: 300px"
-              placeholder="Introduce la tarea">
-            <button id="btnAgregarTarea" class="btn btn-primary" style="margin-top: 10px"
-              (click)="agregarTarea()">Añadir
-              Tarea</button>
-            <br>
-            <table *ngIf="tareas.length > 0" class="table" style="margin-top: 20px;">
-              <caption style="caption-side: top;"><strong>Lista de Tareas</strong></caption>
-              <thead>
-                <tr>
-                  <th>Número</th>
-                  <th>Tarea</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let tarea of tareas; let i = index">
-                  <!-- "index" es una propiedad/variable que proporciona la directiva ngFor que obtiene directamente la posición/índice de un elemento en un array -->
-                  <td>{{i + 1}}</td> <!-- Mostrar el número de la tarea (posición en el array + 1) -->
-                  <td>{{tarea}}</td> <!-- Mostrar el string de la tarea -->
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+          <app-tareas></app-tareas>
         </div>
 
         <div id="divNgSwitch" class="container">
