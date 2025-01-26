@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Angular</a>
+    <a class="navbar-brand" href="#" (click)="fMostrarTitulo()" >Angular</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul id="menuPrincipal" class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" id="menuDirectivas" (click)="fMostrarMenu()">Directivas</a>
+          <a class="nav-link" href="#" id="menuDirectivas" (click)="fMostrarDirectivas()">Directivas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="menuComponentes">Componentes</a>
+          <a class="nav-link" href="#" id="menuComponentes" (click)="fMostrarComponentes()">Componentes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="menuEventos">Eventos</a>
@@ -28,8 +28,12 @@
     </div>
   </div>
 </nav>
-
-<ng-container *ngIf="mostrarMenu">
+<ng-container *ngIf="mostrarTitulo">
+  <div class="cover-container">
+    <h1 class="cover-title">PROYECTO ANGULAR SMM</h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="mostrarDirectivas">
   <div id="directivas" class="divContenido">
     <div id="dirDefinicion" class="container">
       <h1>DIRECTIVAS</h1>
@@ -44,7 +48,7 @@
       </p>
     </div>
 
-    <ng-container *ngIf="mostrarMenu">
+    <ng-container *ngIf="mostrarDirectivas">
       <div id="dirEstructurales" class="container">
         <h1>Directivas Estructurales</h1>
         <p><strong>Descripción</strong></p>
@@ -255,7 +259,7 @@
   </div>
 </ng-container>
 
-
+<ng-container *ngIf="mostrarComponentes">
 <div id="componentes" class="divContenido">
   <div id="compDefinicion" class="container">
     <h1>COMPONENTES</h1>
@@ -288,8 +292,15 @@
     <app-tareas></app-tareas>
   </div>
 </div>
+<div id="compIconos" class="container">
+  <h2>EJEMPLO: Iconos de redes sociales</h2>
+  <p style="text-align: justify;">Hemos creado un ejemplo en el cual se crea un componente de nombre iconos que a traves
+    de los iconos que aparecen podemos clicar y que nos lleve a traves de un enlace a los sitios web que hemos agregado.
+  </p>
+  <app-iconos></app-iconos>
+</div>
 
 <footer>
   <app-footer></app-footer>
 </footer>
-
+</ng-container>
