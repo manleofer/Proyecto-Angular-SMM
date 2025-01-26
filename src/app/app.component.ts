@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { TareasComponent } from "./tareas/tareas.component";
+import { IconosComponent } from "./iconos/iconos.component";
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -18,9 +19,23 @@ export class AppComponent {
   title = 'ProyectoAngular';
 
   //Creamos una variable booleana iniciada en false y la cambiamos al hacer click
-  mostrarMenu: boolean = false;
-  fMostrarMenu() {
-    this.mostrarMenu = !this.mostrarMenu;
+  mostrarTitulo : boolean = true;
+  mostrarDirectivas: boolean = false;
+  mostrarComponentes: boolean = false;
+  fMostrarDirectivas() {
+    this.mostrarDirectivas = true;
+    this.mostrarComponentes = false;
+    this.mostrarTitulo = false;
+  }
+  fMostrarComponentes(){
+    this.mostrarComponentes = true;
+    this.mostrarDirectivas = false;
+    this.mostrarTitulo = false;
+  }
+  fMostrarTitulo(){
+    this.mostrarTitulo = true;
+    this.mostrarDirectivas = false;
+    this.mostrarComponentes = false;
   }
 
   colorEstado = {
