@@ -28,12 +28,14 @@
     </div>
   </div>
 </nav>
+
 <ng-container *ngIf="mostrarTitulo">
   <div class="cover-container">
     <h1 class="cover-title">PROYECTO ANGULAR SMM</h1>
   </div>
   <app-footer></app-footer>
 </ng-container>
+
 <ng-container *ngIf="mostrarDirectivas">
   <div id="directivas" class="divContenido">
     <div id="dirDefinicion" class="container">
@@ -49,100 +51,100 @@
       </p>
     </div>
 
-      <div id="dirEstructurales" class="container">
-        <h1>Directivas Estructurales</h1>
-        <p><strong>Descripción</strong></p>
-        <p>
-          Las directivas estructurales corresponden a elementos en el HTML que
-          permiten añadir, manipular o eliminar elementos del DOM. Estos
-          elementos, en forma de atributos, se aplican a elementos huéspedes.
-          Al hacer esto, la directiva hace lo que debe hacer sobre el elemento
-          huésped y sus elementos hijos. Estas directivas son fácilmente
-          reconocibles debido a que están antecedidas por un asterisco (*)
-          seguido del nombre de la directiva.
+    <div id="dirEstructurales" class="container">
+      <h1>Directivas Estructurales</h1>
+      <p><strong>Descripción</strong></p>
+      <p>
+        Las directivas estructurales corresponden a elementos en el HTML que
+        permiten añadir, manipular o eliminar elementos del DOM. Estos
+        elementos, en forma de atributos, se aplican a elementos huéspedes.
+        Al hacer esto, la directiva hace lo que debe hacer sobre el elemento
+        huésped y sus elementos hijos. Estas directivas son fácilmente
+        reconocibles debido a que están antecedidas por un asterisco (*)
+        seguido del nombre de la directiva.
+      </p>
+
+      <div id="divNgIf" class="container">
+        <h2>Directiva ngIf</h2>
+        <p class="text-justify">
+          <span><strong>Definición:</strong><br />
+            Es una directiva estructural que permite incluir o excluir un
+            elemento del DOM en función de una expresión booleana. Si la
+            expresión evaluada es true, el contenido del elemento es
+            insertado en el DOM; si es false, el contenido es eliminado del
+            DOM.<br />
+            <strong>Ejemplo:</strong><br />
+            Al hacer click en Directivas te muestra todas las directivas,
+            esto esta hecho como ejemplo de ngIf</span>
         </p>
-
-        <div id="divNgIf" class="container">
-          <h2>Directiva ngIf</h2>
-          <p class="text-justify">
-            <span><strong>Definición:</strong><br />
-              Es una directiva estructural que permite incluir o excluir un
-              elemento del DOM en función de una expresión booleana. Si la
-              expresión evaluada es true, el contenido del elemento es
-              insertado en el DOM; si es false, el contenido es eliminado del
-              DOM.<br />
-              <strong>Ejemplo:</strong><br />
-              Al hacer click en Directivas te muestra todas las directivas,
-              esto esta hecho como ejemplo de ngIf</span>
-          </p>
-        </div>
-
-        <div id="divNgFor" class="container">
-          <h2>Directiva ngFor</h2>
-          <p style="text-align: justify;">
-            <strong>Definición:</strong>
-            <br>Es una directiva estructural que permite iterar sobre una colección de datos (arrays o listas) y
-            poder
-            manejar una instancia o elemento.
-            Aplica un mismo bloque de código para cada interación. Osea, hace que un elemento HMTL pueda generarse
-            como un
-            bucle<br>
-            <strong>Ejemplo:</strong>
-            <br>Al añadir tareas en el siguiente formulario, éstas se almacenan en un array y se muestran en una
-            tabla.
-            La directiva ngFor permite recorrer el array para generar cada fila de la tabla y asignarle un índice
-            según el orden en el que se han ido añadiendo.
-            <br>
-          </p>
-          <app-tareas></app-tareas>
-        </div>
-
-        <div id="divNgSwitch" class="container">
-          <h2>Directiva ngSwitch</h2>
-          <!--Párrafo que cambiará de color en cada caso-->
-          <p [ngSwitch]="colorTexto" class="text-justify">
-            <span *ngSwitchCase="'red'" style="color: red"><strong>Definición:</strong><br />
-              Es una directiva estructural similar al ngIf y se utiliza como
-              el switch en lógica de programación. En esta directiva se pueden
-              crear los diferentes casos que deseamos evaluar y cuando se
-              cumple la condición esperada, oculta o muestra el HTML.<br />
-              <strong>Ejemplo:</strong><br />
-              Seleccionar un botón, al pulsarlo, este texto explicativo
-              cambiará de color.</span>
-
-            <span *ngSwitchCase="'blue'" style="color: blue"><strong>Definición:</strong><br />
-              Es una directiva estructural similar al ngIf y se utiliza como
-              el switch en lógica de programación. En esta directiva se pueden
-              crear los diferentes casos que deseamos evaluar y cuando se
-              cumple la condición esperada, oculta o muestra el HTML.<br />
-              <strong>Ejemplo:</strong><br />
-              Seleccionar un botón, al pulsarlo, este texto explicativo
-              cambiará de color.</span>
-
-            <span *ngSwitchDefault style="color: black"><strong>Definición:</strong><br />
-              Es una directiva estructural similar al ngIf y se utiliza como
-              el switch en lógica de programación. En esta directiva se pueden
-              crear los diferentes casos que deseamos evaluar y cuando se
-              cumple la condición esperada, oculta o muestra el HTML.<br />
-              <strong>Ejemplo:</strong><br />
-              Seleccionar un botón, al pulsarlo, este texto explicativo
-              cambiará de color.</span>
-          </p>
-          <div class="d-flex justify-content-center gap-3 mt-3">
-            <!--Botones para cambiar el color del párrafo-->
-            <button (click)="cambiarColorTexto('red')" class="btn btn-danger">
-              Cambiar a rojo
-            </button>
-            <button (click)="cambiarColorTexto('blue')" class="btn btn-primary">
-              Cambiar a azul
-            </button>
-            <button (click)="cambiarColorTexto('default')" class="btn btn-dark">
-              Cambiar a color por defecto
-            </button>
-          </div>
-        </div>
-
       </div>
+
+      <div id="divNgFor" class="container">
+        <h2>Directiva ngFor</h2>
+        <p style="text-align: justify;">
+          <strong>Definición:</strong>
+          <br>Es una directiva estructural que permite iterar sobre una colección de datos (arrays o listas) y
+          poder
+          manejar una instancia o elemento.
+          Aplica un mismo bloque de código para cada interación. Osea, hace que un elemento HMTL pueda generarse
+          como un
+          bucle<br>
+          <strong>Ejemplo:</strong>
+          <br>Al añadir tareas en el siguiente formulario, éstas se almacenan en un array y se muestran en una
+          tabla.
+          La directiva ngFor permite recorrer el array para generar cada fila de la tabla y asignarle un índice
+          según el orden en el que se han ido añadiendo.
+          <br>
+        </p>
+        <app-tareas></app-tareas>
+      </div>
+
+      <div id="divNgSwitch" class="container">
+        <h2>Directiva ngSwitch</h2>
+        <!--Párrafo que cambiará de color en cada caso-->
+        <p [ngSwitch]="colorTexto" class="text-justify">
+          <span *ngSwitchCase="'red'" style="color: red"><strong>Definición:</strong><br />
+            Es una directiva estructural similar al ngIf y se utiliza como
+            el switch en lógica de programación. En esta directiva se pueden
+            crear los diferentes casos que deseamos evaluar y cuando se
+            cumple la condición esperada, oculta o muestra el HTML.<br />
+            <strong>Ejemplo:</strong><br />
+            Seleccionar un botón, al pulsarlo, este texto explicativo
+            cambiará de color.</span>
+
+          <span *ngSwitchCase="'blue'" style="color: blue"><strong>Definición:</strong><br />
+            Es una directiva estructural similar al ngIf y se utiliza como
+            el switch en lógica de programación. En esta directiva se pueden
+            crear los diferentes casos que deseamos evaluar y cuando se
+            cumple la condición esperada, oculta o muestra el HTML.<br />
+            <strong>Ejemplo:</strong><br />
+            Seleccionar un botón, al pulsarlo, este texto explicativo
+            cambiará de color.</span>
+
+          <span *ngSwitchDefault style="color: black"><strong>Definición:</strong><br />
+            Es una directiva estructural similar al ngIf y se utiliza como
+            el switch en lógica de programación. En esta directiva se pueden
+            crear los diferentes casos que deseamos evaluar y cuando se
+            cumple la condición esperada, oculta o muestra el HTML.<br />
+            <strong>Ejemplo:</strong><br />
+            Seleccionar un botón, al pulsarlo, este texto explicativo
+            cambiará de color.</span>
+        </p>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <!--Botones para cambiar el color del párrafo-->
+          <button (click)="cambiarColorTexto('red')" class="btn btn-danger">
+            Cambiar a rojo
+          </button>
+          <button (click)="cambiarColorTexto('blue')" class="btn btn-primary">
+            Cambiar a azul
+          </button>
+          <button (click)="cambiarColorTexto('default')" class="btn btn-dark">
+            Cambiar a color por defecto
+          </button>
+        </div>
+      </div>
+
+    </div>
 
 
     <div id="dirAtributo" class="container">
@@ -312,4 +314,44 @@
   <footer>
     <app-footer></app-footer>
   </footer>
+</ng-container>
+
+
+<ng-container>
+  <div id="eventos" class="divContenido">
+    <div id="eventosDefinicion" class="container">
+      <h1>EVENTOS</h1>
+      <p style="text-align: justify;">
+        <strong>Definición:</strong><br />
+        xxxxxxxxxxx
+      </p>
+    </div>
+
+    <app-eventos></app-eventos>
+
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+
+  </div>
+</ng-container>
+
+
+<ng-container>
+  <div id="formulario" class="divContenido">
+    <div id="formularioDefinicion" class="container">
+      <h1>FORMULARIO</h1>
+      <p style="text-align: justify;">
+        <strong>Definición:</strong><br />
+        xxxxxxxxxxx
+      </p>
+    </div>
+
+    <app-formulario></app-formulario>
+
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+
+  </div>
 </ng-container>

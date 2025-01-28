@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { TareasComponent } from "./tareas/tareas.component";
 import { IconosComponent } from "./iconos/iconos.component";
+import { EventosComponent } from './eventos/eventos.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
