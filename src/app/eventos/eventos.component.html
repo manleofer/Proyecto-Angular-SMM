@@ -1,19 +1,49 @@
 <div id="eventosDefinicion" class="container">
     <h1>EVENTOS</h1>
+    <br>
     <p style="text-align: justify;">
-        <strong>Definición:</strong><br />
+        <strong>Definición:</strong><br>
         Un evento es una acción o suceso que ocurre en el navegador y que es detonado por el usuario.
         <br>
         Por ejemplo: hacer clic en un botón, mover el puntero del ratón, presionar una tecla...
         <br>
-        Angular permite capturar estos eventos y ejecutar funciones en respuesta, mediante la técnica <q>"event binding"</q>
+        Angular permite capturar estos eventos y ejecutar funciones en respuesta, mediante la técnica <q>"event
+            binding"</q>
     </p>
     <p style="text-align: justify;">
-        <strong>Event Binding:</strong><br />
+        <strong>Event Binding:</strong><br>
         Consiste en la vinculación de eventos: Asocia eventos del DOM con métodos definidos en el componente. Se realiza
         con la sintaxis básica:
         <br>
         <code>&lt;elementoHTML (evento)="método($event")>&lt;/elementoHTML></code>
     </p>
+    <br>
+    <p style="text-align: justify;">
+        <strong>Algunos eventos en Angular:</strong><br>
+    <ul style="list-style-type: circle;">
+        <li><b>Eventos del Ratón</b></li><br>
+        <ul style="list-style-type: disc;">
+            <li><b>(click)</b> → Cuando se hace clic en un elemento</li>
+            <div class="divEjemplo">
+                <p><i>Ejemplo:</i>
+                    Al hacer click en el siguiente botón, éste alterna su estilo de bootstrap
+                </p>
+                <button class="btn" [ngClass]="claseBotonBS" (click)="cambiaClaseBotonBS()">Botón BS5</button>
+            </div>
+
+
+
+
+</ul>
+
+</ul>
+
+
+
+
+
+
+
+
 
 </div>
