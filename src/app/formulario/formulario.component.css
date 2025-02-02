@@ -15,6 +15,11 @@ label {
   margin-right: 10px; /* Espacio entre la etiqueta y el control */
 }
 
+form h3 {
+  font-family: 'Reboto', sans-serif;
+  font-weight: bold;
+}
+
 textarea {
   font-family: 'Reboto', sans-serif;
   width: 100%;
