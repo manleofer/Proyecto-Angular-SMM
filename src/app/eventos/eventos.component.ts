@@ -9,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class EventosComponent {
 
+  claseBotonBS = "btn-primary";
+
+  cambiaClaseBotonBS() {
+    if (this.claseBotonBS === 'btn-primary') {
+      this.claseBotonBS = 'btn-secondary';
+    } else if (this.claseBotonBS === 'btn-secondary') {
+      this.claseBotonBS = 'btn-success';
+    } else if (this.claseBotonBS === 'btn-success') {
+      this.claseBotonBS = 'btn-danger';
+    } else {
+      this.claseBotonBS = 'btn-primary';
+    }
+  }
+
 }
