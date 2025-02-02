@@ -24,20 +24,43 @@ export class AppComponent {
   mostrarTitulo : boolean = true;
   mostrarDirectivas: boolean = false;
   mostrarComponentes: boolean = false;
+  mostrarEventos:boolean = false;
+  mostrarFormularios: boolean = false;
   fMostrarDirectivas() {
     this.mostrarDirectivas = true;
     this.mostrarComponentes = false;
     this.mostrarTitulo = false;
+    this.mostrarEventos = false;
+    this.mostrarFormularios = false;
   }
   fMostrarComponentes(){
     this.mostrarComponentes = true;
     this.mostrarDirectivas = false;
     this.mostrarTitulo = false;
+    this.mostrarEventos = false;
+    this.mostrarFormularios = false;
   }
   fMostrarTitulo(){
     this.mostrarTitulo = true;
     this.mostrarDirectivas = false;
     this.mostrarComponentes = false;
+    this.mostrarEventos = false;
+    this.mostrarFormularios = false;
+  }
+  fMostrarEventos(){
+    this.mostrarEventos = true;
+    this.mostrarTitulo = false;
+    this.mostrarDirectivas = false;
+    this.mostrarComponentes = false;   
+    this.mostrarFormularios = false;
+  }
+  fMostrarFormularios(){
+    this.mostrarFormularios = true;
+    this.mostrarTitulo = false;
+    this.mostrarDirectivas = false;
+    this.mostrarComponentes = false;
+    this.mostrarEventos = false;
+    
   }
 
   colorEstado = {

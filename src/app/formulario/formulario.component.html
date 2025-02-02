@@ -1,13 +1,48 @@
 <div class="container">
-  <form>
+  <form [formGroup]="forma" (ngSubmit)="guardar()">
     <fieldset class="border rounded-3 p-3 border-5">
-      <legend class="float-none w-auto px-3 fw-bold text-dark">Datos Personales</legend>
+      <legend class="float-none w-auto px-3 fw-bold text-dark">
+        Datos Personales
+      </legend>
       <div class="mb-3">
         <label for="password" class="form-label fw-bold">Contraseña</label>
-        <input type="password" class="form-control" id="password" placeholder="mínimo 6 caracteres - máximo 10 caracteres">
-
-        <!--Mensajes de error-->
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="mínimo 6 caracteres - máximo 10 caracteres"
+        />
+      </div>
+      <!--Mensajes de error-->
+      <div class="form-group row">
+        <label class="form-label">Email</label>
+        <div class="col-8">
+          <input
+            formControlName="email"
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <!--Mensajes de error-->
+      <div class="form-group row">
+        <label class="col-2 col-form-label"></label>
+        <div class="input-group col-md-8">
+          <button type="submit" class="btn btn-outline-primary mr-2">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-outline-danger" (click)="limpiarFormulario()">Limpiar</button>
+        </div>
       </div>
     </fieldset>
   </form>
+  <h3 class="mt-5">Formulario</h3>
+  <pre>Estado Formulario:{{forma.valid}}
+    <br>
+    Status:{{forma.status}}
+
+  </pre>
+  {{forma.value | json}}
 </div>
