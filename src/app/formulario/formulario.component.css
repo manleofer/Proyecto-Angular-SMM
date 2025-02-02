@@ -1,0 +1,24 @@
+legend {
+  font-family: 'Reboto', sans-serif;
+  font-weight: bold;
+}
+
+fieldset {
+  border-color: rgb(0, 0, 0);
+  border-width: 3px;
+  width: auto;
+}
+
+label {
+  font-family: 'Reboto', sans-serif;
+  width: 160px; /* Ancho fijo para las etiquetas */
+  margin-right: 10px; /* Espacio entre la etiqueta y el control */
+}
+
+textarea {
+  font-family: 'Reboto', sans-serif;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}

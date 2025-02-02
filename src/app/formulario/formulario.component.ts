@@ -17,20 +17,22 @@ export class FormularioComponent {
     pwd: ""
   };
 
-/*   //Variable que valida el formulario
-  formularioValido = false;
-  formularioEnviado = false; */
+  //Variable usada para validar contraseña inicializada en false
+  esValida = false;
 
-//Método para validar la contraseña
+  /*   //Variable que valida el formulario
+    formularioValido = false;
+    formularioEnviado = false; */
+
+  //Método para validar la contraseña
 //Tiene que tener longitud 8 y estar formada por letras y dígitos
-validarPwd(): boolean{
-  const pwd = this.registro.pwd;
-  const longitud = pwd.length == 8;
-  const letra = /[a-zA-Z]/.test(pwd);
-  const digito = /\d/.test(pwd);
+  validarPwd(): void {
+    const pwd = this.registro.pwd;
+    const longitud = pwd.length >= 8;
+    const letra = /[a-zA-Z]/.test(pwd);
+    const digito = /\d/.test(pwd);
 
-  return longitud && letra && digito;
-}
-
+    this.esValida = longitud && letra && digito;
+  }
 
 }

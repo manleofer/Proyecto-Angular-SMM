@@ -1,26 +1,39 @@
 <div class="container mb-5">
-  <form>
+  <form #formulario="ngForm">
     <fieldset class="border rounded-3 p-3 border-5 mb-5">
       <legend class="float-none w-auto px-3 fw-bold text-dark">Datos Personales</legend>
       <div class="mb-3">
         <label for="nombre" class="form-label fw-bold">Nombre</label>
         <input type="text" class="form-control" id="nombre" [(ngModel)]="registro.nombre" name="nombre">
       </div>
+
       <div class="mb-3">
         <label for="apellido" class="form-label fw-bold">Apellido</label>
         <input type="text" class="form-control" id="apellido" [(ngModel)]="registro.apellido" name="apellido">
       </div>
+
       <div class="mb-3">
         <label for="pwd" class="form-label fw-bold">Contraseña</label>
-        <input type="password" class="form-control" id="pwd" [(ngModel)]="registro.pwd" name="pwd"
-          placeholder="8 caracteres - 1 letra - 1 número">
-      </div>
+        <!--Se utilizan validaciones nativas de Angular-->
+        <input type="password" class="form-control" id="pwd" name="pwd" [(ngModel)]="registro.pwd"
+          #pwdRef="ngModel" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+          placeholder="Mínimo 8 caracteres, al menos 1 letra y 1 número">
+        <!-- Mensajes de validación -->
+        <!--Mensaje de error-->
+        <p *ngIf="pwdRef.invalid">
+          <span style="color: red;"> La contraseña debe tener al menos 8 caracteres, incluir una letra y un número.</span>
+        </p>
+        <!--Mensaje de éxito-->
+        <p *ngIf="pwdRef.valid">
+          <span style="color: green; font-weight: bold;">✔</span>
+          <span style="color: green;"> Contraseña válida.</span>
+        </p>
+        </div>
     </fieldset>
 
-    <fieldset class="border rounded-3 p-3 border-5">
+    <fieldset class="border rounded-3 p-3 border-5 mb-5">
       <fieldset class="border rounded-3 p-3 border-5 d-inline-block">
       <legend>Preferencias Musicales</legend>
-
       <label for="Rango">Indique su preferencia (de 0 a 10, de 1 en 1):</label> <br>
       <label><i><strong>Backend</strong></i></label><br>
       <input type="range" nombre="backend" id="backend" min="0" max="10" step="1"><br>
@@ -31,10 +44,21 @@
 
     </fieldset>
   </fieldset>
+
+  <fieldset class="border rounded-3 p-3 border-5 mb-5">
+    <legend>Comentarios o aclaraciones</legend>
+
+    <label for="comentario">Deja tu mensaje<br></label>
+    <textarea name="comentario" id="comentario" rows="6" placeholder="Máximo 300 caracteres"></textarea><br/>
+  </fieldset>
+
+  <!--Botón Enviar se activa sólo si la contraseña es válida (disabled si es invalid)-->
+  <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+    Enviar
+  </button>
+
   </form>
 </div>
 
-<p *ngIf="!validarPwd() && registro.pwd.length > 0" style="color: red;">
-  La contraseña debe tener 8 caracteres, incluir una letra y un número.
-</p>
+
 
