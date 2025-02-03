@@ -104,6 +104,30 @@
       </div>
 
       <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label fw-bold"
+          >Fecha de nacimiento</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="fechaNacimiento"
+          [(ngModel)]="registro.fechaNacimiento"
+          name="fechaNacimiento"
+        />
+      </div>
+
+      <div>
+        <label for="username" class="form-label fw-bold">Usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          [(ngModel)]="registro.username"
+        />
+      </div>
+
+      <div class="mb-3">
         <label for="pwd" class="form-label fw-bold">Contraseña</label>
         <!--Se utilizan validaciones nativas de Angular-->
         <input
@@ -160,9 +184,12 @@
       </div>
     </fieldset>
 
+    
     <fieldset class="border rounded-3 p-3 border-5 mb-5">
+      <div class="row align-items-center">
+        <div class="col-auto">
       <fieldset class="border rounded-3 p-3 border-5 d-inline-block">
-        <legend>Preferencias Musicales</legend>
+        <legend>Preferencias Cursos</legend>
         <label for="Rango"
           >Indique su preferencia (de 0 a 10, de 1 en 1):</label
         >
@@ -201,8 +228,37 @@
           step="1"
         /><br />
       </fieldset>
-    </fieldset>
+    </div>
+    <div class="col-auto d-flex flex-column w-60">
+      <fieldset class="border rounded-3 p-3 border-5 mb-4-5">
+        <legend>Lenguajes</legend>
+          <label for="lenguaje">Seleccione un lenguaje:</label>
+          <select id="lenguaje" name="lenguaje">
+              <option value="java">Java</option>
+              <option value="javascript">JavaScript</option>
+              <option value="angular">Angular</option>
+              <option value="python">Python</option>
+              <option value="react">React</option>
+              <option value="htmlCss">Html y CSS</option>
+          </select>
+      </fieldset>
 
+      <fieldset class="border rounded-3 p-3 border-5 ">
+        <legend>IDE</legend>
+          <label for="ide">Seleccione un IDE:</label>
+          <select id="ide" name="ide">
+              <option value="visual">VS Code</option>
+              <option value="springtool">Springtool</option>
+              <option value="eclipse">Eclipse</option>
+              <option value="netbeans">NetBeans</option>
+              <option value="intellij">IntelliJ</option>
+          </select>
+      </fieldset>
+    </div>
+
+    </div>
+    </fieldset>
+  
     <fieldset class="border rounded-3 p-3 border-5 mb-5">
       <legend>Comentarios o aclaraciones</legend>
 
@@ -214,6 +270,18 @@
         placeholder="Máximo 300 caracteres"
       ></textarea
       ><br />
+    </fieldset>
+
+    <fieldset class="border rounded-3 p-3 border-5 mb-5">
+      <legend>Indique Modalidad</legend>
+
+      <input type="checkbox" name="online" id="online" value="online">
+      <label for="online">Online</label>
+      <input type="checkbox" name="presencial" id="presencial" value="presencial">
+      <label for="presencial">Presencial</label>
+      <input type="checkbox" name="hibrida" id="hibrida" value="hibrida">
+      <label for="hibrida">Híbrida</label>
+
     </fieldset>
 
     <!--Botón Enviar se activa sólo si la contraseña es válida (disabled si es invalid)-->

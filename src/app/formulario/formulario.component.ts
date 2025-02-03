@@ -15,6 +15,8 @@ export class FormularioComponent {
   registro = {
     nombre: "",
     apellido: "",
+    fechaNacimiento: "",
+    username: "",
     pwd: "",
     email: ""
   };
