@@ -13,13 +13,13 @@
           <a class="nav-link" href="#" id="menuComponentes" (click)="fMostrarComponentes()">Componentes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="menuEventos">Eventos</a>
+          <a class="nav-link" href="#" id="menuEventos" (click)="fMostrarEventos()">Eventos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="menuEnrutamiento">Enrutamiento</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="menuFormulario">Formularios</a>
+          <a class="nav-link" href="#" id="menuFormulario" (click)="fMostrarFormularios()">Formularios</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="menuDatos">Acceso a datos</a>
@@ -317,7 +317,7 @@
 </ng-container>
 
 
-<ng-container>
+<ng-container *ngIf="mostrarEventos">
   <div id="eventos" class="divContenido">
 
     <app-eventos></app-eventos>
@@ -330,7 +330,7 @@
 </ng-container>
 
 
-<ng-container>
+<ng-container *ngIf="mostrarFormularios">
   <div id="formulario" class="divContenido">
     <app-formulario></app-formulario>
 
