@@ -80,8 +80,10 @@
             <li><b>(keypress)</b> → Cuando se mantiene presionada una tecla</li>
             <div class="divEjemplo">
                 <p><mark>Ejemplo:</mark>
-                    Al escribir en el primer recuadro de texto, el mensaje se reproduce a tiempo real en el segundo recuadro,
-                    inicialmente vacío. Todo ello ocurre al pulsar cada una de las teclas, haciendo uso de <i>(keydown)</i>
+                    Al escribir en el primer recuadro de texto, el mensaje se reproduce a tiempo real en el segundo
+                    recuadro,
+                    inicialmente vacío. Todo ello ocurre al pulsar cada una de las teclas, haciendo uso de
+                    <i>(keydown)</i>
                 </p>
                 <textarea (keypress)="reproduceMensaje($event)"></textarea>
                 <div style="border: 1px solid; width: 195px; height: 60px;">
@@ -96,7 +98,30 @@
             <li><b>(change)</b> → Cuando se cambia el valor o se pierde el foco</li>
             <li><b>(focus)</b> → Cuando se recibe el foco</li>
             <li><b>(blur)</b> → Cuando se pierde el foco</li>
-            
+            <div class="divEjemplo">
+                <p><mark>Ejemplo:</mark>
+                    Al escribir en el input aparece un mensaje indicando tal acción. Se usa <i>(input)</i>.
+                    Al cambiar el foco entre los distintos elementos, aparece un mensaje indicando tal acción. Se usa
+                    <i>(focus)</i>.
+                    Al cambiar entre las opciones del select, aparece un mensaje indicando tal acción. Se usa
+                    <i>(change)</i>.
+                </p>
+                <form>
+                    <label for="inputTexto" class="form-label">Texto de entrada: </label>
+                    <input id="inputTexto" class="form-control" type="text" (input)="mensajeInput()" (focus)="mensajeFocus()">
+                    <br>
+                    <label for="selectOpcion" class="form-label">Selecciona una opción</label>
+                    <select id="selectOpcion" class="form-select" (focus)="mensajeFocus()" (change)="mensajeChange()">
+                        <option>Opción 1</option>
+                        <option>Opción 2</option>
+                        <option>Opción 3</option>
+                    </select>
+                </form>
+                <br>
+                <div id="areaMensajes" style="border: 1px solid;">
+                    {{ mensajeAccion }}
+                </div>
+            </div>
         </ul>
         <br>
         <li><b>Eventos de Formularios</b></li>

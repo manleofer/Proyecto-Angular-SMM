@@ -11,6 +11,7 @@ export class EventosComponent {
 
   claseBotonBS = "btn-primary";
   mensajeReproducido = "";
+  mensajeAccion = "";
 
   cambiaClaseBotonBS() {
     if (this.claseBotonBS === 'btn-primary') {
@@ -42,6 +43,19 @@ export class EventosComponent {
     const areaTexto = event.target as HTMLTextAreaElement;
     this.mensajeReproducido = areaTexto.value + event.key;
   }
+
+  mensajeInput() {
+    this.mensajeAccion = "Estás escribiendo en un input";
+  }
+
+  mensajeFocus() {
+    this.mensajeAccion = "Se ha recibido el foco en un input";
+  }
+
+  mensajeChange() {
+    this.mensajeAccion = "Has cambiado de opción";
+  }
+
 
 }
 
