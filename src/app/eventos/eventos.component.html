@@ -15,7 +15,7 @@
         Consiste en la vinculación de eventos: Asocia eventos del DOM con métodos definidos en el componente. Se realiza
         con la sintaxis básica:
         <br>
-        <code>&lt;elementoHTML (evento)="método($event")>&lt;/elementoHTML></code>
+        <code>&lt;elementoHTML (evento)="método($event)"">&lt;/elementoHTML></code>
     </p>
     <br>
     <p style="text-align: justify;">
@@ -25,17 +25,52 @@
         <ul style="list-style-type: circle;">
             <li><b>(click)</b> → Cuando se hace clic</li>
             <div class="divEjemplo">
-                <p><i>Ejemplo:</i>
+                <p><mark>Ejemplo:</mark>
                     Al hacer click en el siguiente botón, éste alterna su estilo de bootstrap
                 </p>
                 <button class="btn" [ngClass]="claseBotonBS" (click)="cambiaClaseBotonBS()">Botón BS5</button>
             </div>
-
             <li><b>(dbclick)</b> → Cuando se hace doble clic</li>
             <li><b>(mouseenter)</b> → Cuando el ratón entra en un área (no se propaga a los elementos hijos)</li>
-            <li><b>(mouseenter)</b> → Cuando el ratón entra en un área (se propaga a los elementos hijos)</li>
+            <li><b>(mouseover)</b> → Cuando el ratón entra en un área (se propaga a los elementos hijos)</li>
             <li><b>(mouseleave)</b> → Cuando el ratón sale de un área</li>
+            <div class="divEjemplo">
+                <p><mark>Ejemplo 1:</mark>
+                    A continuación se muestran un conjunto de recuadros anidados, uno dentro de otro.
+                    Haciendo uso de <i>(mouseenter)</i>, al entrar en el recuadro padre, éste cambia de color.
+                    Sin embargo, al entrar en los recuadros descendientes (anidados), el color no cambia.
+                    Es decir, el evento no se propaga desde el padre hacia sus descendientes.
+                    Haciendo uso de <i>(mouseleave)</i>, el color del recuadro padre se restaura al salir al exterior
+                    del mismo.
+                </p>
+                <div class="recuadro recMayor" (mouseenter)="cambiaColorRecuadro($event)"
+                    (mouseleave)="devuelveColorRecuadro($event)">
+                    <div class="recuadro recMedio">
+                        <div class="recuadro recMenor"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="divEjemplo">
+                <p><mark>Ejemplo 2:</mark>
+                    A continuación se muestra el mismo conjunto de conjunto de recuadros, pero se hace uso de
+                    <i>(mouseover)</i>.
+                    En este caso, al entrar en los elementos anidados, ellos también cambian su color.
+                    Es decir, el evento se propaga desde el padre hacia sus descendientes.
+                    Esta vez, haciendo uso de <i>(mouseleave)</i>, el color de cada recuadro se restaura al salir del
+                    mismo.
+                </p>
+                <div class="recuadro recMayor" (mouseover)="cambiaColorRecuadro($event)"
+                    (mouseleave)="devuelveColorRecuadro($event)">
+                    <div class="recuadro recMedio" (mouseleave)="devuelveColorRecuadro($event)">
+                        <div class="recuadro recMenor" (mouseleave)="devuelveColorRecuadro($event)"></div>
+                    </div>
+                </div>
+            </div>
             <li><b>(contextmenu)</b> → Cuando se hace clic derecho</li>
+            <div class="divEjemplo">
+                <p><mark>Ejemplo:</mark></p>
+                <div style="border: 1px solid;" (contextmenu)="muestraMensaje()">Haz click derecho en este área</div>
+            </div>
         </ul>
         <br>
         <li><b>Eventos del Teclado</b></li>
@@ -43,6 +78,16 @@
             <li><b>(keydown)</b> → Cuando se pulsa una tecla</li>
             <li><b>(keyup)</b> → Cuando se suelta una tecla</li>
             <li><b>(keypress)</b> → Cuando se mantiene presionada una tecla</li>
+            <div class="divEjemplo">
+                <p><mark>Ejemplo:</mark>
+                    Al escribir en el primer recuadro de texto, el mensaje se reproduce a tiempo real en el segundo recuadro,
+                    inicialmente vacío. Todo ello ocurre al pulsar cada una de las teclas, haciendo uso de <i>(keydown)</i>
+                </p>
+                <textarea (keypress)="reproduceMensaje($event)"></textarea>
+                <div style="border: 1px solid; width: 195px; height: 60px;">
+                    {{ mensajeReproducido }}
+                </div>
+            </div>
         </ul>
         <br>
         <li><b>Eventos de Entrada</b></li>
@@ -51,6 +96,7 @@
             <li><b>(change)</b> → Cuando se cambia el valor o se pierde el foco</li>
             <li><b>(focus)</b> → Cuando se recibe el foco</li>
             <li><b>(blur)</b> → Cuando se pierde el foco</li>
+            
         </ul>
         <br>
         <li><b>Eventos de Formularios</b></li>
@@ -60,9 +106,9 @@
         </ul>
     </ul>
     <br>
-    <p>Angular maneja muchos eventos más, aunque no son los más habituales. Para más información, consultar la 
+    <p>Angular maneja muchos eventos más, aunque no son los más habituales. Para más información, consultar la
         <a href="https://angular.dev/overview">documentación oficial de Angular</a>.
-        
+
     </p>
 
 </div>
