@@ -108,7 +108,8 @@
                 </p>
                 <form>
                     <label for="inputTexto" class="form-label">Texto de entrada: </label>
-                    <input id="inputTexto" class="form-control" type="text" (input)="mensajeInput()" (focus)="mensajeFocus()">
+                    <input id="inputTexto" class="form-control" type="text" (input)="mensajeInput()"
+                        (focus)="mensajeFocus()">
                     <br>
                     <label for="selectOpcion" class="form-label">Selecciona una opción</label>
                     <select id="selectOpcion" class="form-select" (focus)="mensajeFocus()" (change)="mensajeChange()">
@@ -128,6 +129,12 @@
         <ul style="list-style-type: circle;">
             <li><b>(submit)</b> → Cuando se envía el formulario</li>
             <li><b>(reset)</b> → Cuando se restablece el formulario</li>
+            <div class="divEjemplo">
+                <p><mark>Ejemplo:</mark>
+                    En el apartado de "Formularios", se maneja el evento (reset),
+                    apareciendo un mensaje indicando que el formulario se ha restablecido.
+                </p>
+            </div>
         </ul>
     </ul>
     <br>
