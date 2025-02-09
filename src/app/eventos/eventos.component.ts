@@ -10,6 +10,8 @@ import { Component } from '@angular/core';
 export class EventosComponent {
 
   claseBotonBS = "btn-primary";
+  mensajeReproducido = "";
+  mensajeAccion = "";
 
   cambiaClaseBotonBS() {
     if (this.claseBotonBS === 'btn-primary') {
@@ -23,4 +25,41 @@ export class EventosComponent {
     }
   }
 
+  cambiaColorRecuadro(event: Event) {
+    const recuadroActivo = event.target as HTMLElement;
+    recuadroActivo.style.backgroundColor = "darkred";
+  }
+
+  devuelveColorRecuadro(event: Event) {
+    const recuadroInactivo = event.target as HTMLElement;
+    recuadroInactivo.style.backgroundColor = "darkgreen";
+  }
+
+  muestraMensaje() {
+    alert("¡Has hecho click derecho!");
+  }
+
+  reproduceMensaje(event: KeyboardEvent) {
+    const areaTexto = event.target as HTMLTextAreaElement;
+    this.mensajeReproducido = areaTexto.value + event.key;
+  }
+
+  mensajeInput() {
+    this.mensajeAccion = "Estás escribiendo en un input";
+  }
+
+  mensajeFocus() {
+    this.mensajeAccion = "Se ha recibido el foco en un input";
+  }
+
+  mensajeChange() {
+    this.mensajeAccion = "Has cambiado de opción";
+  }
+
+
 }
+
+
+
+
+
