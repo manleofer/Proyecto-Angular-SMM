@@ -75,7 +75,7 @@
     </p>
   </div>
 
-  <form #formulario="ngForm" class="border rounded-3 p-3 border-5">
+  <form #formulario="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (reset)="mostrarMensajeReset()">
     <h3 style="text-align: center">FORMULARIO DE CONTACTO Y SUSCRIPCIÓN</h3>
     <fieldset class="border rounded-3 p-3 border-5 mb-5">
       <legend class="float-none w-auto px-3 fw-bold text-dark">
@@ -292,6 +292,14 @@
     >
       Enviar
     </button>
+
+    <button 
+      type="reset" 
+      class="btn btn-secondary ms-3" 
+      (click)="formulario.reset()"> <!--Función nativa de Angular para restablecer el #formulario-->
+      Resetear
+    </button>
+
   </form>
 </div>
 <footer>

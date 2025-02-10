@@ -21,4 +21,7 @@ export class FormularioComponent {
     email: ""
   };
 
+  mostrarMensajeReset() {
+    alert("El formulario se ha restablecido.");
+  }
 }
