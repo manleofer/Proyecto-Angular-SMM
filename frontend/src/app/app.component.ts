@@ -7,12 +7,14 @@ import { TareasComponent } from "./tareas/tareas.component";
 import { IconosComponent } from "./iconos/iconos.component";
 import { EventosComponent } from './eventos/eventos.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
+import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -26,6 +28,8 @@ export class AppComponent {
   mostrarComponentes: boolean = false;
   mostrarEventos:boolean = false;
   mostrarFormularios: boolean = false;
+  mostrarEnrutamiento: boolean = false;
+  mostrarAccesoDatos: boolean = false;
   fMostrarDirectivas() {
     this.mostrarDirectivas = true;
     this.mostrarComponentes = false;
@@ -61,6 +65,24 @@ export class AppComponent {
     this.mostrarComponentes = false;
     this.mostrarEventos = false;
     
+  }
+  fMostrarEnrutamiento(){
+    this.mostrarFormularios = false;
+    this.mostrarTitulo = false;
+    this.mostrarDirectivas = false;
+    this.mostrarComponentes = false;
+    this.mostrarEventos = false;
+    this.mostrarEnrutamiento = true;
+    this.mostrarAccesoDatos = false;
+  }
+  fMostrarAccesoDatos(){
+    this.mostrarFormularios = false;
+    this.mostrarTitulo = false;
+    this.mostrarDirectivas = false;
+    this.mostrarComponentes = false;
+    this.mostrarEventos = false;
+    this.mostrarEnrutamiento = false;
+    this.mostrarAccesoDatos = true;
   }
 
   colorEstado = {
