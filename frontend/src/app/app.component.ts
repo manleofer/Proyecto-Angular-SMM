@@ -10,12 +10,13 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
 import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
 import { DirectivasComponent } from "./directivas/directivas.component";
+import { ComponentesComponent } from "./componentes/componentes.component";
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent, DirectivasComponent],
+  imports: [CommonModule, FormsModule, FooterComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent, DirectivasComponent, ComponentesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

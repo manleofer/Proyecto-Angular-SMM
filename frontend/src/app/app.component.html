@@ -1,69 +1,28 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" (click)="fMostrarTitulo()">Angular</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapsibleNavbar"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul id="menuPrincipal" class="navbar-nav">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuDirectivas"
-            (click)="fMostrarDirectivas()"
-            >Directivas</a
-          >
+          <a class="nav-link" href="#" id="menuDirectivas" (click)="fMostrarDirectivas()">Directivas</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuComponentes"
-            (click)="fMostrarComponentes()"
-            >Componentes</a
-          >
+          <a class="nav-link" href="#" id="menuComponentes" (click)="fMostrarComponentes()">Componentes</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuEventos"
-            (click)="fMostrarEventos()"
-            >Eventos</a
-          >
+          <a class="nav-link" href="#" id="menuEventos" (click)="fMostrarEventos()">Eventos</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuFormulario"
-            (click)="fMostrarFormularios()"
-            >Formularios</a
-          >
+          <a class="nav-link" href="#" id="menuFormulario" (click)="fMostrarFormularios()">Formularios</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuEnrutamiento"
-            (click)="fMostrarEnrutamiento()"
-            >Enrutamiento</a
-          >
+          <a class="nav-link" href="#" id="menuEnrutamiento" (click)="fMostrarEnrutamiento()">Enrutamiento</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuDatos"
-            (click)="fMostrarAccesoDatos()"
-            >Acceso a datos</a
-          >
+          <a class="nav-link" href="#" id="menuDatos" (click)="fMostrarAccesoDatos()">Acceso a datos</a>
         </li>
       </ul>
     </div>
@@ -86,75 +45,9 @@
 
 <ng-container *ngIf="mostrarComponentes">
   <div id="componentes" class="divContenido">
-    <div id="compDefinicion" class="container">
-      <h1>COMPONENTES</h1>
-      <p style="text-align: justify">
-        <strong>Definición:</strong><br />
-        Un componente es un bloque o módulo que encapsula una determinada
-        funcionalidad de la interfaz de usuario. Esto permite que se pueda
-        reutilizar en distintas parte de la aplicación sin tener que volver a
-        codificar.
-      </p>
-
-      <span
-        >Cada componente tiene tres elementos clave:
-        <ul>
-          <li>
-            <strong>Clase (TypeScript)</strong>: Elemento que contiene la lógica
-            del componente
-          </li>
-          <li>
-            <strong>Plantilla (HTML)</strong>: Elemento que define la estructura
-            y el diseño visual del componente
-          </li>
-          <li>
-            <strong>Estilo (CSS)</strong>: Elemento que aporta el estilo visual
-            del componente
-          </li>
-        </ul>
-      </span>
-    </div>
-
-    <div id="compTareas" class="container">
-      <h2>EJEMPLO: Lista de tareas</h2>
-      <p style="text-align: justify">
-        En este ejemplo, se ha creado un componente llamado "tareas" que
-        resuelve en sí mismo la funcionalidad de añadir tareas a una lista,
-        mostrando dichas tareas en una tabla y asignándole un índice según el
-        orden en el que se han ido añadiendo.
-      </p>
-
-      <span
-        ><i
-          >(Este componente se reutiliza en la vista de Directivas, al explicar
-          la directiva ngFor)</i
-        ></span
-      ><br />
-      <br />
-
-      <app-tareas></app-tareas>
-    </div>
+    <app-componentes></app-componentes>
   </div>
-  <div id="compIconos" class="container">
-    <h2>EJEMPLO: Iconos de redes sociales</h2>
-    <p style="text-align: justify">
-      Hemos creado un ejemplo en el cual se crea un componente de nombre iconos
-      que a traves de los iconos que aparecen podemos clicar y que nos lleve a
-      traves de un enlace a los sitios web que hemos agregado.
-    </p>
-    <app-iconos></app-iconos>
-  </div>
-  <div id="compFooter" class="container">
-    <h2>EJEMPLO: Footer</h2>
-    <p style="text-align: justify">
-      En este ejemplo hemos creado un componente de nombre footer, que se
-      utilizará en nuestra página para mostrar un footer con información sobre
-      el proyecto y sus autores.
-    </p>
-  </div>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="mostrarEventos">
@@ -187,7 +80,7 @@
   <div id="accesoDatos" class="divContenido">
     <app-acceso-datos></app-acceso-datos>
 
-    
+
     <footer>
       <app-footer></app-footer>
     </footer>
