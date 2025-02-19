@@ -1,0 +1,11 @@
+.claseParrafoResaltado {
+    background-color: yellow;
+    color:rgb(6, 53, 94);
+    font-size:larger;
+  }
+  
+  .claseParrafoPorDefecto {
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+  }

@@ -9,12 +9,13 @@ import { EventosComponent } from './eventos/eventos.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
 import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
+import { DirectivasComponent } from "./directivas/directivas.component";
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent],
+  imports: [CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent, DirectivasComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -85,53 +86,5 @@ export class AppComponent {
     this.mostrarAccesoDatos = true;
   }
 
-  colorEstado = {
-    "color": "red",
-    "background-color": "blue"
-  };
-  //Crear una variable y definir el color inicial del texto del párrafo
-  colorTexto : string = 'black';
 
-  //Objeto "registro" en JSON
-  registro = {
-    nombre: "",
-    email: "",
-    pwd: ""
-  }
-
-
-  //Variable para validar formulario y enviarlo
-  formularioValido = false;
-  formularioEnviado = false;
-
-
-
-  //Crear un método para cambiar el color del texto al pulsar los botones
-  cambiarColorTexto(nuevoColor: string) {
-    this.colorTexto = nuevoColor;
-  }
-
-  //Crear una variable booleana inicializada el false para que la clase del párrafo sea la clase por defecto
-  parrafoResaltado : boolean = false;
-
-  //Crear métodos para cambiar de clase al párrafo
-  cambiarAParrafoResaltado() {
-    this.parrafoResaltado = true;
-  }
-
-  cambiarAParrafoPorDefecto() {
-    this.parrafoResaltado = false;
-  }
-
-  //Método para validar campos del formulario
-  validarFormulario() {
-    this.formularioEnviado = true;
-    if (this.registro.nombre.length > 0 &&
-      this.registro.email.length >0 &&
-      this.registro.email.includes('@') &&
-      this.registro.pwd.length > 6
-    ) {
-      this.formularioValido = true;
-    }
-  }
 }
