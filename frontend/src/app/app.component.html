@@ -1,69 +1,28 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" (click)="fMostrarTitulo()">Angular</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapsibleNavbar"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul id="menuPrincipal" class="navbar-nav">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuDirectivas"
-            (click)="fMostrarDirectivas()"
-            >Directivas</a
-          >
+          <a class="nav-link" href="#" id="menuDirectivas" (click)="fMostrarDirectivas()">Directivas</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuComponentes"
-            (click)="fMostrarComponentes()"
-            >Componentes</a
-          >
+          <a class="nav-link" href="#" id="menuComponentes" (click)="fMostrarComponentes()">Componentes</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuEventos"
-            (click)="fMostrarEventos()"
-            >Eventos</a
-          >
+          <a class="nav-link" href="#" id="menuEventos" (click)="fMostrarEventos()">Eventos</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuFormulario"
-            (click)="fMostrarFormularios()"
-            >Formularios</a
-          >
+          <a class="nav-link" href="#" id="menuFormulario" (click)="fMostrarFormularios()">Formularios</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuEnrutamiento"
-            (click)="fMostrarEnrutamiento()"
-            >Enrutamiento</a
-          >
+          <a class="nav-link" href="#" id="menuEnrutamiento" (click)="fMostrarEnrutamiento()">Enrutamiento</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            id="menuDatos"
-            (click)="fMostrarAccesoDatos()"
-            >Acceso a datos</a
-          >
+          <a class="nav-link" href="#" id="menuDatos" (click)="fMostrarAccesoDatos()">Acceso a datos</a>
         </li>
       </ul>
     </div>
@@ -79,344 +38,23 @@
 
 <ng-container *ngIf="mostrarDirectivas">
   <div id="directivas" class="divContenido">
-    <div id="dirDefinicion" class="container">
-      <h1>DIRECTIVAS</h1>
-      <p>
-        <strong>Definición:</strong><br />
-        Las directivas son elementos que se aplican a etiquetas HTML y añaden
-        funcionalidad a la etiqueta donde se aplican.<br />
-        Sirven para modificar la estructura del DOM y para modificar la
-        apariencia de las aplicaciones.<br />
-        <strong>Tipos:</strong><br />
-        Estructurales, de Atributos y de Componentes.
-      </p>
-    </div>
-
-    <div id="dirEstructurales" class="container">
-      <h1>Directivas Estructurales</h1>
-      <p><strong>Descripción</strong></p>
-      <p>
-        Las directivas estructurales corresponden a elementos en el HTML que
-        permiten añadir, manipular o eliminar elementos del DOM. Estos
-        elementos, en forma de atributos, se aplican a elementos huéspedes. Al
-        hacer esto, la directiva hace lo que debe hacer sobre el elemento
-        huésped y sus elementos hijos. Estas directivas son fácilmente
-        reconocibles debido a que están antecedidas por un asterisco (*) seguido
-        del nombre de la directiva.
-      </p>
-
-      <div id="divNgIf" class="container">
-        <h2>Directiva ngIf</h2>
-        <p class="text-justify">
-          <span
-            ><strong>Definición:</strong><br />
-            Es una directiva estructural que permite incluir o excluir un
-            elemento del DOM en función de una expresión booleana. Si la
-            expresión evaluada es true, el contenido del elemento es insertado
-            en el DOM; si es false, el contenido es eliminado del DOM.<br />
-            <strong>Ejemplo:</strong><br />
-            Al hacer click en Directivas te muestra todas las directivas, esto
-            esta hecho como ejemplo de ngIf</span
-          >
-        </p>
-      </div>
-
-      <div id="divNgFor" class="container">
-        <h2>Directiva ngFor</h2>
-        <p style="text-align: justify">
-          <strong>Definición:</strong>
-          <br />Es una directiva estructural que permite iterar sobre una
-          colección de datos (arrays o listas) y poder manejar una instancia o
-          elemento. Aplica un mismo bloque de código para cada interación. Osea,
-          hace que un elemento HMTL pueda generarse como un bucle<br />
-          <strong>Ejemplo:</strong>
-          <br />Al añadir tareas en el siguiente formulario, éstas se almacenan
-          en un array y se muestran en una tabla. La directiva ngFor permite
-          recorrer el array para generar cada fila de la tabla y asignarle un
-          índice según el orden en el que se han ido añadiendo.
-          <br />
-        </p>
-        <app-tareas></app-tareas>
-      </div>
-
-      <div id="divNgSwitch" class="container">
-        <h2>Directiva ngSwitch</h2>
-        <!--Párrafo que cambiará de color en cada caso-->
-        <p [ngSwitch]="colorTexto" class="text-justify">
-          <span *ngSwitchCase="'red'" style="color: red"
-            ><strong>Definición:</strong><br />
-            Es una directiva estructural similar al ngIf y se utiliza como el
-            switch en lógica de programación. En esta directiva se pueden crear
-            los diferentes casos que deseamos evaluar y cuando se cumple la
-            condición esperada, oculta o muestra el HTML.<br />
-            <strong>Ejemplo:</strong><br />
-            Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-            de color.</span
-          >
-
-          <span *ngSwitchCase="'blue'" style="color: blue"
-            ><strong>Definición:</strong><br />
-            Es una directiva estructural similar al ngIf y se utiliza como el
-            switch en lógica de programación. En esta directiva se pueden crear
-            los diferentes casos que deseamos evaluar y cuando se cumple la
-            condición esperada, oculta o muestra el HTML.<br />
-            <strong>Ejemplo:</strong><br />
-            Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-            de color.</span
-          >
-
-          <span *ngSwitchDefault style="color: black"
-            ><strong>Definición:</strong><br />
-            Es una directiva estructural similar al ngIf y se utiliza como el
-            switch en lógica de programación. En esta directiva se pueden crear
-            los diferentes casos que deseamos evaluar y cuando se cumple la
-            condición esperada, oculta o muestra el HTML.<br />
-            <strong>Ejemplo:</strong><br />
-            Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-            de color.</span
-          >
-        </p>
-        <div class="d-flex justify-content-center gap-3 mt-3">
-          <!--Botones para cambiar el color del párrafo-->
-          <button (click)="cambiarColorTexto('red')" class="btn btn-danger">
-            Cambiar a rojo
-          </button>
-          <button (click)="cambiarColorTexto('blue')" class="btn btn-primary">
-            Cambiar a azul
-          </button>
-          <button (click)="cambiarColorTexto('default')" class="btn btn-dark">
-            Cambiar a color por defecto
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="dirAtributo" class="container">
-      <h1>Directivas de atributos</h1>
-      <p><strong>Descripción</strong></p>
-      <p>
-        Las directivas de Atributo son un tipo de directiva que se utiliza para
-        modificar o personalizar el comportamiento o el aspecto visual de un
-        elemento HTML, componente o cualquier otro nodo en el DOM. Estas
-        directivas afectan al elemento al que están vinculadas, normalmente a
-        través de atributos. Estas directivas no crean ni destruyen elementos en
-        el DOM.
-      </p>
-
-      <div id="divNgStyle" class="container">
-        <h2>Directiva ngStyle</h2>
-        <strong>Definición:</strong><br />
-        Es una directiva de atributo que permite vincular un objeto a los
-        estilos CSS de un elemento HTML de manera dinámica.<br />
-        <strong>Ejemplo:</strong><br />
-        <p [ngStyle]="colorEstado">
-          Recibe un conjunto de propiedades CSS como un valor, y Agular
-          actualiza los estilos del elemento en el DOM en función de las
-          propiedades.(Aquí se vería aplicado y por eso sale el fondo azul con
-          letras en rojo).
-        </p>
-      </div>
-
-      <div id="divNgClass" class="container">
-        <h2>Directiva ngClass</h2>
-        <!--Párrafo con atributo ngClass-->
-        <p
-          [ngClass]="{
-            claseParrafoResaltado: parrafoResaltado,
-            claseParrafoPorDefecto: !parrafoResaltado
-          }"
-        >
-          <strong>Definición:</strong><br />
-          Es una directiva de atributo que permite aplicar, añadir o eliminar
-          clases CSS a elementos HTML.<br />
-          <strong>Ejemplo:</strong><br />
-          Al pulsar un botón, la clase CSS del párrafo cambia.
-        </p>
-
-        <div class="d-flex justify-content-center gap-3 mt-3">
-          <!--Botones para cambiar la clase del párrafo-->
-          <button (click)="cambiarAParrafoResaltado()" class="btn btn-primary">
-            Resaltar Párrafo
-          </button>
-          <button (click)="cambiarAParrafoPorDefecto()" class="btn btn-dark">
-            Párrafo por defecto
-          </button>
-        </div>
-      </div>
-
-      <div id="divNgModel" class="container">
-        <h2>Directiva ngModel</h2>
-        <p style="text-align: justify">
-          <strong>Definición:</strong>
-          <br />Es una directiva de atributo que genera un enlace bidireccional
-          entre el modelo (datos especificados en el componente) y la vista (el
-          HTML). Permite que cualquier cambio en el valor de un campo de entrada
-          en el HTML actualice automáticamente el valor en el componente, y
-          viceversa<br />
-          <strong>Ejemplo:</strong>
-          <br />Al agregar registros en el siguiente formulario, cada input se
-          corresponde con una propiedad establecida en el componente, de forma
-          que se enlaza con un atributo específico del objeto "registro" que
-          genera la aplicación. Se combina la directiva ngIf para validar los
-          datos del formulario y mostrar un mensaje si algo es incorrecto. Al
-          enviar los datos, estos se muestra en un mensaje de confirmación.
-          <br />
-        </p>
-        <form
-          id="formularioRegistro"
-          class="container mt-4"
-          style="margin: auto; width: 500px"
-        >
-          <p><strong>Formulario de Registro</strong></p>
-          <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre:</label>
-            <input
-              type="text"
-              id="inputNombre"
-              [(ngModel)]="registro.nombre"
-              name="nombre"
-              placeholder="Nombre"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="inputEmail" class="form-label"
-              >Correo Electrónico:</label
-            >
-            <input
-              type="email"
-              id="inputEmail"
-              [(ngModel)]="registro.email"
-              name="email"
-              placeholder="Correo electrónico"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="inputPwd" class="form-label">Contraseña:</label>
-            <input
-              type="password"
-              id="inputPwd"
-              [(ngModel)]="registro.pwd"
-              name="password"
-              placeholder="Contraseña"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <button class="btn btn-primary" (click)="validarFormulario()">
-              Enviar
-            </button>
-          </div>
-        </form>
-        <div
-          id="errorValidacion"
-          class="container mt-3"
-          style="margin: auto; width: 500px"
-        >
-          <p *ngIf="!formularioValido && formularioEnviado" class="text-danger">
-            Todos los campos deben ser rellenados. El email debe contener &#64;.
-            La longitud de la contraseña debe ser al menos de 6 caracteres.
-          </p>
-        </div>
-        <div
-          id="datosRegistro"
-          *ngIf="formularioValido"
-          class="container mt-3"
-          style="margin: auto; width: 500px"
-        >
-          <p style="margin-top: 10px"><strong>Datos del registro:</strong></p>
-          <p><strong>Nombre:</strong> {{ registro.nombre }}</p>
-          <p><strong>Email:</strong> {{ registro.email }}</p>
-          <p><strong>Contraseña:</strong> {{ registro.pwd }}</p>
-        </div>
-      </div>
-    </div>
+    <app-directivas></app-directivas>
   </div>
   <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="mostrarComponentes">
   <div id="componentes" class="divContenido">
-    <div id="compDefinicion" class="container">
-      <h1>COMPONENTES</h1>
-      <p style="text-align: justify">
-        <strong>Definición:</strong><br />
-        Un componente es un bloque o módulo que encapsula una determinada
-        funcionalidad de la interfaz de usuario. Esto permite que se pueda
-        reutilizar en distintas parte de la aplicación sin tener que volver a
-        codificar.
-      </p>
-
-      <span
-        >Cada componente tiene tres elementos clave:
-        <ul>
-          <li>
-            <strong>Clase (TypeScript)</strong>: Elemento que contiene la lógica
-            del componente
-          </li>
-          <li>
-            <strong>Plantilla (HTML)</strong>: Elemento que define la estructura
-            y el diseño visual del componente
-          </li>
-          <li>
-            <strong>Estilo (CSS)</strong>: Elemento que aporta el estilo visual
-            del componente
-          </li>
-        </ul>
-      </span>
-    </div>
-
-    <div id="compTareas" class="container">
-      <h2>EJEMPLO: Lista de tareas</h2>
-      <p style="text-align: justify">
-        En este ejemplo, se ha creado un componente llamado "tareas" que
-        resuelve en sí mismo la funcionalidad de añadir tareas a una lista,
-        mostrando dichas tareas en una tabla y asignándole un índice según el
-        orden en el que se han ido añadiendo.
-      </p>
-
-      <span
-        ><i
-          >(Este componente se reutiliza en la vista de Directivas, al explicar
-          la directiva ngFor)</i
-        ></span
-      ><br />
-      <br />
-
-      <app-tareas></app-tareas>
-    </div>
+    <app-componentes></app-componentes>
   </div>
-  <div id="compIconos" class="container">
-    <h2>EJEMPLO: Iconos de redes sociales</h2>
-    <p style="text-align: justify">
-      Hemos creado un ejemplo en el cual se crea un componente de nombre iconos
-      que a traves de los iconos que aparecen podemos clicar y que nos lleve a
-      traves de un enlace a los sitios web que hemos agregado.
-    </p>
-    <app-iconos></app-iconos>
-  </div>
-  <div id="compFooter" class="container">
-    <h2>EJEMPLO: Footer</h2>
-    <p style="text-align: justify">
-      En este ejemplo hemos creado un componente de nombre footer, que se
-      utilizará en nuestra página para mostrar un footer con información sobre
-      el proyecto y sus autores.
-    </p>
-  </div>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="mostrarEventos">
   <div id="eventos" class="divContenido">
     <app-eventos></app-eventos>
-
-    <footer>
-      <app-footer></app-footer>
-    </footer>
   </div>
+  <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="mostrarFormularios">
@@ -428,20 +66,13 @@
 <ng-container *ngIf="mostrarEnrutamiento">
   <div id="enrutamiento" class="divContenido">
     <app-enrutamiento></app-enrutamiento>
-
-    <footer>
-      <app-footer></app-footer>
-    </footer>
   </div>
+  <app-footer></app-footer>
 </ng-container>
 
 <ng-container *ngIf="mostrarAccesoDatos">
   <div id="accesoDatos" class="divContenido">
     <app-acceso-datos></app-acceso-datos>
-
-    
-    <footer>
-      <app-footer></app-footer>
-    </footer>
   </div>
+  <app-footer></app-footer>
 </ng-container>
