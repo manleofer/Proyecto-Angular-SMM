@@ -1,0 +1,116 @@
+<form #formulario="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (reset)="mostrarMensajeReset()">
+  <h3 style="text-align: center">FORMULARIOS</h3>
+  <fieldset class="border rounded-3 p-3 border-5 mb-5">
+    <legend class="float-none w-auto px-3 fw-bold text-dark">
+      Alumno
+    </legend>
+
+    <div class="mb-3">
+      <label for="nombreAlumno" class="form-label fw-bold">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreAlumno"
+        [(ngModel)]="registro.nombreAlumno"
+        name="nombreAlumno"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="telefonoAlumno" class="form-label fw-bold">Telefono</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefonoAlumno"
+        [(ngModel)]="registro.telefonoAlumno"
+        name="telefonoAlumno"
+      />
+    </div>
+
+    <button type="submit" id="botonInsertarAlumno" name="botonInsertarAlumno">Insertar</button>
+
+  </fieldset>
+
+  <fieldset class="border rounded-3 p-3 border-5 mb-5">
+    <legend class="float-none w-auto px-3 fw-bold text-dark">
+      Profesor
+    </legend>
+
+    <div class="mb-3">
+      <label for="nombreProfesor" class="form-label fw-bold">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreProfesor"
+        [(ngModel)]="registro.nombreProfesor"
+        name="nombreProfesor"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="telefonoProfesor" class="form-label fw-bold">Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefonoProfesor"
+        [(ngModel)]="registro.telefonoProfesor"
+        name="telefonoProfesor"
+      />
+    </div>
+
+    <button type="submit" id="botonInsertarProfesor" name="botonInsertarProfesor">Insertar</button>
+
+  </fieldset>
+
+  <fieldset class="border rounded-3 p-3 border-5 mb-5">
+    <legend class="float-none w-auto px-3 fw-bold text-dark">
+      Curso
+    </legend>
+
+    <div class="mb-3">
+      <label for="nombreCurso" class="form-label fw-bold">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreCurso"
+        [(ngModel)]="registro.nombreCurso"
+        name="nombreCurso"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="codigoCurso" class="form-label fw-bold">Código</label>
+      <input
+        type="text"
+        class="form-control"
+        id="codigoCurso"
+        [(ngModel)]="registro.codigoCurso"
+        name="codigoCurso"
+      />
+    </div>
+
+    <div>
+      <label for="duracionCurso" class="form-label fw-bold">Duracion</label>
+      <input
+        type="text"
+        class="form-control"
+        id="duracionCurso"
+        name="duracionCurso"
+        [(ngModel)]="registro.duracionCurso"
+      />
+    </div>
+
+    <div>
+      <label for="cuotaCurso" class="form-label fw-bold">Cuota</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cuotaCurso"
+        name="cuotaCurso"
+        [(ngModel)]="registro.cuotaCurso"
+      />
+    </div>
+
+  </fieldset>
+
+  </form>

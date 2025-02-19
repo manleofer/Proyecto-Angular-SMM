@@ -9,12 +9,13 @@ import { EventosComponent } from './eventos/eventos.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
 import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
+import { FormulariosInsertComponent } from './formularios-insert/formularios-insert.component';
 
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, FooterComponent, TareasComponent, IconosComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent, FormulariosInsertComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -55,7 +56,7 @@ export class AppComponent {
     this.mostrarEventos = true;
     this.mostrarTitulo = false;
     this.mostrarDirectivas = false;
-    this.mostrarComponentes = false;   
+    this.mostrarComponentes = false;
     this.mostrarFormularios = false;
   }
   fMostrarFormularios(){
@@ -64,7 +65,7 @@ export class AppComponent {
     this.mostrarDirectivas = false;
     this.mostrarComponentes = false;
     this.mostrarEventos = false;
-    
+
   }
   fMostrarEnrutamiento(){
     this.mostrarFormularios = false;
