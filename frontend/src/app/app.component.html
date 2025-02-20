@@ -1,5 +1,44 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
+
+    <a class="navbar-brand" href="">Angular</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul id="menuPrincipal" class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" id="menuDirectivas" href="/directivas">Directivas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="menuComponentes" href="/componentes">Componentes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="menuEventos" href="/eventos">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="menuFormulario" href="/formularios">Formularios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="menuEnrutamiento" href="/enrutamiento">Enrutamiento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="menuDatos" href="/accesoDatos">Acceso a datos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+
+<!-- MENÚ ORIGINAL CON DIRECTIVA NGIF
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#" (click)="fMostrarTitulo()">Angular</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -28,6 +67,10 @@
     </div>
   </div>
 </nav>
+
+-->
+
+<!-- ESTRUCTURA ORIGINAL CON DIRECTIVAS Y COMPONENTES
 
 <ng-container *ngIf="mostrarTitulo">
   <div class="cover-container">
@@ -76,3 +119,5 @@
   </div>
   <app-footer></app-footer>
 </ng-container>
+
+-->

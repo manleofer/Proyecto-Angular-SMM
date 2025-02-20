@@ -1,307 +1,221 @@
-<div class="container mb-5">
-  <div id="formularioDefinicion" class="container">
-    <h1>FORMULARIO</h1>
-    <p style="text-align: justify">
-      <strong>Definición:</strong><br />
-      Angular ofrece dos enfoques principales para manejar formularios:<br />
-      <strong>Template-driven forms:</strong> Fomularios gestionados
-      principalmente en el HTML con directivas como ngModel.<br />
-      <strong>Reactive forms:</strong> Formularios gestionados completamente en
-      TypeScript, usando clases de Angular con formGroup y FormControl.<br />
-      De momento nos centraremos en Template-driven forms, que son más sencillos
-      y se basan en la utilización de directivas como ngModel.<br />
-    </p>
-    <p style="text-align: justify">
-      <strong>Validaciones Nativas en Formularios Angular</strong><br />
-      Angular proporciona validaciones integradas que se pueden aplicar
-      directamente en el HTML. Algunas de las más comunes incluyen:<br />
-    </p>
-    <ol>
-      <li><strong>required:</strong> El campo debe ser obligatorio</li>
-      <li>
-        <strong>minlength y maxlength:</strong> El campo debe cumplir con una
-        longitud mínima o máxima de caracteres.
-      </li>
-      <li>
-        <strong>pattern:</strong> El campo debe cumplir con una expresión
-        regular (por ejemplo, para validar un formato de correo electrónico o
-        una contraseña con letras y números).
-      </li>
-      <li>
-        <strong>email:</strong> Valida que el campo contenga un formato de
-        correo electrónico válido.
-      </li>
-      <li>
-        <strong>min y max:</strong> Para números, define el rango de valores
-        válidos.
-      </li>
-    </ol>
-    <p style="text-align: justify">
-      <strong>Propiedades Nativas de los Formularios Angular</strong><br />
-      Angular maneja automáticamente el estado del formulario y sus campos.
-      Algunas de las propiedades más útiles que puedes usar son:<br />
-    </p>
-    <ol>
-      <li>
-        <strong>valid:</strong> Es true si todas las validaciones definidas en
-        el control de formulario se cumplen.
-      </li>
-      <li>
-        <strong>invalid:</strong> Es true si alguna validación no se cumple.
-      </li>
-      <li>
-        <strong>touched:</strong> Es true si el usuario ha interactuado con el
-        campo (se ha tocado el campo).
-      </li>
-      <li>
-        <strong>untouched:</strong> Es true si el campo no ha sido tocado.
-      </li>
-      <li>
-        <strong>pristine:</strong> Es true si el valor del control no ha
-        cambiado desde que se inicializó.
-      </li>
-      <li>
-        <strong>dirty:</strong> Es true si el valor del control ha cambiado.
-      </li>
-    </ol>
-    <p style="text-align: justify">
-      <strong>Ejemplo:</strong><br />
-      Este formulario contiene validaciones nativas de Angular como son required
-      y pattern, además de propiedades como valid e invalid (booleanos que
-      indican si los campos son válidos o no). Hemos añadido un botón Enviar
-      (que sólo aparece como habilitado si los campos son válidos) y un botón
-      Resetear (que nos vuelve a dejar el formulario vacío una vez se envía la
-      información).
-    </p>
+<div id="divFormulario" class="divContenido">
+  <div class="container mb-5">
+    <div id="formularioDefinicion" class="container">
+      <h1>FORMULARIO</h1>
+      <p style="text-align: justify">
+        <strong>Definición:</strong><br />
+        Angular ofrece dos enfoques principales para manejar formularios:<br />
+        <strong>Template-driven forms:</strong> Fomularios gestionados
+        principalmente en el HTML con directivas como ngModel.<br />
+        <strong>Reactive forms:</strong> Formularios gestionados completamente en
+        TypeScript, usando clases de Angular con formGroup y FormControl.<br />
+        De momento nos centraremos en Template-driven forms, que son más sencillos
+        y se basan en la utilización de directivas como ngModel.<br />
+      </p>
+      <p style="text-align: justify">
+        <strong>Validaciones Nativas en Formularios Angular</strong><br />
+        Angular proporciona validaciones integradas que se pueden aplicar
+        directamente en el HTML. Algunas de las más comunes incluyen:<br />
+      </p>
+      <ol>
+        <li><strong>required:</strong> El campo debe ser obligatorio</li>
+        <li>
+          <strong>minlength y maxlength:</strong> El campo debe cumplir con una
+          longitud mínima o máxima de caracteres.
+        </li>
+        <li>
+          <strong>pattern:</strong> El campo debe cumplir con una expresión
+          regular (por ejemplo, para validar un formato de correo electrónico o
+          una contraseña con letras y números).
+        </li>
+        <li>
+          <strong>email:</strong> Valida que el campo contenga un formato de
+          correo electrónico válido.
+        </li>
+        <li>
+          <strong>min y max:</strong> Para números, define el rango de valores
+          válidos.
+        </li>
+      </ol>
+      <p style="text-align: justify">
+        <strong>Propiedades Nativas de los Formularios Angular</strong><br />
+        Angular maneja automáticamente el estado del formulario y sus campos.
+        Algunas de las propiedades más útiles que puedes usar son:<br />
+      </p>
+      <ol>
+        <li>
+          <strong>valid:</strong> Es true si todas las validaciones definidas en
+          el control de formulario se cumplen.
+        </li>
+        <li>
+          <strong>invalid:</strong> Es true si alguna validación no se cumple.
+        </li>
+        <li>
+          <strong>touched:</strong> Es true si el usuario ha interactuado con el
+          campo (se ha tocado el campo).
+        </li>
+        <li>
+          <strong>untouched:</strong> Es true si el campo no ha sido tocado.
+        </li>
+        <li>
+          <strong>pristine:</strong> Es true si el valor del control no ha
+          cambiado desde que se inicializó.
+        </li>
+        <li>
+          <strong>dirty:</strong> Es true si el valor del control ha cambiado.
+        </li>
+      </ol>
+      <p style="text-align: justify">
+        <strong>Ejemplo:</strong><br />
+        Este formulario contiene validaciones nativas de Angular como son required
+        y pattern, además de propiedades como valid e invalid (booleanos que
+        indican si los campos son válidos o no). Hemos añadido un botón Enviar
+        (que sólo aparece como habilitado si los campos son válidos) y un botón
+        Resetear (que nos vuelve a dejar el formulario vacío una vez se envía la
+        información).
+      </p>
+    </div>
+
+    <form #formulario="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (reset)="mostrarMensajeReset()">
+      <h3 style="text-align: center">FORMULARIO DE CONTACTO Y SUSCRIPCIÓN</h3>
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend class="float-none w-auto px-3 fw-bold text-dark">
+          Datos Personales
+        </legend>
+        <div class="mb-3">
+          <label for="nombre" class="form-label fw-bold">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="registro.nombre" name="nombre" />
+        </div>
+
+        <div class="mb-3">
+          <label for="apellido" class="form-label fw-bold">Apellido</label>
+          <input type="text" class="form-control" id="apellido" [(ngModel)]="registro.apellido" name="apellido" />
+        </div>
+
+        <div class="mb-3">
+          <label for="fechaNacimiento" class="form-label fw-bold">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="registro.fechaNacimiento"
+            name="fechaNacimiento" />
+        </div>
+
+        <div>
+          <label for="username" class="form-label fw-bold">Usuario</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="registro.username" />
+        </div>
+
+        <div class="mb-3">
+          <label for="pwd" class="form-label fw-bold">Contraseña</label>
+          <!--Se utilizan validaciones nativas de Angular-->
+          <input type="password" class="form-control" id="pwd" name="pwd" [(ngModel)]="registro.pwd" #pwdRef="ngModel"
+            required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+            placeholder="Mínimo 8 caracteres, al menos 1 letra y 1 número" />
+          <!-- Mensajes de validación -->
+          <!--Mensaje de error-->
+          <p *ngIf="pwdRef.invalid">
+            <span style="color: red">
+              La contraseña debe tener al menos 8 caracteres, incluir una letra y
+              un número.</span>
+          </p>
+          <!--Mensaje de éxito-->
+          <p *ngIf="pwdRef.valid">
+            <span style="color: green; font-weight: bold">✔</span>
+            <span style="color: green"> Contraseña válida.</span>
+          </p>
+        </div>
+
+        <div>
+          <label for="email" class="form-laber fw-bold">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="registro.email" name="email"
+            #emailRef="ngModel" required email placeholder="Ejemplo: nombre@dominio.com" />
+          <!-- Mensajes de validación -->
+          <!-- Mensaje de error si no es válido -->
+          <p *ngIf="emailRef.invalid && emailRef.touched">
+            <span style="color: red">El correo electrónico no es válido.</span>
+          </p>
+
+          <!-- Mensaje de éxito si es válido -->
+          <p *ngIf="emailRef.valid && emailRef.touched">
+            <span style="color: green; font-weight: bold">✔</span>
+            <span style="color: green">Correo válido.</span>
+          </p>
+        </div>
+      </fieldset>
+
+
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <div class="row align-items-center w-100">
+          <div style="margin-left: 20px;" class="col-auto d-flex flex-column">
+            <fieldset class="border rounded-3 p-3 border-5 d-inline-block">
+              <legend>Preferencias Cursos</legend>
+              <label for="Rango">Indique su preferencia (de 0 a 10, de 1 en 1):</label>
+              <br />
+              <label><i><strong>Backend</strong></i></label><br />
+              <input type="range" nombre="backend" id="backend" min="0" max="10" step="1" /><br />
+              <label><i><strong>Frontend</strong></i></label><br />
+              <input type="range" nombre="frontend" id="frontend" min="0" max="10" step="1" /><br />
+              <label><i><strong>Fullstack</strong></i></label><br />
+              <input type="range" nombre="fullstack" id="fullstack" min="0" max="10" step="1" /><br />
+            </fieldset>
+          </div>
+          <div style="margin-left: 20px;" class="col-auto d-flex flex-column w-50">
+            <fieldset class="border rounded-3 p-3 border-5 mb-4-5">
+              <legend>Lenguajes</legend>
+              <label for="lenguaje">Seleccione un lenguaje:</label>
+              <select id="lenguaje" name="lenguaje">
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="angular">Angular</option>
+                <option value="python">Python</option>
+                <option value="react">React</option>
+                <option value="htmlCss">Html y CSS</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="border rounded-3 p-3 border-5 ">
+              <legend>IDE</legend>
+              <label for="ide">Seleccione un IDE:</label>
+              <select id="ide" name="ide">
+                <option value="visual">VS Code</option>
+                <option value="springtool">Springtool</option>
+                <option value="eclipse">Eclipse</option>
+                <option value="netbeans">NetBeans</option>
+                <option value="intellij">IntelliJ</option>
+              </select>
+            </fieldset>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend>Comentarios o aclaraciones</legend>
+
+        <label for="comentario">Deja tu mensaje<br /></label>
+        <textarea name="comentario" id="comentario" rows="6" placeholder="Máximo 300 caracteres"></textarea><br />
+      </fieldset>
+
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend>Indique Modalidad</legend>
+
+        <input type="checkbox" name="online" id="online" value="online">
+        <label for="online">Online</label>
+        <input type="checkbox" name="presencial" id="presencial" value="presencial">
+        <label for="presencial">Presencial</label>
+        <input type="checkbox" name="hibrida" id="hibrida" value="hibrida">
+        <label for="hibrida">Híbrida</label>
+
+      </fieldset>
+
+      <!--Botón Enviar se activa sólo si la contraseña es válida (disabled si es invalid)-->
+      <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+        Enviar
+      </button>
+
+      <button type="reset" class="btn btn-secondary ms-3" (click)="formulario.reset()">
+        <!--Función nativa de Angular para restablecer el #formulario-->
+        Resetear
+      </button>
+
+    </form>
   </div>
-
-  <form #formulario="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (reset)="mostrarMensajeReset()">
-    <h3 style="text-align: center">FORMULARIO DE CONTACTO Y SUSCRIPCIÓN</h3>
-    <fieldset class="border rounded-3 p-3 border-5 mb-5">
-      <legend class="float-none w-auto px-3 fw-bold text-dark">
-        Datos Personales
-      </legend>
-      <div class="mb-3">
-        <label for="nombre" class="form-label fw-bold">Nombre</label>
-        <input
-          type="text"
-          class="form-control"
-          id="nombre"
-          [(ngModel)]="registro.nombre"
-          name="nombre"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="apellido" class="form-label fw-bold">Apellido</label>
-        <input
-          type="text"
-          class="form-control"
-          id="apellido"
-          [(ngModel)]="registro.apellido"
-          name="apellido"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="fechaNacimiento" class="form-label fw-bold"
-          >Fecha de nacimiento</label
-        >
-        <input
-          type="date"
-          class="form-control"
-          id="fechaNacimiento"
-          [(ngModel)]="registro.fechaNacimiento"
-          name="fechaNacimiento"
-        />
-      </div>
-
-      <div>
-        <label for="username" class="form-label fw-bold">Usuario</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          name="username"
-          [(ngModel)]="registro.username"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="pwd" class="form-label fw-bold">Contraseña</label>
-        <!--Se utilizan validaciones nativas de Angular-->
-        <input
-          type="password"
-          class="form-control"
-          id="pwd"
-          name="pwd"
-          [(ngModel)]="registro.pwd"
-          #pwdRef="ngModel"
-          required
-          minlength="8"
-          pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
-          placeholder="Mínimo 8 caracteres, al menos 1 letra y 1 número"
-        />
-        <!-- Mensajes de validación -->
-        <!--Mensaje de error-->
-        <p *ngIf="pwdRef.invalid">
-          <span style="color: red">
-            La contraseña debe tener al menos 8 caracteres, incluir una letra y
-            un número.</span
-          >
-        </p>
-        <!--Mensaje de éxito-->
-        <p *ngIf="pwdRef.valid">
-          <span style="color: green; font-weight: bold">✔</span>
-          <span style="color: green"> Contraseña válida.</span>
-        </p>
-      </div>
-
-      <div>
-        <label for="email" class="form-laber fw-bold">Correo Electrónico</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          [(ngModel)]="registro.email"
-          name="email"
-          #emailRef="ngModel"
-          required
-          email
-          placeholder="Ejemplo: nombre@dominio.com"
-        />
-        <!-- Mensajes de validación -->
-        <!-- Mensaje de error si no es válido -->
-        <p *ngIf="emailRef.invalid && emailRef.touched">
-          <span style="color: red">El correo electrónico no es válido.</span>
-        </p>
-
-        <!-- Mensaje de éxito si es válido -->
-        <p *ngIf="emailRef.valid && emailRef.touched">
-          <span style="color: green; font-weight: bold">✔</span>
-          <span style="color: green">Correo válido.</span>
-        </p>
-      </div>
-    </fieldset>
-
-    
-    <fieldset class="border rounded-3 p-3 border-5 mb-5">
-      <div class="row align-items-center w-100">
-        <div style="margin-left: 20px;" class="col-auto d-flex flex-column" >
-      <fieldset class="border rounded-3 p-3 border-5 d-inline-block">
-        <legend>Preferencias Cursos</legend>
-        <label for="Rango"
-          >Indique su preferencia (de 0 a 10, de 1 en 1):</label
-        >
-        <br />
-        <label
-          ><i><strong>Backend</strong></i></label
-        ><br />
-        <input
-          type="range"
-          nombre="backend"
-          id="backend"
-          min="0"
-          max="10"
-          step="1"
-        /><br />
-        <label
-          ><i><strong>Frontend</strong></i></label
-        ><br />
-        <input
-          type="range"
-          nombre="frontend"
-          id="frontend"
-          min="0"
-          max="10"
-          step="1"
-        /><br />
-        <label
-          ><i><strong>Fullstack</strong></i></label
-        ><br />
-        <input
-          type="range"
-          nombre="fullstack"
-          id="fullstack"
-          min="0"
-          max="10"
-          step="1"
-        /><br />
-      </fieldset>
-    </div>
-    <div style="margin-left: 20px;" class="col-auto d-flex flex-column w-50">
-      <fieldset class="border rounded-3 p-3 border-5 mb-4-5">
-        <legend>Lenguajes</legend>
-          <label for="lenguaje">Seleccione un lenguaje:</label>
-          <select id="lenguaje" name="lenguaje">
-              <option value="java">Java</option>
-              <option value="javascript">JavaScript</option>
-              <option value="angular">Angular</option>
-              <option value="python">Python</option>
-              <option value="react">React</option>
-              <option value="htmlCss">Html y CSS</option>
-          </select>
-      </fieldset>
-
-      <fieldset class="border rounded-3 p-3 border-5 ">
-        <legend>IDE</legend>
-          <label for="ide">Seleccione un IDE:</label>
-          <select id="ide" name="ide">
-              <option value="visual">VS Code</option>
-              <option value="springtool">Springtool</option>
-              <option value="eclipse">Eclipse</option>
-              <option value="netbeans">NetBeans</option>
-              <option value="intellij">IntelliJ</option>
-          </select>
-      </fieldset>
-    </div>
-
-    </div>
-    </fieldset>
-  
-    <fieldset class="border rounded-3 p-3 border-5 mb-5">
-      <legend>Comentarios o aclaraciones</legend>
-
-      <label for="comentario">Deja tu mensaje<br /></label>
-      <textarea
-        name="comentario"
-        id="comentario"
-        rows="6"
-        placeholder="Máximo 300 caracteres"
-      ></textarea
-      ><br />
-    </fieldset>
-
-    <fieldset class="border rounded-3 p-3 border-5 mb-5">
-      <legend>Indique Modalidad</legend>
-
-      <input type="checkbox" name="online" id="online" value="online">
-      <label for="online">Online</label>
-      <input type="checkbox" name="presencial" id="presencial" value="presencial">
-      <label for="presencial">Presencial</label>
-      <input type="checkbox" name="hibrida" id="hibrida" value="hibrida">
-      <label for="hibrida">Híbrida</label>
-
-    </fieldset>
-
-    <!--Botón Enviar se activa sólo si la contraseña es válida (disabled si es invalid)-->
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="formulario.invalid"
-    >
-      Enviar
-    </button>
-
-    <button 
-      type="reset" 
-      class="btn btn-secondary ms-3" 
-      (click)="formulario.reset()"> <!--Función nativa de Angular para restablecer el #formulario-->
-      Resetear
-    </button>
-
-  </form>
 </div>
-<footer>
-  <app-footer></app-footer>
-</footer>

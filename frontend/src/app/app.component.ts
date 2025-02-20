@@ -2,27 +2,21 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { TareasComponent } from "./tareas/tareas.component";
-import { IconosComponent } from "./iconos/iconos.component";
-import { EventosComponent } from './eventos/eventos.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
-import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
-import { DirectivasComponent } from "./directivas/directivas.component";
-import { ComponentesComponent } from "./componentes/componentes.component";
-
+import { FooterComponent } from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
   //Hay que importar CommonModule y FormsModule para poder inyectar las directivas
-  imports: [CommonModule, FormsModule, FooterComponent, EventosComponent, FormularioComponent, EnrutamientoComponent, AccesoDatosComponent, DirectivasComponent, ComponentesComponent],
+  imports: [CommonModule, FormsModule, RouterOutlet, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 
 export class AppComponent {
   title = 'ProyectoAngular';
+
+
+  /* VARIABLES Y MÉTODOS DE MENÚ INICIAL CON DIRECTIVA NGIF" 
 
   //Creamos una variable booleana iniciada en false y la cambiamos al hacer click
   mostrarTitulo : boolean = true;
@@ -87,5 +81,6 @@ export class AppComponent {
     this.mostrarAccesoDatos = true;
   }
 
+  */
 
 }
