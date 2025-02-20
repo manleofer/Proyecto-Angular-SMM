@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-formulario',
-  imports: [CommonModule, FormsModule, FooterComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
