@@ -1,4 +1,5 @@
-<div id="dirDefinicion" class="container">
+<div id="divDirectivas" class="divContenido">
+  <div id="dirDefinicion" class="container">
     <h1>DIRECTIVAS</h1>
     <p>
       <strong>Definición:</strong><br />
@@ -27,16 +28,14 @@
     <div id="divNgIf" class="container">
       <h2>Directiva ngIf</h2>
       <p class="text-justify">
-        <span
-          ><strong>Definición:</strong><br />
+        <span><strong>Definición:</strong><br />
           Es una directiva estructural que permite incluir o excluir un
           elemento del DOM en función de una expresión booleana. Si la
           expresión evaluada es true, el contenido del elemento es insertado
           en el DOM; si es false, el contenido es eliminado del DOM.<br />
           <strong>Ejemplo:</strong><br />
           Al hacer click en Directivas te muestra todas las directivas, esto
-          esta hecho como ejemplo de ngIf</span
-        >
+          esta hecho como ejemplo de ngIf</span>
       </p>
     </div>
 
@@ -66,38 +65,32 @@
       <h2>Directiva ngSwitch</h2>
       <!--Párrafo que cambiará de color en cada caso-->
       <p [ngSwitch]="colorTexto" class="text-justify">
-        <span *ngSwitchCase="'red'" style="color: red"
-          ><strong>Definición:</strong><br />
+        <span *ngSwitchCase="'red'" style="color: red"><strong>Definición:</strong><br />
           Es una directiva estructural similar al ngIf y se utiliza como el
           switch en lógica de programación. En esta directiva se pueden crear
           los diferentes casos que deseamos evaluar y cuando se cumple la
           condición esperada, oculta o muestra el HTML.<br />
           <strong>Ejemplo:</strong><br />
           Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-          de color.</span
-        >
+          de color.</span>
 
-        <span *ngSwitchCase="'blue'" style="color: blue"
-          ><strong>Definición:</strong><br />
+        <span *ngSwitchCase="'blue'" style="color: blue"><strong>Definición:</strong><br />
           Es una directiva estructural similar al ngIf y se utiliza como el
           switch en lógica de programación. En esta directiva se pueden crear
           los diferentes casos que deseamos evaluar y cuando se cumple la
           condición esperada, oculta o muestra el HTML.<br />
           <strong>Ejemplo:</strong><br />
           Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-          de color.</span
-        >
+          de color.</span>
 
-        <span *ngSwitchDefault style="color: black"
-          ><strong>Definición:</strong><br />
+        <span *ngSwitchDefault style="color: black"><strong>Definición:</strong><br />
           Es una directiva estructural similar al ngIf y se utiliza como el
           switch en lógica de programación. En esta directiva se pueden crear
           los diferentes casos que deseamos evaluar y cuando se cumple la
           condición esperada, oculta o muestra el HTML.<br />
           <strong>Ejemplo:</strong><br />
           Seleccionar un botón, al pulsarlo, este texto explicativo cambiará
-          de color.</span
-        >
+          de color.</span>
       </p>
       <div class="d-flex justify-content-center gap-3 mt-3">
         <!--Botones para cambiar el color del párrafo-->
@@ -147,12 +140,10 @@
     <div id="divNgClass" class="container">
       <h2>Directiva ngClass</h2>
       <!--Párrafo con atributo ngClass-->
-      <p
-        [ngClass]="{
+      <p [ngClass]="{
           claseParrafoResaltado: parrafoResaltado,
           claseParrafoPorDefecto: !parrafoResaltado
-        }"
-      >
+        }">
         <strong>Definición:</strong><br />
         Es una directiva de atributo que permite aplicar, añadir o eliminar
         clases CSS a elementos HTML.<br />
@@ -172,7 +163,7 @@
     </div>
 
     <br><br>
-    
+
     <div id="divNgModel" class="container">
       <h2>Directiva ngModel</h2>
       <p style="text-align: justify">
@@ -191,46 +182,22 @@
         enviar los datos, estos se muestra en un mensaje de confirmación.
         <br />
       </p>
-      <form
-        id="formularioRegistro"
-        class="container mt-4"
-        style="margin: auto; width: 500px"
-      >
+      <form id="formularioRegistro" class="container mt-4" style="margin: auto; width: 500px">
         <p><strong>Formulario de Registro</strong></p>
         <div class="mb-3">
           <label for="inputNombre" class="form-label">Nombre:</label>
-          <input
-            type="text"
-            id="inputNombre"
-            [(ngModel)]="registro.nombre"
-            name="nombre"
-            placeholder="Nombre"
-            class="form-control"
-          />
+          <input type="text" id="inputNombre" [(ngModel)]="registro.nombre" name="nombre" placeholder="Nombre"
+            class="form-control" />
         </div>
         <div class="mb-3">
-          <label for="inputEmail" class="form-label"
-            >Correo Electrónico:</label
-          >
-          <input
-            type="email"
-            id="inputEmail"
-            [(ngModel)]="registro.email"
-            name="email"
-            placeholder="Correo electrónico"
-            class="form-control"
-          />
+          <label for="inputEmail" class="form-label">Correo Electrónico:</label>
+          <input type="email" id="inputEmail" [(ngModel)]="registro.email" name="email" placeholder="Correo electrónico"
+            class="form-control" />
         </div>
         <div class="mb-3">
           <label for="inputPwd" class="form-label">Contraseña:</label>
-          <input
-            type="password"
-            id="inputPwd"
-            [(ngModel)]="registro.pwd"
-            name="password"
-            placeholder="Contraseña"
-            class="form-control"
-          />
+          <input type="password" id="inputPwd" [(ngModel)]="registro.pwd" name="password" placeholder="Contraseña"
+            class="form-control" />
         </div>
         <div class="mb-3">
           <button class="btn btn-primary" (click)="validarFormulario()">
@@ -238,22 +205,13 @@
           </button>
         </div>
       </form>
-      <div
-        id="errorValidacion"
-        class="container mt-3"
-        style="margin: auto; width: 500px"
-      >
+      <div id="errorValidacion" class="container mt-3" style="margin: auto; width: 500px">
         <p *ngIf="!formularioValido && formularioEnviado" class="text-danger">
           Todos los campos deben ser rellenados. El email debe contener &#64;.
           La longitud de la contraseña debe ser al menos de 6 caracteres.
         </p>
       </div>
-      <div
-        id="datosRegistro"
-        *ngIf="formularioValido"
-        class="container mt-3"
-        style="margin: auto; width: 500px"
-      >
+      <div id="datosRegistro" *ngIf="formularioValido" class="container mt-3" style="margin: auto; width: 500px">
         <p style="margin-top: 10px"><strong>Datos del registro:</strong></p>
         <p><strong>Nombre:</strong> {{ registro.nombre }}</p>
         <p><strong>Email:</strong> {{ registro.email }}</p>
@@ -261,3 +219,4 @@
       </div>
     </div>
   </div>
+</div>

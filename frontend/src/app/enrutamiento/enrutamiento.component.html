@@ -1,9 +1,92 @@
-<div id="enrutamientoDefinicion" class="container">
-    <h1>ENRUTAMIENTO EN ANGULAR</h1>
+<div id="divEnrutamiento" class="divContenido">
+    <div id="enrutamientoDefinicion" class="container">
+        <h1>ENRUTAMIENTO EN ANGULAR</h1>
+        <br>
+        <p style="text-align: justify;">
+            <strong>Definición:</strong><br>
+            El enrutamiento en Angular permite la navegación entre diferentes vistas o componentes sin recargar la
+            página.
+            Se maneja a través del módulo <b>RouterModule</b> y se configura en un array de rutas.
+        </p>
+        <p style="text-align: justify;">
+            <strong>Definición de rutas:</strong><br>
+            En la carpeta src/app debe existir el fichero <code>app.routes.ts</code>
+            en el cual se definirán las distintas rutas que se van a utilizar en la aplicación:
+        </p>
+
+        <ul style="list-style-type: none; text-align: justify;">
+            <li>- Se establece una constante de tipo <code>Routes</code>, que es parte del modulo
+                "&#64;angular/router" y se utiliza para definir los enrutamientos.
+            </li>
+            <li>- Se establece un array de rutas (URL) definidas con la propiedad <code>path</code>.</li>
+            <li>- La ruta vacía ("") indica la ruta por defecto al arrancar.
+                El término <code>redirectTo</code> indica la ruta a la que se redirige.
+                El término <code>pathMatch: "full"</code> indica que la ruta del navegador debe coincidir
+                estrictamente con la ruta vacía definida ("").
+                Si se omite, el enrutamiento puede dejar de funcionar.
+            <li>- Se establece el componente al que apunta cada ruta con el término <code>component</code>.</li>
+            <li>- La ruta "**" es la ruta comodin (<i>wildcard</i>), que captura cualquier ruta no definida
+                y la redirige a la ruta que se indique.</li>
+        </ul>
+        <pre style="background-color: rgb(233, 233, 233); border: 1px dashed;">
+            <code>
+            export const rutas: Routes = [
+                &lbrace;path: "", redirectTo: "rutaPorDefecto", pathMatch: "full"&rbrace;,
+                &lbrace;path: "rutaPorDefecto", component: ComponentePorDefecto&rbrace;,
+                &lbrace;path: "rutaComponenteX", component: ComponenteX&rbrace;,
+                &lbrace;path: "rutaErrores", component: ComponenteErrores&rbrace;,
+                &lbrace;path: "**", redirectTo: "rutaErrores"&rbrace;
+            ];
+            </code>
+        </pre>
+        <br>
+        <p style="text-align: justify;">
+            <strong>Configuración:</strong><br>
+            En el fichero <code>app.config.ts</code> debe configurarse el enrutador <code>provideRouter</code>
+            como un servicio/proveedor global de la aplicación:
+        </p>
+
+        <pre style="background-color: rgb(233, 233, 233); border: 1px dashed;">
+                <code>
+                export const appConfig: ApplicationConfig = &lbrace;
+                providers: [
+                  <i>(...otros servicios...)</i>, 
+                  <b>provideRouter(rutas)</b>
+                ]&rbrace;;
+                </code>
+        </pre>
+    </div>
+
     <br>
-    <p style="text-align: justify;">
-        <strong>Definición:</strong><br>
-        El enrutamiento en Angular permite la navegación entre diferentes vistas o componentes sin recargar la página.
-        Se maneja a través del módulo <b>RouterModule</b> y se configura en un arreglo de rutas.
-    </p>
+
+    <div id="enrutamientoMenu" class="container">
+        <h2>EJEMPLO 1: Enrutamiento de menú</h2>
+        <p style="text-align: justify">
+            En el desarrollo de componentes anteriores y/o sprint, manejábamos las opciones del
+            menú de navegación a través de la directiva <i>ngIf</i>.
+            Aplicando el enrutamiento de Angular, se simplifica todo el código anterior,
+            de manera que cada opción del menú se referencia (<i>href</i>) a una ruta que apunta a cada componente
+            (previamente definida en <code>app.routes.ts</code>).
+        </p>
+        <br>
+        <h2>EJEMPLO 2: Enrutamiento en otros elementos</h2>
+        <p style="text-align: justify">
+            Cualquier elemento se puede codificar para ue apunte o redireccione a una ruta u otro componente. 
+            <br><br>
+            En el siguiente ejemplo, cada botón enruta con cada componente, usando en este caso el término 
+            <code>[routerLink]</code>:
+        </p>
+
+        <div id="enrutamientobotones">
+            <button class="btn btn-success" [routerLink]="['']">Angular</button>
+            <button class="btn btn-success" [routerLink]="['/directivas']">Directivas</button>
+            <button class="btn btn-success" [routerLink]="['/componentes']">Componentes</button>
+            <button class="btn btn-success" [routerLink]="['/eventos']">Eventos</button>
+            <button class="btn btn-success" [routerLink]="['/formularios']">Formularios</button>
+            <button class="btn btn-success" [routerLink]="['/enrutamiento']">Enrutamiento</button>
+            <button class="btn btn-success" [routerLink]="['/accesoDatos']">Acceso Datos</button>
+        </div>
+        <br>
+        
+    </div>
 </div>

@@ -1,146 +1,154 @@
-<div id="eventosDefinicion" class="container">
-    <h1>EVENTOS</h1>
-    <br>
-    <p style="text-align: justify;">
-        <strong>Definición:</strong><br>
-        Un evento es una acción o suceso que ocurre en el navegador y que es detonado por el usuario.
+<div id="divEventos" class="divContenido">
+    <div id="eventosDefinicion" class="container">
+        <h1>EVENTOS</h1>
         <br>
-        Por ejemplo: hacer clic en un botón, mover el puntero del ratón, presionar una tecla...
+        <p style="text-align: justify;">
+            <strong>Definición:</strong><br>
+            Un evento es una acción o suceso que ocurre en el navegador y que es detonado por el usuario.
+            <br>
+            Por ejemplo: hacer clic en un botón, mover el puntero del ratón, presionar una tecla...
+            <br>
+            Angular permite capturar estos eventos y ejecutar funciones en respuesta, mediante la técnica <q>"event
+                binding"</q>
+        </p>
+        <p style="text-align: justify;">
+            <strong>Event Binding:</strong><br>
+            Consiste en la vinculación de eventos: Asocia eventos del DOM con métodos definidos en el componente. Se
+            realiza
+            con la sintaxis básica:
+            <br>
+            <code>&lt;elementoHTML (evento)="método($event)"">&lt;/elementoHTML></code>
+        </p>
         <br>
-        Angular permite capturar estos eventos y ejecutar funciones en respuesta, mediante la técnica <q>"event
-            binding"</q>
-    </p>
-    <p style="text-align: justify;">
-        <strong>Event Binding:</strong><br>
-        Consiste en la vinculación de eventos: Asocia eventos del DOM con métodos definidos en el componente. Se realiza
-        con la sintaxis básica:
-        <br>
-        <code>&lt;elementoHTML (evento)="método($event)"">&lt;/elementoHTML></code>
-    </p>
-    <br>
-    <p style="text-align: justify;">
-        <strong>Algunos eventos en Angular:</strong>
-    <ul style="list-style-type: disc;">
-        <li><b>Eventos del Ratón</b></li><br>
-        <ul style="list-style-type: circle;">
-            <li><b>(click)</b> → Cuando se hace clic</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo:</mark>
-                    Al hacer click en el siguiente botón, éste alterna su estilo de bootstrap
-                </p>
-                <button class="btn" [ngClass]="claseBotonBS" (click)="cambiaClaseBotonBS()">Botón BS5</button>
-            </div>
-            <li><b>(dbclick)</b> → Cuando se hace doble clic</li>
-            <li><b>(mouseenter)</b> → Cuando el ratón entra en un área (no se propaga a los elementos hijos)</li>
-            <li><b>(mouseover)</b> → Cuando el ratón entra en un área (se propaga a los elementos hijos)</li>
-            <li><b>(mouseleave)</b> → Cuando el ratón sale de un área</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo 1:</mark>
-                    A continuación se muestran un conjunto de recuadros anidados, uno dentro de otro.
-                    Haciendo uso de <i>(mouseenter)</i>, al entrar en el recuadro padre, éste cambia de color.
-                    Sin embargo, al entrar en los recuadros descendientes (anidados), el color no cambia.
-                    Es decir, el evento no se propaga desde el padre hacia sus descendientes.
-                    Haciendo uso de <i>(mouseleave)</i>, el color del recuadro padre se restaura al salir al exterior
-                    del mismo.
-                </p>
-                <div class="recuadro recMayor" (mouseenter)="cambiaColorRecuadro($event)"
-                    (mouseleave)="devuelveColorRecuadro($event)">
-                    <div class="recuadro recMedio">
-                        <div class="recuadro recMenor"></div>
+        <p style="text-align: justify;">
+            <strong>Algunos eventos en Angular:</strong>
+        <ul style="list-style-type: disc;">
+            <li><b>Eventos del Ratón</b></li><br>
+            <ul style="list-style-type: circle;">
+                <li><b>(click)</b> → Cuando se hace clic</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo:</mark>
+                        Al hacer click en el siguiente botón, éste alterna su estilo de bootstrap
+                    </p>
+                    <button class="btn" [ngClass]="claseBotonBS" (click)="cambiaClaseBotonBS()">Botón BS5</button>
+                </div>
+                <li><b>(dbclick)</b> → Cuando se hace doble clic</li>
+                <li><b>(mouseenter)</b> → Cuando el ratón entra en un área (no se propaga a los elementos hijos)</li>
+                <li><b>(mouseover)</b> → Cuando el ratón entra en un área (se propaga a los elementos hijos)</li>
+                <li><b>(mouseleave)</b> → Cuando el ratón sale de un área</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo 1:</mark>
+                        A continuación se muestran un conjunto de recuadros anidados, uno dentro de otro.
+                        Haciendo uso de <i>(mouseenter)</i>, al entrar en el recuadro padre, éste cambia de color.
+                        Sin embargo, al entrar en los recuadros descendientes (anidados), el color no cambia.
+                        Es decir, el evento no se propaga desde el padre hacia sus descendientes.
+                        Haciendo uso de <i>(mouseleave)</i>, el color del recuadro padre se restaura al salir al
+                        exterior
+                        del mismo.
+                    </p>
+                    <div class="recuadro recMayor" (mouseenter)="cambiaColorRecuadro($event)"
+                        (mouseleave)="devuelveColorRecuadro($event)">
+                        <div class="recuadro recMedio">
+                            <div class="recuadro recMenor"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo 2:</mark>
-                    A continuación se muestra el mismo conjunto de conjunto de recuadros, pero se hace uso de
-                    <i>(mouseover)</i>.
-                    En este caso, al entrar en los elementos anidados, ellos también cambian su color.
-                    Es decir, el evento se propaga desde el padre hacia sus descendientes.
-                    Esta vez, haciendo uso de <i>(mouseleave)</i>, el color de cada recuadro se restaura al salir del
-                    mismo.
-                </p>
-                <div class="recuadro recMayor" (mouseover)="cambiaColorRecuadro($event)"
-                    (mouseleave)="devuelveColorRecuadro($event)">
-                    <div class="recuadro recMedio" (mouseleave)="devuelveColorRecuadro($event)">
-                        <div class="recuadro recMenor" (mouseleave)="devuelveColorRecuadro($event)"></div>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo 2:</mark>
+                        A continuación se muestra el mismo conjunto de conjunto de recuadros, pero se hace uso de
+                        <i>(mouseover)</i>.
+                        En este caso, al entrar en los elementos anidados, ellos también cambian su color.
+                        Es decir, el evento se propaga desde el padre hacia sus descendientes.
+                        Esta vez, haciendo uso de <i>(mouseleave)</i>, el color de cada recuadro se restaura al salir
+                        del
+                        mismo.
+                    </p>
+                    <div class="recuadro recMayor" (mouseover)="cambiaColorRecuadro($event)"
+                        (mouseleave)="devuelveColorRecuadro($event)">
+                        <div class="recuadro recMedio" (mouseleave)="devuelveColorRecuadro($event)">
+                            <div class="recuadro recMenor" (mouseleave)="devuelveColorRecuadro($event)"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <li><b>(contextmenu)</b> → Cuando se hace clic derecho</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo:</mark></p>
-                <div style="border: 1px solid;" (contextmenu)="muestraMensaje()">Haz click derecho en este área</div>
-            </div>
-        </ul>
-        <br>
-        <li><b>Eventos del Teclado</b></li>
-        <ul style="list-style-type: circle;">
-            <li><b>(keydown)</b> → Cuando se pulsa una tecla</li>
-            <li><b>(keyup)</b> → Cuando se suelta una tecla</li>
-            <li><b>(keypress)</b> → Cuando se mantiene presionada una tecla</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo:</mark>
-                    Al escribir en el primer recuadro de texto, el mensaje se reproduce a tiempo real en el segundo
-                    recuadro,
-                    inicialmente vacío. Todo ello ocurre al pulsar cada una de las teclas, haciendo uso de
-                    <i>(keydown)</i>
-                </p>
-                <textarea (keypress)="reproduceMensaje($event)"></textarea>
-                <div style="border: 1px solid; width: 195px; height: 60px;">
-                    {{ mensajeReproducido }}
+                <li><b>(contextmenu)</b> → Cuando se hace clic derecho</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo:</mark></p>
+                    <div style="border: 1px solid;" (contextmenu)="muestraMensaje()">Haz click derecho en este área
+                    </div>
                 </div>
-            </div>
-        </ul>
-        <br>
-        <li><b>Eventos de Entrada</b></li>
-        <ul style="list-style-type: circle;">
-            <li><b>(input)</b> → Cuando el usuario escribe</li>
-            <li><b>(change)</b> → Cuando se cambia el valor o se pierde el foco</li>
-            <li><b>(focus)</b> → Cuando se recibe el foco</li>
-            <li><b>(blur)</b> → Cuando se pierde el foco</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo:</mark>
-                    Al escribir en el input aparece un mensaje indicando tal acción. Se usa <i>(input)</i>.
-                    Al cambiar el foco entre los distintos elementos, aparece un mensaje indicando tal acción. Se usa
-                    <i>(focus)</i>.
-                    Al cambiar entre las opciones del select, aparece un mensaje indicando tal acción. Se usa
-                    <i>(change)</i>.
-                </p>
-                <form>
-                    <label for="inputTexto" class="form-label">Texto de entrada: </label>
-                    <input id="inputTexto" class="form-control" type="text" (input)="mensajeInput()"
-                        (focus)="mensajeFocus()">
+            </ul>
+            <br>
+            <li><b>Eventos del Teclado</b></li>
+            <ul style="list-style-type: circle;">
+                <li><b>(keydown)</b> → Cuando se pulsa una tecla</li>
+                <li><b>(keyup)</b> → Cuando se suelta una tecla</li>
+                <li><b>(keypress)</b> → Cuando se mantiene presionada una tecla</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo:</mark>
+                        Al escribir en el primer recuadro de texto, el mensaje se reproduce a tiempo real en el segundo
+                        recuadro,
+                        inicialmente vacío. Todo ello ocurre al pulsar cada una de las teclas, haciendo uso de
+                        <i>(keydown)</i>
+                    </p>
+                    <textarea (keypress)="reproduceMensaje($event)"></textarea>
+                    <div style="border: 1px solid; width: 195px; height: 60px;">
+                        {{ mensajeReproducido }}
+                    </div>
+                </div>
+            </ul>
+            <br>
+            <li><b>Eventos de Entrada</b></li>
+            <ul style="list-style-type: circle;">
+                <li><b>(input)</b> → Cuando el usuario escribe</li>
+                <li><b>(change)</b> → Cuando se cambia el valor o se pierde el foco</li>
+                <li><b>(focus)</b> → Cuando se recibe el foco</li>
+                <li><b>(blur)</b> → Cuando se pierde el foco</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo:</mark>
+                        Al escribir en el input aparece un mensaje indicando tal acción. Se usa <i>(input)</i>.
+                        Al cambiar el foco entre los distintos elementos, aparece un mensaje indicando tal acción. Se
+                        usa
+                        <i>(focus)</i>.
+                        Al cambiar entre las opciones del select, aparece un mensaje indicando tal acción. Se usa
+                        <i>(change)</i>.
+                    </p>
+                    <form>
+                        <label for="inputTexto" class="form-label">Texto de entrada: </label>
+                        <input id="inputTexto" class="form-control" type="text" (input)="mensajeInput()"
+                            (focus)="mensajeFocus()">
+                        <br>
+                        <label for="selectOpcion" class="form-label">Selecciona una opción</label>
+                        <select id="selectOpcion" class="form-select" (focus)="mensajeFocus()"
+                            (change)="mensajeChange()">
+                            <option>Opción 1</option>
+                            <option>Opción 2</option>
+                            <option>Opción 3</option>
+                        </select>
+                    </form>
                     <br>
-                    <label for="selectOpcion" class="form-label">Selecciona una opción</label>
-                    <select id="selectOpcion" class="form-select" (focus)="mensajeFocus()" (change)="mensajeChange()">
-                        <option>Opción 1</option>
-                        <option>Opción 2</option>
-                        <option>Opción 3</option>
-                    </select>
-                </form>
-                <br>
-                <div id="areaMensajes" style="border: 1px solid;">
-                    {{ mensajeAccion }}
+                    <div id="areaMensajes" style="border: 1px solid;">
+                        {{ mensajeAccion }}
+                    </div>
                 </div>
-            </div>
+            </ul>
+            <br>
+            <li><b>Eventos de Formularios</b></li>
+            <ul style="list-style-type: circle;">
+                <li><b>(submit)</b> → Cuando se envía el formulario</li>
+                <li><b>(reset)</b> → Cuando se restablece el formulario</li>
+                <div class="divEjemplo">
+                    <p><mark>Ejemplo:</mark>
+                        En el apartado de "Formularios", se maneja el evento (reset),
+                        apareciendo un mensaje indicando que el formulario se ha restablecido.
+                    </p>
+                </div>
+            </ul>
         </ul>
         <br>
-        <li><b>Eventos de Formularios</b></li>
-        <ul style="list-style-type: circle;">
-            <li><b>(submit)</b> → Cuando se envía el formulario</li>
-            <li><b>(reset)</b> → Cuando se restablece el formulario</li>
-            <div class="divEjemplo">
-                <p><mark>Ejemplo:</mark>
-                    En el apartado de "Formularios", se maneja el evento (reset),
-                    apareciendo un mensaje indicando que el formulario se ha restablecido.
-                </p>
-            </div>
-        </ul>
-    </ul>
-    <br>
-    <p>Angular maneja muchos eventos más, aunque no son los más habituales. Para más información, consultar la
-        <a href="https://angular.dev/overview">documentación oficial de Angular</a>.
+        <p>Angular maneja muchos eventos más, aunque no son los más habituales. Para más información, consultar la
+            <a href="https://angular.dev/overview">documentación oficial de Angular</a>.
 
-    </p>
+        </p>
 
+    </div>
 </div>
