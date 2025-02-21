@@ -1,4 +1,4 @@
-<form #formulario="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (reset)="mostrarMensajeReset()">
+<form #alumnoForm="ngForm" class="border rounded-3 p-3 border-5" id="formulario" (ngSubmit)="insertarAlumno()">
   <h3 style="text-align: center">FORMULARIOS</h3>
   <fieldset class="border rounded-3 p-3 border-5 mb-5">
     <legend class="float-none w-auto px-3 fw-bold text-dark">
@@ -6,28 +6,16 @@
     </legend>
 
     <div class="mb-3">
-      <label for="nombreAlumno" class="form-label fw-bold">Nombre</label>
-      <input
-        type="text"
-        class="form-control"
-        id="nombreAlumno"
-        [(ngModel)]="registro.nombreAlumno"
-        name="nombreAlumno"
-      />
+      <label for="nombre" class="form-label fw-bold">Nombre</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="alumno.nombre" required/>
     </div>
 
     <div class="mb-3">
-      <label for="telefonoAlumno" class="form-label fw-bold">Telefono</label>
-      <input
-        type="text"
-        class="form-control"
-        id="telefonoAlumno"
-        [(ngModel)]="registro.telefonoAlumno"
-        name="telefonoAlumno"
-      />
+      <label for="telefono" class="form-label fw-bold">Telefono</label>
+      <input type="text" id="telefono" name="telefono" [(ngModel)]="alumno.telefono" required/>
     </div>
 
-    <button type="submit" id="botonInsertarAlumno" name="botonInsertarAlumno">Insertar</button>
+    <button type="submit"  id="botonInsertarAlumno" name="botonInsertarAlumno">Insertar Alumno</button>
 
   </fieldset>
 
@@ -42,7 +30,7 @@
         type="text"
         class="form-control"
         id="nombreProfesor"
-        [(ngModel)]="registro.nombreProfesor"
+
         name="nombreProfesor"
       />
     </div>
@@ -53,7 +41,7 @@
         type="text"
         class="form-control"
         id="telefonoProfesor"
-        [(ngModel)]="registro.telefonoProfesor"
+
         name="telefonoProfesor"
       />
     </div>
@@ -73,7 +61,7 @@
         type="text"
         class="form-control"
         id="nombreCurso"
-        [(ngModel)]="registro.nombreCurso"
+
         name="nombreCurso"
       />
     </div>
@@ -84,32 +72,34 @@
         type="text"
         class="form-control"
         id="codigoCurso"
-        [(ngModel)]="registro.codigoCurso"
+
         name="codigoCurso"
       />
     </div>
 
-    <div>
+    <div class="mb-3">
       <label for="duracionCurso" class="form-label fw-bold">Duracion</label>
       <input
         type="text"
         class="form-control"
         id="duracionCurso"
         name="duracionCurso"
-        [(ngModel)]="registro.duracionCurso"
+
       />
     </div>
 
-    <div>
+    <div class="mb-3">
       <label for="cuotaCurso" class="form-label fw-bold">Cuota</label>
       <input
         type="text"
         class="form-control"
         id="cuotaCurso"
         name="cuotaCurso"
-        [(ngModel)]="registro.cuotaCurso"
+
       />
     </div>
+
+    <button type="submit" id="botonInsertarCurso" name="botonInsertarCurso">Insertar</button>
 
   </fieldset>
 
