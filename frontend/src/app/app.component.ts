@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'ProyectoAngular';
 
 
-  /* VARIABLES Y MÉTODOS DE MENÚ INICIAL CON DIRECTIVA NGIF"
+  /* VARIABLES Y MÉTODOS DE MENÚ INICIAL CON DIRECTIVA NGIF" 
 
   //Creamos una variable booleana iniciada en false y la cambiamos al hacer click
   mostrarTitulo : boolean = true;
