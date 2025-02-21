@@ -10,6 +10,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(), // Para habilitar HttpClient(para que Angular haga peticiones HTTP)
+    // Para habilitar HttpClient(para que Angular haga peticiones HTTP)
+    provideHttpClient(),
   ]
 };
