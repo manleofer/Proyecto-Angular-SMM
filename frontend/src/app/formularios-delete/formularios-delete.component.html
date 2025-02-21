@@ -1,0 +1,17 @@
+<div id="formulariosDelete" class="container">
+    <div id="divDeleteAlumno">
+        <h2>Eliminar Alumno</h2>
+
+        <form (ngSubmit)="eliminarAlumno()">
+            <div class="form-group">
+                <label for="alumno">Seleccionar Alumno</label>
+                <select id="alumno" [(ngModel)]="idSeleccionado" name="alumno" class="form-control" required>
+                    <option value="0" disabled>Selecciona un alumno</option>
+                    <option *ngFor="let alumno of alumnos" [value]="alumno.id">{{ alumno.nombre }}</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+</div>
