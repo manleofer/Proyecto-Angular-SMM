@@ -9,6 +9,7 @@ const profesorController = require('../controllers/profesorController');
 
 //Definición de rutas para las operaciones CRUD
 router.post('/insert', profesorController.createProfesor);
+router.delete('/delete/:idProfesor', profesorController.deleteProfesor);
 
 
 
