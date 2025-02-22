@@ -10,7 +10,7 @@
                 </legend>
 
                 <div class="form-group">
-                    <label for="selectAlumno">Seleccionar Alumno</label>
+                    <label for="selectAlumno">Seleccionar alumno:</label>
                     <select id="selectAlumno" [(ngModel)]="idSeleccionado" name="idAlumno" class="form-control"
                         required>
                         <option value="0" disabled>Selecciona un alumno</option>
@@ -30,11 +30,31 @@
                 </legend>
 
                 <div class="form-group">
-                    <label for="selectAlumno">Seleccionar Profesor</label>
-                    <select id="selectAlumno" [(ngModel)]="idSeleccionado" name="idProfesor" class="form-control"
+                    <label for="selectProfesor">Seleccionar profesor:</label>
+                    <select id="selectProfesor" [(ngModel)]="idSeleccionado" name="idProfesor" class="form-control"
                         required>
-                        <option value="0" disabled>Selecciona un alumno</option>
+                        <option value="0" disabled>Selecciona un profesor</option>
                         <option *ngFor="let prof of profesores" [value]="prof.idProfesor">{{ prof.nombre }}</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-danger" [disabled]="!idSeleccionado">Eliminar</button>
+            </fieldset>
+        </form>
+    </div>
+    <div id="divDeleteCurso">
+        <form (ngSubmit)="eliminarCurso()">
+            <fieldset class="border rounded-3 p-3 border-5 mb-5">
+                <legend class="float-none w-auto px-3 fw-bold text-dark">
+                    Eliminar curso
+                </legend>
+
+                <div class="form-group">
+                    <label for="selectCurso">Seleccionar curso:</label>
+                    <select id="selectCurso" [(ngModel)]="idSeleccionado" name="idCurso" class="form-control"
+                        required>
+                        <option value="0" disabled>Selecciona un curso</option>
+                        <option *ngFor="let curso of cursos" [value]="curso.idCurso">{{ curso.nombre }}</option>
                     </select>
                 </div>
                 <br>

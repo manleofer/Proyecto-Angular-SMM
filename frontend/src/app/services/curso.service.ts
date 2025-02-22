@@ -13,9 +13,20 @@ export class CursoService {
   //Se pasa al constructor una instancia de Angular para hacer solicitudes HTTP desde el frontend hacia el backend
   constructor(private http: HttpClient) { }
 
+  //Método para obtener todos los cursos
+  getCursos(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/all`);
+  }
+
   //Método para insertar un curso
   insertarCurso(curso: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/insert`, curso);
+  }
+
+
+  // Método para eliminar un alumno
+  deleteCurso(idCurso: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${idCurso}`);
   }
 
 }
