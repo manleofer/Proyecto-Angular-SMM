@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { firstValueFrom } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formularios-delete',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './formularios-delete.component.html',
   styleUrl: './formularios-delete.component.css'
 })
@@ -27,6 +28,7 @@ export class FormulariosDeleteComponent implements OnInit {
     this.alumnoService.getAlumnos().subscribe({
       next: (data) => {
         console.log('Alumnos en BD: ', data);
+        this.alumnos = data;
       },
       error: (error) => {
         console.error('Error al obtener los alumnos.', error);
@@ -41,7 +43,7 @@ export class FormulariosDeleteComponent implements OnInit {
     if (this.idSeleccionado) {
       this.alumnoService.deleteAlumno(this.idSeleccionado).subscribe({
         next: (response) => {
-          this.alumnos = this.alumnos.filter(alumno => alumno.idAlumno !== this.idSeleccionado); // Eliminarlo del listado
+          this.ngOnInit();  // Vuelvo a recargar los alumnos de la BD
           alert('Alumno eliminado correctamente');
         },
         error: (error) => {

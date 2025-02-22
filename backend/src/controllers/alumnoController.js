@@ -3,6 +3,14 @@ const bbdd = require("../../config/bbdd");
 
 //CONSULTA ALUMNO
 const getAlumnos = (req, res) => {
+  const sql = "SELECT * FROM alumno";
+
+  bbdd.query(sql, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Error al obtener alumnos", err });
+    }
+    res.status(200).json(results);
+  });
 };
 
 //CREAR ALUMNO
@@ -55,4 +63,4 @@ const deleteAlumno = (req, res) => {
 };
 
 //Exportar los métodos
-module.exports = { createAlumno, deleteAlumno };
+module.exports = { getAlumnos, createAlumno, deleteAlumno };
