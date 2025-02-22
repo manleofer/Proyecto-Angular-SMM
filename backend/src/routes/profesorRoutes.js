@@ -8,6 +8,7 @@ const router = express.Router();
 const profesorController = require('../controllers/profesorController');
 
 //Definición de rutas para las operaciones CRUD
+router.get('/all', profesorController.getProfesores);
 router.post('/insert', profesorController.createProfesor);
 router.delete('/delete/:idProfesor', profesorController.deleteProfesor);
 

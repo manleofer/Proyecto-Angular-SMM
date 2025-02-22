@@ -47,14 +47,13 @@ const deleteProfesor = (req, res) => {
     // Intrucción SQL para eliminar el profesor por idProfesor
     const query = "DELETE FROM profesor WHERE idProfesor = ?";
   
-    bbdd.query(query, [idprofesor], (error, resultado) => {
+    bbdd.query(query, [idProfesor], (error, resultado) => {
       if (error) {
         return res
           .status(500)
           .json({ message: "Error al eliminar el profesor", error });
       }
-  
-      if (resultado.affectedRows === 0) {
+        if (resultado.affectedRows === 0) {
         //Si la instrucción DELETE no afecta a ningún registro significa que el profesor no existe
         return res.status(404).json({ message: "Profesor no encontrado" });
       }

@@ -49,7 +49,6 @@ export class FormulariosDeleteComponent implements OnInit {
     });
   }
 
-
   //Método para borrar alumno
   eliminarAlumno(): void {
     if (this.idSeleccionado) {
