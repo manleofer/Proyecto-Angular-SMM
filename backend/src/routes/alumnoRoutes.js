@@ -23,7 +23,7 @@ router.post("/insert", (req, res) => {
 });
 
 // Obtener listado de alumnos
-router.get("/listado", (req, res) => {
+router.get("/all", (req, res) => {
     const sql = "SELECT * FROM alumno";
 
     bbdd.query(sql, (err, results) => {

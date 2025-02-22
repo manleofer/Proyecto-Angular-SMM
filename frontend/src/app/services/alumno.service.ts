@@ -18,6 +18,6 @@ export class AlumnoService {
 
   //Método que obtiene los alumnos desde el backend
   getAlumnos(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/listado`);
+    return this.http.get<any[]>(`${this.apiUrl}/all`);
   }
 }
