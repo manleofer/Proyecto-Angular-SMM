@@ -1,0 +1,17 @@
+<h2>Listado de Alumnos</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>TELÉFONO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alumno of alumnos">
+      <td>{{alumno.idAlumno}}</td>
+      <td>{{alumno.nombre}}</td>
+      <td>{{alumno.telefono}}</td>
+    </tr>
+  </tbody>
+</table>
