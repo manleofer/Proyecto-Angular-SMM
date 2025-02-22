@@ -24,9 +24,9 @@ router.post("/insert", (req, res) => {
 
 // Obtener listado de alumnos
 router.get("/listado", (req, res) => {
-    const sql = "SELECT * FROM alumnos";
+    const sql = "SELECT * FROM alumno";
 
-    db.query(sql, (err, results) => {
+    bbdd.query(sql, (err, results) => {
         if (err) {
             return res.status(500).json({ error: "Error al obtener alumnos", err });
         }
