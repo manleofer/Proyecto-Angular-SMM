@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
-import { firstValueFrom } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ProfesorService } from '../../services/profesor.service';
 
 @Component({
   selector: 'app-formularios-delete',
@@ -12,19 +12,22 @@ import { CommonModule } from '@angular/common';
 })
 
 export class FormulariosDeleteComponent implements OnInit {
-  //Creo el array donde almacenar los alumnos que recibo del backend
+  //Creo el array donde almacenar los alumnos/profesores/cursos que recibo del backend
   alumnos: any[] = [];
+  profesores: any[] = [];
 
   //Creo variable para almacenar el idAlumno del alumno seleccionado
   idSeleccionado: string = "";
 
-  //Inyección del servicio
-  constructor(private alumnoService: AlumnoService) { }
+  //Inyección de servicios
+  constructor(
+    private alumnoService: AlumnoService,
+    private profesorService: ProfesorService) { }
 
 
   //Métodos que se ejecutan al cargar el componente
   ngOnInit(): void {
-    // Obtener los alumnos existentees en BD
+    // Obtener los alumnos existentes en BD
     this.alumnoService.getAlumnos().subscribe({
       next: (data) => {
         console.log('Alumnos en BD: ', data);
@@ -34,11 +37,20 @@ export class FormulariosDeleteComponent implements OnInit {
         console.error('Error al obtener los alumnos.', error);
       }
     });
+    // Obtener los profesores existentes en BD
+    this.profesorService.getProfesores().subscribe({
+      next: (data) => {
+        console.log('Profesores en BD: ', data);
+        this.profesores = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener los profesores.', error);
+      }
+    });
   }
 
 
   //Método para borrar alumno
-
   eliminarAlumno(): void {
     if (this.idSeleccionado) {
       this.alumnoService.deleteAlumno(this.idSeleccionado).subscribe({
@@ -48,7 +60,7 @@ export class FormulariosDeleteComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error al eliminar el alumno', error);
-          alert('Error al eliminar el alumno');          
+          alert('Error al eliminar el alumno');
         }
       });
     } else {
@@ -56,39 +68,22 @@ export class FormulariosDeleteComponent implements OnInit {
     }
   }
 
-
-  /*
-
-  ngOnInit(): void {
-    this.getAlumnos();
-  }
-
-  //Método para obtener todos los alumnos desde el backend
-  async getAlumnos(): Promise<void> {
-    try {
-      const response = await firstValueFrom(this.alumnoService.getAlumnos());
-      this.alumnos = response;  
-    } catch (error) {
-      alert('Error al cargar los alumnos');
+  //Método para borrar profesor
+  eliminarProfesor(): void {
+    if (this.idSeleccionado) {
+      this.profesorService.deleteProfesor(this.idSeleccionado).subscribe({
+        next: (response) => {
+          this.ngOnInit();  // Vuelvo a recargar los profesores de la BD
+          alert('Profesor eliminado correctamente');
+        },
+        error: (error) => {
+          console.error('Error al eliminar el profesor', error);
+          alert('Error al eliminar el profesor');
+        }
+      });
+    } else {
+      alert('Es necesario seleccionar un profesor.');
     }
   }
-
-
-  // Método para eliminar el alumno seleccionado
-  async eliminarAlumno(): Promise<void> {
-    if (this.idSeleccionado === null) {
-      alert('Debe seleccionar un alumno');  
-      return;
-    }
-      try {
-      const response = await firstValueFrom(this.alumnoService.deleteAlumno(this.idSeleccionado));
-      alert('Alumno eliminado correctamente');
-      this.getAlumnos();
-    } catch (error) {
-      alert('Error al eliminar el alumno'); 
-    }
-  }
-*/
-
 
 }
