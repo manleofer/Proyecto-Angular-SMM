@@ -51,7 +51,7 @@ export class AppComponent {
     this.mostrarEventos = true;
     this.mostrarTitulo = false;
     this.mostrarDirectivas = false;
-    this.mostrarComponentes = false;   
+    this.mostrarComponentes = false;
     this.mostrarFormularios = false;
   }
   fMostrarFormularios(){
@@ -60,7 +60,7 @@ export class AppComponent {
     this.mostrarDirectivas = false;
     this.mostrarComponentes = false;
     this.mostrarEventos = false;
-    
+
   }
   fMostrarEnrutamiento(){
     this.mostrarFormularios = false;

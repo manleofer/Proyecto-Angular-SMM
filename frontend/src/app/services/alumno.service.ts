@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
+
 export class AlumnoService {
 
   private apiUrl = 'http://localhost:3000/api/alumnos'; // URL de la API en backend
@@ -19,6 +20,10 @@ export class AlumnoService {
     return this.http.get<any>(this.apiUrl);
   }
   
+  //Método para insertar un alumno
+  insertarAlumno(alumno: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/insert`, alumno);
+    }
 
 
   // Método para eliminar un alumno

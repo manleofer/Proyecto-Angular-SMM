@@ -1,0 +1,22 @@
+const express = require("express");
+const router = express.Router();
+const bbdd = require("../config/bbdd");
+
+//Añadir un profesor en la bbdd
+router.post("/insert", (req, res) => {
+    console.log("Datos recibidos:", req.body); //
+    const {nombre, codigo, duracion, cuota} = req.body;
+
+    if(!nombre || !codigo || !duracion || !cuota) {
+        return res.status(400).json({message: "Todos los campos son obligatorios"});
+    }
+
+    const sql = "INSERT INTO curso (nombre, codigo, duracion, cuota) VALUES (?, ?, ?, ?)";
+    bbdd.query(sql, [nombre, codigo, duracion, cuota], (error, result) => {
+        if(error) {
+            return res.status(500).json({ error: "Error al insertar el curso", details: error });
+        }
+        res.status(201).json({ message: "Curso insertado con éxito", idCurso: result.insertId });
+    });
+});
+module.exports = router;
