@@ -28,10 +28,9 @@ const createAlumno = (req, res) => {
 
 
 
-
-
-
 //MODIFICAR ALUMNO
+
+
 
 
 /*
