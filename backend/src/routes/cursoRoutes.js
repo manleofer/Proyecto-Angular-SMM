@@ -8,12 +8,12 @@ const router = express.Router();
 const cursoController = require('../controllers/cursoController');
 
 //Definición de rutas para las operaciones CRUD
+outer.get('/all', cursoController.createCurso);
 router.post('/insert', cursoController.createCurso);
+router.delete('/delete/:idCurso', profesorCurso.deleteCurso);
 
 
-/*
-router.delete('/delete:id', alumnoController.deleteAlumno);
-*/
+
 
 //Exportación del enrutador
 module.exports = router;
