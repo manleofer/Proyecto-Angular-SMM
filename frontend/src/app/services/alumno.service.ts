@@ -15,4 +15,9 @@ export class AlumnoService {
   insertarAlumno(alumno: any): Observable<any>{
   return this.http.post(`${this.apiUrl}/insert`, alumno);
   }
+
+  //Método que obtiene los alumnos desde el backend
+  getAlumnos(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/all`);
+  }
 }

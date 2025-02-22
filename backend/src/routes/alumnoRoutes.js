@@ -18,5 +18,20 @@ router.post("/insert", (req, res) => {
         }
         res.status(201).json({ message: "Alumno insertado con éxito", idAlumno: result.insertId });
     });
+
+    
 });
+
+// Obtener listado de alumnos
+router.get("/all", (req, res) => {
+    const sql = "SELECT * FROM alumno";
+
+    bbdd.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: "Error al obtener alumnos", err });
+        }
+        res.status(200).json(results);
+    });
+});
+
 module.exports = router;
