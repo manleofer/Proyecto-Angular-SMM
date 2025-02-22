@@ -14,12 +14,49 @@ export class FormulariosDeleteComponent implements OnInit {
   //Creo el array donde almacenar los alumnos que recibo del backend
   alumnos: any[] = [];
 
-  idSeleccionado: number = 0;
+  //Creo variable para almacenar el idAlumno del alumno seleccionado
+  idSeleccionado: string = "";
 
-  //Inyección de servicios
+  //Inyección del servicio
   constructor(private alumnoService: AlumnoService) { }
 
+
   //Métodos que se ejecutan al cargar el componente
+  ngOnInit(): void {
+    // Obtener los alumnos existentees en BD
+    this.alumnoService.getAlumnos().subscribe({
+      next: (data) => {
+        console.log('Alumnos en BD: ', data);
+      },
+      error: (error) => {
+        console.error('Error al obtener los alumnos.', error);
+      }
+    });
+  }
+
+
+  //Método para borrar alumno
+
+  eliminarAlumno(): void {
+    if (this.idSeleccionado) {
+      this.alumnoService.deleteAlumno(this.idSeleccionado).subscribe({
+        next: (response) => {
+          this.alumnos = this.alumnos.filter(alumno => alumno.idAlumno !== this.idSeleccionado); // Eliminarlo del listado
+          alert('Alumno eliminado correctamente');
+        },
+        error: (error) => {
+          console.error('Error al eliminar el alumno', error);
+          alert('Error al eliminar el alumno');          
+        }
+      });
+    } else {
+      alert('Es necesario seleccionar un alumno.');
+    }
+  }
+
+
+  /*
+
   ngOnInit(): void {
     this.getAlumnos();
   }
@@ -49,4 +86,7 @@ export class FormulariosDeleteComponent implements OnInit {
       alert('Error al eliminar el alumno'); 
     }
   }
+*/
+
+
 }
