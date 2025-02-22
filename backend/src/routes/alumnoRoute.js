@@ -5,12 +5,15 @@ const express = require('express');
 const router = express.Router();
 
 //Importación del controlador
-const alumnoController = require('../controladores/alumnoController');
-
+const alumnoController = require('../controllers/alumnoController');
 
 //Definición de rutas para las operaciones CRUD
-router.delete('/delete:id', alumnoController.deleteAlumno);
+router.post('/insert', alumnoController.createAlumno);
 
+
+/*
+router.delete('/delete:id', alumnoController.deleteAlumno);
+*/
 
 //Exportación del enrutador
 module.exports = router;

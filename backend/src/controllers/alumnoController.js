@@ -6,14 +6,35 @@ const bbdd = require("../../config/bbdd");
 
 
 
+
 //CREAR ALUMNO
+const createAlumno = (req, res) => {
+    console.log("Datos recibidos:", req.body);
+    const {nombre, telefono} = req.body;
+
+    if(!nombre || !telefono) {
+        return res.status(400).json({message: "Todos los campos son obligatorios"});
+    }
+
+    const sql = "INSERT INTO alumno (nombre, telefono) VALUES (?, ?)";
+    bbdd.query(sql, [nombre, telefono], (error, result) => {
+        if(error) {
+            return res.status(500).json({ error: "Error al insertar el alumno", details: error });
+        }
+        res.status(201).json({ message: "Alumno insertado con éxito", idAlumno: result.insertId });
+    });
+};
+
+
+
+
 
 
 
 //MODIFICAR ALUMNO
 
 
-
+/*
 //BORRAR ALUMNO
 function deleteAlumno(req, res) {
   const id = req.params.id; //Captura el parámetro de la ruta
@@ -32,6 +53,8 @@ function deleteAlumno(req, res) {
     }
   );
 }
+*/
+
 
 //Exportar los métodos
-module.exports = { deleteAlumnos };
+module.exports = { createAlumno };

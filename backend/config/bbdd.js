@@ -1,10 +1,9 @@
 //Importar parquete mysql para poder realizar la conexión
 const mysql = require("mysql2");
 
-//Crear la coneción con los parámetros necesarios
+//Crear la conexión con los parámetros necesarios
 const bbdd = mysql.createConnection({
     host: "localhost",
-    port: 3307,
     user: "usuario",
     password: "usuario",
     database: "academia_programacion"
@@ -21,3 +20,7 @@ bbdd.connect((error) => {
 
 //Exportar conexión para usarla en otros archivos
 module.exports = bbdd;
+
+
+
+
