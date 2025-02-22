@@ -39,7 +39,27 @@ const createAlumno = (req, res) => {
 };
 
 //MODIFICAR ALUMNO
+const updateAlumno = (req, res) => {
+  const { idAlumno } = req.params;
+  const { nombre, telefono } = req.body;
 
+  if (!nombre || !telefono) {
+    return res.status(400).json({ message: "Todos los campos son obligatorios" });
+  }
+
+  const sql = "UPDATE alumno SET nombre = ?, telefono = ? WHERE idAlumno = ?";
+  bbdd.query(sql, [nombre, telefono, idAlumno], (error, result) => {
+    if (error) {
+      return res.status(500).json({ message: "Error al actualizar el alumno", error });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Alumno no encontrado" });
+    }
+
+    res.status(200).json({ message: "Alumno actualizado correctamente" });
+  });
+};
 //BORRAR ALUMNO
 const deleteAlumno = (req, res) => {
   const { idAlumno } = req.params; // Recupero el idAlumno que se manda en la solicitud (desde frontend)
@@ -63,4 +83,4 @@ const deleteAlumno = (req, res) => {
 };
 
 //Exportar los métodos
-module.exports = { getAlumnos, createAlumno, deleteAlumno };
+module.exports = { getAlumnos, createAlumno, updateAlumno, deleteAlumno };

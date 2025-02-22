@@ -10,8 +10,8 @@ const cursoController = require('../controllers/cursoController');
 //Definición de rutas para las operaciones CRUD
 router.get('/all', cursoController.getCursos);
 router.post('/insert', cursoController.createCurso);
+router.put('update/:idCurso', cursoController.updateCurso);
 router.delete('/delete/:idCurso', cursoController.deleteCurso);
-
 
 
 

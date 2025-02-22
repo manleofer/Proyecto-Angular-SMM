@@ -10,6 +10,7 @@ const alumnoController = require('../controllers/alumnoController');
 //Definición de rutas para las operaciones CRUD
 router.get('/all', alumnoController.getAlumnos)
 router.post('/insert', alumnoController.createAlumno);
+router.put('/update/:idAlumno', alumnoController.updateAlumno)
 router.delete('/delete/:idAlumno', alumnoController.deleteAlumno);
 
 
