@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AlumnoService } from '../services/alumno.service';
-import { ProfesorService } from '../services/profesor.service';
-import { CursoService } from '../services/curso.service';
+import { AlumnoService } from '../../services/alumno.service';
+import { ProfesorService } from '../../services/profesor.service';
+import { CursoService } from '../../services/curso.service';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 import { firstValueFrom } from 'rxjs';
 

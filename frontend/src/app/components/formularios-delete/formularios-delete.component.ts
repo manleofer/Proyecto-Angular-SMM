@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlumnoService } from '../services/alumno.service';
+import { AlumnoService } from '../../services/alumno.service';
 import { firstValueFrom } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
