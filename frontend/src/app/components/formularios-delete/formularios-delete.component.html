@@ -11,14 +11,14 @@
 
                 <div class="form-group">
                     <label for="selectAlumno">Seleccionar alumno:</label>
-                    <select id="selectAlumno" [(ngModel)]="idSeleccionado" name="idAlumno" class="form-control"
+                    <select id="selectAlumno" [(ngModel)]="idAlumnoSelect" name="idAlumno" class="form-control"
                         required>
                         <option value="0" disabled>Selecciona un alumno</option>
                         <option *ngFor="let alumno of alumnos" [value]="alumno.idAlumno">{{ alumno.nombre }}</option>
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger" [disabled]="!idSeleccionado">Eliminar</button>
+                <button type="submit" class="btn btn-danger" [disabled]="!idAlumnoSelect">Eliminar</button>
             </fieldset>
         </form>
     </div>
@@ -31,14 +31,14 @@
 
                 <div class="form-group">
                     <label for="selectProfesor">Seleccionar profesor:</label>
-                    <select id="selectProfesor" [(ngModel)]="idSeleccionado" name="idProfesor" class="form-control"
+                    <select id="selectProfesor" [(ngModel)]="idProfesorSelect" name="idProfesor" class="form-control"
                         required>
                         <option value="0" disabled>Selecciona un profesor</option>
                         <option *ngFor="let prof of profesores" [value]="prof.idProfesor">{{ prof.nombre }}</option>
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger" [disabled]="!idSeleccionado">Eliminar</button>
+                <button type="submit" class="btn btn-danger" [disabled]="!idProfesorSelect">Eliminar</button>
             </fieldset>
         </form>
     </div>
@@ -51,14 +51,14 @@
 
                 <div class="form-group">
                     <label for="selectCurso">Seleccionar curso:</label>
-                    <select id="selectCurso" [(ngModel)]="idSeleccionado" name="idCurso" class="form-control"
+                    <select id="selectCurso" [(ngModel)]="idCursoSelect" name="idCurso" class="form-control"
                         required>
                         <option value="0" disabled>Selecciona un curso</option>
                         <option *ngFor="let curso of cursos" [value]="curso.idCurso">{{ curso.nombre }}</option>
                     </select>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger" [disabled]="!idSeleccionado">Eliminar</button>
+                <button type="submit" class="btn btn-danger" [disabled]="!idCursoSelect">Eliminar</button>
             </fieldset>
         </form>
     </div>

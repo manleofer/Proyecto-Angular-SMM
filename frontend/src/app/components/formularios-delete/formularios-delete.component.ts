@@ -19,7 +19,9 @@ export class FormulariosDeleteComponent implements OnInit {
   cursos: any[] = [];
 
   //Creo variable para almacenar el idAlumno del alumno seleccionado
-  idSeleccionado: string = "";
+  idAlumnoSelect: string = "";
+  idProfesorSelect: string = "";
+  idCursoSelect: string = "";
 
   //Inyección de servicios
   constructor(
@@ -55,7 +57,7 @@ export class FormulariosDeleteComponent implements OnInit {
     this.cursoService.getCursos().subscribe({
       next: (data) => {
         console.log('Cursos en BD: ', data);
-        this.profesores = data;
+        this.cursos = data;
       },
       error: (error) => {
         console.error('Error al obtener los cursos.', error);
@@ -65,8 +67,8 @@ export class FormulariosDeleteComponent implements OnInit {
 
   //Método para borrar alumno
   eliminarAlumno(): void {
-    if (this.idSeleccionado) {
-      this.alumnoService.deleteAlumno(this.idSeleccionado).subscribe({
+    if (this.idAlumnoSelect) {
+      this.alumnoService.deleteAlumno(this.idAlumnoSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los alumnos de la BD
           alert('Alumno eliminado correctamente');
@@ -83,8 +85,8 @@ export class FormulariosDeleteComponent implements OnInit {
 
   //Método para borrar profesor
   eliminarProfesor(): void {
-    if (this.idSeleccionado) {
-      this.profesorService.deleteProfesor(this.idSeleccionado).subscribe({
+    if (this.idProfesorSelect) {
+      this.profesorService.deleteProfesor(this.idProfesorSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los profesores de la BD
           alert('Profesor eliminado correctamente');
@@ -102,8 +104,8 @@ export class FormulariosDeleteComponent implements OnInit {
 
   //Método para borrar curso
   eliminarCurso(): void {
-    if (this.idSeleccionado) {
-      this.cursoService.deleteCurso(this.idSeleccionado).subscribe({
+    if (this.idCursoSelect) {
+      this.cursoService.deleteCurso(this.idCursoSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los cursos de la BD
           alert('Curso eliminado correctamente');

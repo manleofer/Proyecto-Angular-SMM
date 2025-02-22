@@ -52,7 +52,7 @@ const deleteCurso = (req, res) => {
   // Intrucción SQL para eliminar el profesor por idCurso
   const query = "DELETE FROM curso WHERE idCurso = ?";
 
-  bbdd.query(query, [idProfesor], (error, resultado) => {
+  bbdd.query(query, [idCurso], (error, resultado) => {
     if (error) {
       return res
         .status(500)
