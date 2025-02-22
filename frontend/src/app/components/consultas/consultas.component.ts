@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { AlumnoService } from '../services/alumno.service';
+import { AlumnoService } from '../../services/alumno.service';
 import { lastValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
 

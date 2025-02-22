@@ -1,0 +1,25 @@
+<div id="formulariosDelete" class="container">
+    <h2>OPERACIONES DELETE</h2>
+    <p>A continuación se muestran distintos formularios para eliminar alumnos, profesores y/o cursos:</p>
+    
+    <div id="divDeleteAlumno">
+        <form (ngSubmit)="eliminarAlumno()">
+            <fieldset class="border rounded-3 p-3 border-5 mb-5">
+                <legend class="float-none w-auto px-3 fw-bold text-dark">
+                    Eliminar alumno
+                </legend>
+
+                <div class="form-group">
+                    <label for="selectAlumno">Seleccionar Alumno</label>
+                    <select id="selectAlumno" [(ngModel)]="idSeleccionado" name="idAlumno" class="form-control"
+                        required>
+                        <option value="0" disabled>Selecciona un alumno</option>
+                        <option *ngFor="let alumno of alumnos" [value]="alumno.idAlumno">{{ alumno.nombre }}</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-danger" [disabled]="!idSeleccionado">Eliminar</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

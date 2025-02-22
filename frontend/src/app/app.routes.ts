@@ -1,12 +1,12 @@
 // Fichero en el que se definen rutas, apuntando a componentes existentes
 import { Routes } from '@angular/router';
-import { DirectivasComponent } from './directivas/directivas.component';
-import { ComponentesComponent } from './componentes/componentes.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { EnrutamientoComponent } from './enrutamiento/enrutamiento.component';
-import { AccesoDatosComponent } from './acceso-datos/acceso-datos.component';
-import { TituloComponent } from './titulo/titulo.component';
+import { DirectivasComponent } from './components/directivas/directivas.component';
+import { ComponentesComponent } from './components/componentes/componentes.component';
+import { FormularioComponent } from './components/formulario/formulario.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { EnrutamientoComponent } from './components/enrutamiento/enrutamiento.component';
+import { AccesoDatosComponent } from './components/acceso-datos/acceso-datos.component';
+import { TituloComponent } from './components/titulo/titulo.component';
 
 // Las rutas se almacenan en un array de tipo Routes
 export const rutas: Routes = [

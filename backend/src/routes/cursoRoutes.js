@@ -1,22 +1,19 @@
-const express = require("express");
+//Inmportación del módulo "express" que facilita el manejo de rutas y solicitudes HTTP
+const express = require('express');
+
+//Creación de enrutador (manejará las rutas)
 const router = express.Router();
-const bbdd = require("../config/bbdd");
 
-//Añadir un profesor en la bbdd
-router.post("/insert", (req, res) => {
-    console.log("Datos recibidos:", req.body); //
-    const {nombre, codigo, duracion, cuota} = req.body;
+//Importación del controlador
+const cursoController = require('../controllers/cursoController');
 
-    if(!nombre || !codigo || !duracion || !cuota) {
-        return res.status(400).json({message: "Todos los campos son obligatorios"});
-    }
+//Definición de rutas para las operaciones CRUD
+router.post('/insert', cursoController.createCurso);
 
-    const sql = "INSERT INTO curso (nombre, codigo, duracion, cuota) VALUES (?, ?, ?, ?)";
-    bbdd.query(sql, [nombre, codigo, duracion, cuota], (error, result) => {
-        if(error) {
-            return res.status(500).json({ error: "Error al insertar el curso", details: error });
-        }
-        res.status(201).json({ message: "Curso insertado con éxito", idCurso: result.insertId });
-    });
-});
+
+/*
+router.delete('/delete:id', alumnoController.deleteAlumno);
+*/
+
+//Exportación del enrutador
 module.exports = router;

@@ -1,37 +1,17 @@
-const express = require("express");
+//Inmportación del módulo "express" que facilita el manejo de rutas y solicitudes HTTP
+const express = require('express');
+
+//Creación de enrutador (manejará las rutas)
 const router = express.Router();
-const bbdd = require("../config/bbdd");
 
-//Añadir un alumno en la bbdd
-router.post("/insert", (req, res) => {
-    console.log("Datos recibidos:", req.body); //
-    const {nombre, telefono} = req.body;
+//Importación del controlador
+const alumnoController = require('../controllers/alumnoController');
 
-    if(!nombre || !telefono) {
-        return res.status(400).json({message: "Todos los campos son obligatorios"});
-    }
+//Definición de rutas para las operaciones CRUD
+router.get('/all', alumnoController.getAlumnos)
+router.post('/insert', alumnoController.createAlumno);
+router.delete('/delete/:idAlumno', alumnoController.deleteAlumno);
 
-    const sql = "INSERT INTO alumno (nombre, telefono) VALUES (?, ?)";
-    bbdd.query(sql, [nombre, telefono], (error, result) => {
-        if(error) {
-            return res.status(500).json({ error: "Error al insertar el alumno", details: error });
-        }
-        res.status(201).json({ message: "Alumno insertado con éxito", idAlumno: result.insertId });
-    });
 
-    
-});
-
-// Obtener listado de alumnos
-router.get("/all", (req, res) => {
-    const sql = "SELECT * FROM alumno";
-
-    bbdd.query(sql, (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: "Error al obtener alumnos", err });
-        }
-        res.status(200).json(results);
-    });
-});
-
+//Exportación del enrutador
 module.exports = router;
