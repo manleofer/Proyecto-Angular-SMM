@@ -1,0 +1,108 @@
+<div id="formulariosModificar" class="container">
+  <h2>OPERACIONES UPDATE (MODIFICAR)</h2>
+  <p>A continuación se muestran distintos formularios para modificar alumnos, profesores y/o cursos:</p>
+  <br>
+
+  <!-- Modificar Alumno -->
+  <div id="divModificarAlumno">
+    <form #alumnoForm="ngForm" class="border rounded-3 p-3 border-5" id="formularioModificarAlumno" (ngSubmit)="modificarAlumno()">
+      <h3 style="text-align: center">FORMULARIO MODIFICAR ALUMNO</h3>
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend class="float-none w-auto px-3 fw-bold text-dark">Alumno</legend>
+
+        <div class="mb-3">
+          <label for="alumno" class="form-label fw-bold">Seleccionar Alumno</label>
+          <select class="form-select" id="alumno" [(ngModel)]="idAlumnoSelect" name="idAlumnoSelect" (change)="seleccionarAlumno(idAlumnoSelect)" required>
+            <option *ngFor="let alumno of alumnos" [value]="alumno.idAlumno">
+              {{ alumno.nombre }} - {{ alumno.telefono }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="nombreAlumno" class="form-label fw-bold">Nombre</label>
+          <input type="text" class="form-control" id="nombreAlumno" name="nombreAlumno" [(ngModel)]="alumno.nombre" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="telefonoAlumno" class="form-label fw-bold">Teléfono</label>
+          <input type="text" class="form-control" id="telefonoAlumno" name="telefonoAlumno" [(ngModel)]="alumno.telefono" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="botonModificarAlumno" name="botonModificarAlumno">Modificar Alumno</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- Modificar Profesor -->
+  <div id="divModificarProfesor">
+    <form #profesorForm="ngForm" class="border rounded-3 p-3 border-5" id="formularioModificarProfesor" (ngSubmit)="modificarProfesor()">
+      <h3 style="text-align: center">FORMULARIO MODIFICAR PROFESOR</h3>
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend class="float-none w-auto px-3 fw-bold text-dark">Profesor</legend>
+
+        <div class="mb-3">
+          <label for="profesor" class="form-label fw-bold">Seleccionar Profesor</label>
+          <select class="form-select" id="profesor" [(ngModel)]="idProfesorSelect" name="idProfesorSelect" (change)="seleccionarProfesor(idProfesorSelect)" required>
+            <option *ngFor="let profesor of profesores" [value]="profesor.idProfesor">
+              {{ profesor.nombre }} - {{ profesor.telefono }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="nombreProfesor" class="form-label fw-bold">Nombre</label>
+          <input type="text" class="form-control" id="nombreProfesor" name="nombreProfesor" [(ngModel)]="profesor.nombre" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="telefonoProfesor" class="form-label fw-bold">Teléfono</label>
+          <input type="text" class="form-control" id="telefonoProfesor" name="telefonoProfesor" [(ngModel)]="profesor.telefono" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="botonModificarProfesor" name="botonModificarProfesor">Modificar Profesor</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- Modificar Curso -->
+  <div id="divModificarCurso">
+    <form #cursoForm="ngForm" class="border rounded-3 p-3 border-5" id="formularioModificarCurso" (ngSubmit)="modificarCurso()">
+      <h3 style="text-align: center">FORMULARIO MODIFICAR CURSO</h3>
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend class="float-none w-auto px-3 fw-bold text-dark">Curso</legend>
+
+        <div class="mb-3">
+          <label for="curso" class="form-label fw-bold">Seleccionar Curso</label>
+          <select class="form-select" id="curso" [(ngModel)]="idCursoSelect" name="idCursoSelect" (change)="seleccionarCurso(idCursoSelect)" required>
+            <option *ngFor="let curso of cursos" [value]="curso.idCurso">
+              {{ curso.nombre }} - {{ curso.codigo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="nombreCurso" class="form-label fw-bold">Nombre</label>
+          <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" [(ngModel)]="curso.nombre" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="codigoCurso" class="form-label fw-bold">Código</label>
+          <input type="text" class="form-control" id="codigoCurso" name="codigoCurso" [(ngModel)]="curso.codigo" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="duracionCurso" class="form-label fw-bold">Duración</label>
+          <input type="text" class="form-control" id="duracionCurso" name="duracionCurso" [(ngModel)]="curso.duracion" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="cuotaCurso" class="form-label fw-bold">Cuota</label>
+          <input type="text" class="form-control" id="cuotaCurso" name="cuotaCurso" [(ngModel)]="curso.cuota" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="botonModificarCurso" name="botonModificarCurso">Modificar Curso</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -10,7 +10,9 @@ const profesorController = require('../controllers/profesorController');
 //Definición de rutas para las operaciones CRUD
 router.get('/all', profesorController.getProfesores);
 router.post('/insert', profesorController.createProfesor);
+router.put('/update/:idProfesor', profesorController.updateProfesor);
 router.delete('/delete/:idProfesor', profesorController.deleteProfesor);
+
 
 
 

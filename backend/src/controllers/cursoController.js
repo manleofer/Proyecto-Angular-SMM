@@ -5,11 +5,11 @@ const bbdd = require("../../config/bbdd");
 const getCursos = (req, res) => {
   const sql = "SELECT * FROM curso";
 
-  bbdd.query(sql, (err, resultado) => {
+  bbdd.query(sql, (err, results) => {
     if (err) {
       return res.status(500).json({ error: "Error al obtener cursos", err });
     }
-    res.status(200).json(resultado);
+    res.status(200).json(results);
   });
 };
 
@@ -42,7 +42,27 @@ const createCurso = (req, res) => {
 
 
 //MODIFICAR CURSO
+const updateCurso = (req, res) => {
+  const { idCurso } = req.params;
+  const { nombre, codigo, duracion, cuota } = req.body;
 
+  if (!nombre || !codigo || !duracion || !cuota) {
+    return res.status(400).json({ message: "Todos los campos son obligatorios" });
+  }
+
+  const sql = "UPDATE curso SET nombre = ?, codigo = ?, duracion = ?, cuota = ? WHERE idCurso = ?";
+  bbdd.query(sql, [nombre, codigo, duracion, cuota, idCurso], (error, result) => {
+    if (error) {
+      return res.status(500).json({ message: "Error al actualizar el curso", error });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Curso no encontrado" });
+    }
+
+    res.status(200).json({ message: "Curso actualizado correctamente" });
+  });
+};
 
 
 //BORRAR CURSO
@@ -68,4 +88,5 @@ const deleteCurso = (req, res) => {
 
 
 //Exportar los métodos
-module.exports = { getCursos, createCurso, deleteCurso };
+module.exports = { getCursos, createCurso, updateCurso, deleteCurso };
+

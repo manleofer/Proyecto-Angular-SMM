@@ -26,6 +26,12 @@ export class AlumnoService {
   }
 
 
+  // Método para modificar un alumno
+  updateAlumno(idAlumno: string, alumno: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${idAlumno}`, alumno);
+  }
+
+
   // Método para eliminar un alumno
   deleteAlumno(idAlumno: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${idAlumno}`);
