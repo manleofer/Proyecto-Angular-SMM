@@ -32,7 +32,7 @@ export class ConsultasComponent implements OnInit, OnChanges {
 
   // Métodos que se ejecutan al cambiar el valor de las propiedades marcadas con @Input
   ngOnChanges() {
-
+    this.cargarAlumnos();
     this.cargarProfesores();
 
   }

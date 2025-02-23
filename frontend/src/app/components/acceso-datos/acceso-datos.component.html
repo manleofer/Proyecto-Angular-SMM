@@ -17,10 +17,9 @@
       <app-consultas [actualizarTablas]="actualizarDatos"></app-consultas>
       <!-- La variable "actualizarTablas" del componente consultas está enlazada al valor de "actualizarDatos" de este componente -->
       <br><br>
-      <app-formularios-insert></app-formularios-insert>
+      <app-formularios-insert (operacionCreate)="actualizarConsultas()"></app-formularios-insert>
       <br><br>
-      <app-formularios-update></app-formularios-update>
-      
+      <app-formularios-update (operacionUpdate)="actualizarConsultas()"></app-formularios-update>
       <br><br>
       <app-formularios-delete (operacionDelete)="actualizarConsultas()"></app-formularios-delete>
       <!-- Cuando se emite el evento "operacionDelete", se activa el método "actualizarConsultas()" -->
