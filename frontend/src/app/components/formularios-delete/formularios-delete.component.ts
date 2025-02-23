@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,14 @@ export class FormulariosDeleteComponent implements OnInit {
   idAlumnoSelect: string = "";
   idProfesorSelect: string = "";
   idCursoSelect: string = "";
+
+  //Emitir evento hacia el componente padre (acceso-datos)
+  @Output() operacionDelete = new EventEmitter<void>();
+    /* 
+    Esto método permite que cada vez que se realice una operación de borrado correctamente,
+    se envíe un evento al elemento padre. Servirá para actualizar el listado de consultas a tiempo real.
+    */
+
 
   //Inyección de servicios
   constructor(
@@ -65,12 +73,15 @@ export class FormulariosDeleteComponent implements OnInit {
     });
   }
 
+
+  
   //Método para borrar alumno
   eliminarAlumno(): void {
     if (this.idAlumnoSelect) {
       this.alumnoService.deleteAlumno(this.idAlumnoSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los alumnos de la BD
+          this.operacionDelete.emit();  //Emito el evento de la operación al componente padre (acceso-datos)
           alert('Alumno eliminado correctamente');
         },
         error: (error) => {
@@ -89,6 +100,7 @@ export class FormulariosDeleteComponent implements OnInit {
       this.profesorService.deleteProfesor(this.idProfesorSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los profesores de la BD
+          this.operacionDelete.emit();  //Emito el evento de la operación al componente padre (acceso-datos)
           alert('Profesor eliminado correctamente');
         },
         error: (error) => {
@@ -108,6 +120,7 @@ export class FormulariosDeleteComponent implements OnInit {
       this.cursoService.deleteCurso(this.idCursoSelect).subscribe({
         next: (response) => {
           this.ngOnInit();  // Vuelvo a recargar los cursos de la BD
+          this.operacionDelete.emit();  //Emito el evento de la operación al componente padre (acceso-datos)
           alert('Curso eliminado correctamente');
         },
         error: (error) => {

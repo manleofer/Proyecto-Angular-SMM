@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { lastValueFrom } from 'rxjs';
@@ -11,19 +11,32 @@ import { ProfesorService } from '../../services/profesor.service';
   templateUrl: './consultas.component.html',
   styleUrl: './consultas.component.css'
 })
-export class ConsultasComponent implements OnInit {
+
+export class ConsultasComponent implements OnInit, OnChanges {
   alumnos: any[] = [];
   profesores: any[] = [];
+
+  // Se declara la propiedad que recibe desde el componente padre (acceso-datos) para refrescar los listados (si ocurre una operacion CRUD)
+  @Input() actualizarTablas: boolean = false;
 
   constructor(
     private alumnoService: AlumnoService,
     private profesorService: ProfesorService
   ) { }
 
+  // Métodos que se ejecutan al arrancar el componente
   ngOnInit() {
     this.cargarAlumnos();
     this.cargarProfesores();
   }
+
+  // Métodos que se ejecutan al cambiar el valor de las propiedades marcadas con @Input
+  ngOnChanges() {
+
+    this.cargarProfesores();
+
+  }
+
 
   async cargarAlumnos() {
     try {
@@ -35,15 +48,10 @@ export class ConsultasComponent implements OnInit {
 
 
   cargarProfesores() {
-    this.profesorService.getProfesores().subscribe({
-      next: (data) => {
-        console.log('Profesores en BD: ', data);
-        this.profesores = data;
-      },
-      error: (error) => {
-        console.error('Error al obtener los profesores.', error);
-      }
+    this.profesorService.getProfesores().subscribe((data) => {
+      this.profesores = data;
     });
+
   }
 
 }
