@@ -1,22 +1,47 @@
-<div id="listadoAlumnos" class="container">
+<div id="divConsultas" class="container">
   <h2>CONSULTAS</h2>
   <p>A continuación se muestra el listado de alumnos, profesores y cursos existentes en la base de datos:</p>
-  
-  <h3>Listado de Alumnos</h3>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>NOMBRE</th>
-        <th>TELÉFONO</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let alumno of alumnos">
-        <td>{{alumno.idAlumno}}</td>
-        <td>{{alumno.nombre}}</td>
-        <td>{{alumno.telefono}}</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div id="listadoAlumnos">
+    <h3>Listado de Alumnos</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>TELÉFONO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnos">
+          <td>{{alumno.idAlumno}}</td>
+          <td>{{alumno.nombre}}</td>
+          <td>{{alumno.telefono}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <div id="listadoProfesores">
+    <h3>Listado de Profesores</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>TELÉFONO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prof of profesores">
+          <td>{{prof.idProfesor}}</td>
+          <td>{{prof.nombre}}</td>
+          <td>{{prof.telefono}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <div id="listadoCursos">
+  </div>
 </div>

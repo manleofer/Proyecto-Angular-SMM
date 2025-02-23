@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormulariosInsertComponent } from '../formularios-insert/formularios-insert.component';
 import { ConsultasComponent } from '../consultas/consultas.component';
@@ -13,5 +13,15 @@ import { FormulariosUpdateComponent } from "../formularios-update/formularios-up
 })
 
 export class AccesoDatosComponent {
+
+  // Variable que cambia si se realiza alguna operación CRUD y que está ligada a la actualización de las tablas de consultas
+  actualizarDatos: boolean = false;
+  
+   
+
+  //Método que se ejecuta cuando se realiza alguna operación CRUD
+  actualizarConsultas() {
+    this.actualizarDatos = !this.actualizarDatos; 
+  }
 
 }

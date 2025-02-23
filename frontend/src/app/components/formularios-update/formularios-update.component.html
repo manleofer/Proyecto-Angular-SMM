@@ -12,7 +12,7 @@
 
         <div class="mb-3">
           <label for="alumno" class="form-label fw-bold">Seleccionar Alumno</label>
-          <select class="form-select" id="alumno" [(ngModel)]="idAlumnoSelect" name="idAlumnoSelect" (change)="seleccionarAlumno(idAlumnoSelect)" required>
+          <select class="form-select" id="alumno" (click)="ngOnInit()" [(ngModel)]="idAlumnoSelect" name="idAlumnoSelect" (change)="seleccionarAlumno(idAlumnoSelect)" required>
             <option *ngFor="let alumno of alumnos" [value]="alumno.idAlumno">
               {{ alumno.nombre }} - {{ alumno.telefono }}
             </option>
@@ -43,7 +43,7 @@
 
         <div class="mb-3">
           <label for="profesor" class="form-label fw-bold">Seleccionar Profesor</label>
-          <select class="form-select" id="profesor" [(ngModel)]="idProfesorSelect" name="idProfesorSelect" (change)="seleccionarProfesor(idProfesorSelect)" required>
+          <select class="form-select" id="profesor" (click)="ngOnInit()" [(ngModel)]="idProfesorSelect" name="idProfesorSelect" (change)="seleccionarProfesor(idProfesorSelect)" required>
             <option *ngFor="let profesor of profesores" [value]="profesor.idProfesor">
               {{ profesor.nombre }} - {{ profesor.telefono }}
             </option>
@@ -74,7 +74,7 @@
 
         <div class="mb-3">
           <label for="curso" class="form-label fw-bold">Seleccionar Curso</label>
-          <select class="form-select" id="curso" [(ngModel)]="idCursoSelect" name="idCursoSelect" (change)="seleccionarCurso(idCursoSelect)" required>
+          <select class="form-select" id="curso" (click)="ngOnInit()" [(ngModel)]="idCursoSelect" name="idCursoSelect" (change)="seleccionarCurso(idCursoSelect)" required>
             <option *ngFor="let curso of cursos" [value]="curso.idCurso">
               {{ curso.nombre }} - {{ curso.codigo }}
             </option>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { ProfesorService } from '../../services/profesor.service';
 import { CursoService } from '../../services/curso.service';
@@ -25,6 +25,13 @@ export class FormulariosUpdateComponent implements OnInit {
   idAlumnoSelect: string = "";
   idProfesorSelect: string = "";
   idCursoSelect: string = "";
+
+  //Emitir evento hacia el componente padre (acceso-datos)
+    @Output() operacionUpdate = new EventEmitter<void>();
+      /* 
+      Esto método permite que cada vez que se realice una operación de actualización correctamente,
+      se envíe un evento al elemento padre. Servirá para actualizar el listado de consultas a tiempo real.
+      */
 
   constructor(
     private alumnoService: AlumnoService,
@@ -100,6 +107,7 @@ seleccionarCurso(idCurso: string) {
       try {
         const response = await firstValueFrom(this.alumnoService.updateAlumno(this.idAlumnoSelect, this.alumno));
         console.log('Alumno modificado:', response);
+        this.operacionUpdate.emit(); //Emito el evento de la operación al componente padre (acceso-datos)
         alert('Alumno modificado con éxito');
         this.obtenerAlumnos();
         this.resetAlumno();
@@ -116,6 +124,7 @@ seleccionarCurso(idCurso: string) {
       try {
         const response = await firstValueFrom(this.profesorService.updateProfesor(this.idProfesorSelect, this.profesor));
         console.log('Profesor modificado:', response);
+        this.operacionUpdate.emit(); //Emito el evento de la operación al componente padre (acceso-datos)
         alert('Profesor modificado con éxito');
         this.obtenerProfesores();
         this.resetProfesor();
@@ -132,6 +141,7 @@ seleccionarCurso(idCurso: string) {
       try {
         const response = await firstValueFrom(this.cursoService.updateCurso(this.idCursoSelect, this.curso));
         console.log('Curso modificado:', response);
+        this.operacionUpdate.emit(); //Emito el evento de la operación al componente padre (acceso-datos)
         alert('Curso modificado con éxito');
         this.obtenerCursos();
         this.resetCurso();
