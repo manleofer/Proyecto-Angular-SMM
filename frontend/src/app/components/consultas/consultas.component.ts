@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { AlumnoService } from '../../services/alumno.service';
 import { lastValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ProfesorService } from '../../services/profesor.service';
 
 @Component({
   selector: 'app-consultas',
@@ -12,11 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class ConsultasComponent implements OnInit {
   alumnos: any[] = [];
+  profesores: any[] = [];
 
-  constructor(private alumnoService: AlumnoService) { }
+  constructor(
+    private alumnoService: AlumnoService,
+    private profesorService: ProfesorService
+  ) { }
 
   ngOnInit() {
     this.cargarAlumnos();
+    this.cargarProfesores();
   }
 
   async cargarAlumnos() {
@@ -26,4 +32,18 @@ export class ConsultasComponent implements OnInit {
       console.error('Error al obtener alumnos:', error);
     }
   }
+
+
+  cargarProfesores() {
+    this.profesorService.getProfesores().subscribe({
+      next: (data) => {
+        console.log('Profesores en BD: ', data);
+        this.profesores = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener los profesores.', error);
+      }
+    });
+  }
+
 }
