@@ -23,8 +23,12 @@ export class CursoService {
     return this.http.post(`${this.apiUrl}/insert`, curso);
   }
 
+ // Método para modificar un curso
+  updateCurso(idCurso: string, curso: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${idCurso}`, curso);
+  }
 
-  // Método para eliminar un alumno
+  // Método para eliminar un curso
   deleteCurso(idCurso: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${idCurso}`);
   }

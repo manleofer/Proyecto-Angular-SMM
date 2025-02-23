@@ -84,7 +84,7 @@ const deleteProfesor = (req, res) => {
 
 
 //Exportar los métodos
-module.exports = { getProfesores, createProfesor,updateProfesor, deleteProfesor };
+module.exports = { getProfesores, createProfesor, updateProfesor, deleteProfesor };
 
 
 

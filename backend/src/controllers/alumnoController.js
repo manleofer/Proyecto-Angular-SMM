@@ -40,7 +40,7 @@ const createAlumno = (req, res) => {
 
 //MODIFICAR ALUMNO
 const updateAlumno = (req, res) => {
-  const { idAlumno } = req.params;
+  const idAlumno  = parseInt(req.params.idAlumno);
   const { nombre, telefono } = req.body;
 
   if (!nombre || !telefono) {
@@ -60,6 +60,7 @@ const updateAlumno = (req, res) => {
     res.status(200).json({ message: "Alumno actualizado correctamente" });
   });
 };
+
 //BORRAR ALUMNO
 const deleteAlumno = (req, res) => {
   const { idAlumno } = req.params; // Recupero el idAlumno que se manda en la solicitud (desde frontend)
