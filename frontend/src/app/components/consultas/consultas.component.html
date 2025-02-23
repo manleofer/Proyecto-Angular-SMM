@@ -22,6 +22,30 @@
     </table>
   </div>
   <br>
+  <div id="listadoCursos">
+    <h3>Listado de Cursos</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>CÓDIGO</th>
+          <th>DURACIÓN</th>
+          <th>CUOTA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <td>{{curso.idCurso}}</td>
+          <td>{{curso.nombre}}</td>
+          <td>{{curso.codigo}}</td>
+          <td>{{curso.duracion}}</td>
+          <td>{{curso.cuota}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
   <div id="listadoProfesores">
     <h3>Listado de Profesores</h3>
     <table class="table table-striped table-bordered">
@@ -40,8 +64,5 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <br>
-  <div id="listadoCursos">
   </div>
 </div>

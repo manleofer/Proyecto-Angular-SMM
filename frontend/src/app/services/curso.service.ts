@@ -24,7 +24,7 @@ export class CursoService {
   }
 
  // Método para modificar un curso
-  updateCurso(idCurso: string, curso: any): Observable<any> {
+  updateCurso(idCurso: any, curso: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/update/${idCurso}`, curso);
   }
 

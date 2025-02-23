@@ -4,6 +4,7 @@ import { AlumnoService } from '../../services/alumno.service';
 import { lastValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ProfesorService } from '../../services/profesor.service';
+import { CursoService } from '../../services/curso.service';
 
 @Component({
   selector: 'app-consultas',
@@ -13,7 +14,9 @@ import { ProfesorService } from '../../services/profesor.service';
 })
 
 export class ConsultasComponent implements OnInit, OnChanges {
+[x: string]: any;
   alumnos: any[] = [];
+  cursos: any[] =  [];
   profesores: any[] = [];
 
   // Se declara la propiedad que recibe desde el componente padre (acceso-datos) para refrescar los listados (si ocurre una operacion CRUD)
@@ -21,18 +24,21 @@ export class ConsultasComponent implements OnInit, OnChanges {
 
   constructor(
     private alumnoService: AlumnoService,
+    private cursoService: CursoService,
     private profesorService: ProfesorService
   ) { }
 
   // Métodos que se ejecutan al arrancar el componente
   ngOnInit() {
     this.cargarAlumnos();
+    this.cargarCursos();
     this.cargarProfesores();
   }
 
   // Métodos que se ejecutan al cambiar el valor de las propiedades marcadas con @Input
   ngOnChanges() {
     this.cargarAlumnos();
+    this.cargarCursos();
     this.cargarProfesores();
 
   }
@@ -44,6 +50,13 @@ export class ConsultasComponent implements OnInit, OnChanges {
     } catch (error) {
       console.error('Error al obtener alumnos:', error);
     }
+  }
+
+
+  cargarCursos() {
+    this.cursoService.getCursos().subscribe((data) => {
+      this.cursos = data;
+    });
   }
 
 

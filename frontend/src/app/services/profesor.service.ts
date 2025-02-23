@@ -22,7 +22,7 @@ export class ProfesorService {
   }
 
   // Método para actualizar un profesor
-  updateProfesor(idProfesor: string, profesor: any): Observable<any> {
+  updateProfesor(idProfesor: any, profesor: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/update/${idProfesor}`, profesor);
   }
 
