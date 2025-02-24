@@ -4,6 +4,7 @@ const mysql = require("mysql2");
 //Crear la conexión con los parámetros necesarios
 const bbdd = mysql.createConnection({
     host: "localhost",
+    port: 3306,
     user: "usuario",
     password: "usuario",
     database: "academia_programacion"
