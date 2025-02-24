@@ -43,15 +43,16 @@ const createCurso = (req, res) => {
 
 //MODIFICAR CURSO
 const updateCurso = (req, res) => {
+  console.log("Datos recibidos:", req.body);
   const { idCurso } = req.params;
-  const { nombre, codigo, duracion, cuota } = req.body;
+  const { nombre, codigo, duracion, cuota, idProfesor } = req.body;
 
-  if (!nombre || !codigo || !duracion || !cuota) {
+  if (!nombre || !codigo || !duracion || !cuota || !idProfesor) {
     return res.status(400).json({ message: "Todos los campos son obligatorios" });
   }
 
-  const sql = "UPDATE curso SET nombre = ?, codigo = ?, duracion = ?, cuota = ? WHERE idCurso = ?";
-  bbdd.query(sql, [nombre, codigo, duracion, cuota, idCurso], (error, result) => {
+  const sql = "UPDATE curso SET nombre = ?, codigo = ?, duracion = ?, cuota = ?, idProfesor = ? WHERE idCurso = ?";
+  bbdd.query(sql, [nombre, codigo, duracion, cuota, idProfesor, idCurso], (error, result) => {
     if (error) {
       return res.status(500).json({ message: "Error al actualizar el curso", error });
     }

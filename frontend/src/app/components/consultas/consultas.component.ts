@@ -24,23 +24,22 @@ export class ConsultasComponent implements OnInit, OnChanges {
 
   constructor(
     private alumnoService: AlumnoService,
-    private cursoService: CursoService,
-    private profesorService: ProfesorService
+    private profesorService: ProfesorService,
+    private cursoService: CursoService
   ) { }
 
   // Métodos que se ejecutan al arrancar el componente
   ngOnInit() {
     this.cargarAlumnos();
-    this.cargarCursos();
     this.cargarProfesores();
+    this.cargarCursos();
   }
 
   // Métodos que se ejecutan al cambiar el valor de las propiedades marcadas con @Input
   ngOnChanges() {
     this.cargarAlumnos();
-    this.cargarCursos();
     this.cargarProfesores();
-
+    this.cargarCursos();
   }
 
 
@@ -52,6 +51,12 @@ export class ConsultasComponent implements OnInit, OnChanges {
     }
   }
 
+  cargarProfesores() {
+    this.profesorService.getProfesores().subscribe((data) => {
+      this.profesores = data;
+    });
+
+  }
 
   cargarCursos() {
     this.cursoService.getCursos().subscribe((data) => {
@@ -60,11 +65,6 @@ export class ConsultasComponent implements OnInit, OnChanges {
   }
 
 
-  cargarProfesores() {
-    this.profesorService.getProfesores().subscribe((data) => {
-      this.profesores = data;
-    });
-
-  }
+  
 
 }

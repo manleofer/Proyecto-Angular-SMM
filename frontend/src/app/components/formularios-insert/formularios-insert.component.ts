@@ -87,7 +87,6 @@ export class FormulariosInsertComponent {
     }
   }
 
-
   // Método para inscribir un alumno en un curso
   async inscribirAlumnoCurso() {
     if (this.inscripcion.idAlumno && this.inscripcion.idCurso) {

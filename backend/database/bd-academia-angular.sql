@@ -33,27 +33,27 @@ CREATE TABLE alumno_curso (
 
 -- Inserción de tres profesores
 INSERT INTO profesor (nombre, telefono) VALUES 
-  ('Dr. Pérez', 610111222),
-  ('Lic. Sánchez', 610333444),
-  ('Prof. Gómez', 610555666);
+  ('Ramón J. Morales', 610111222),
+  ('Juan Tagua', 610333444),
+  ('Manuel Hans', 610555666);
 
 -- Inserción de tres cursos asignando profesores
 INSERT INTO curso (nombre, codigo, duracion, cuota, idProfesor) VALUES 
-  ('JavaScript Avanzado', 'JS101', 40, 150.00, 1),  
-  ('Programación en Java', 'JAVA202', 60, 200.00, 2), 
-  ('Desarrollo Web con HTML y CSS', 'HTML303', 30, 120.00, 3); 
+  ('JavaScript', 'JS101', 40, 150.00, 1),  
+  ('Sistemas de control de versiones', 'GIT202', 60, 200.00, 2), 
+  ('Java y Spring', 'JAVA303', 30, 120.00, 3); 
 
 -- Inserción de tres alumnos
 INSERT INTO alumno (nombre, telefono) VALUES 
-  ('Ana García', 600111222),
-  ('Luis Martínez', 600333444),
-  ('Carmen López', 600555666);
+  ('Manuel León', 600111222),
+  ('Sandra Moriana', 600333444),
+  ('Mari Carmen Ruiz', 600555666);
 
 -- Asignación de alumnos a cursos (relación N:M)
 INSERT INTO alumno_curso (idAlumno, idCurso) VALUES 
   (1, 1), 
-  (1, 2), 
+  (1, 3), 
+  (2, 1), 
   (2, 2), 
-  (2, 3), 
   (3, 1),
   (3, 3);

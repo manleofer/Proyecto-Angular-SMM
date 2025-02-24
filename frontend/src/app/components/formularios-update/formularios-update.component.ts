@@ -20,7 +20,7 @@ export class FormulariosUpdateComponent implements OnInit {
   // Objetos para el formulario de actualización
   alumno = { idAlumno: '', nombre: '', telefono: '' };
   profesor = { idProfesor: '', nombre: '', telefono: '' };
-  curso = { idCurso: '', nombre: '', codigo: '', duracion: '', cuota: '' };
+  curso = { idCurso: '', nombre: '', codigo: '', duracion: '', cuota: '', idProfesor: '' };
 
   idAlumnoSelect: string = "";
   idProfesorSelect: string = "";
@@ -158,7 +158,7 @@ async modificarProfesor() {
   // Método para actualizar Curso
   async modificarCurso() {
     if (!this.idCursoSelect) return;
-  
+    console.log(this.curso)
     const cursoOriginal = this.cursos.find(c => c.idCurso === Number(this.idCursoSelect));
     if (!cursoOriginal) return console.error("❌ No se encontró el curso en la lista.");
   
@@ -167,7 +167,8 @@ async modificarProfesor() {
       nombre: this.curso.nombre?.trim() || cursoOriginal.nombre,
       codigo: this.curso.codigo?.trim() || cursoOriginal.codigo,
       duracion: Number(this.curso.duracion) || cursoOriginal.duracion,
-      cuota: Number(this.curso.cuota) || cursoOriginal.cuota
+      cuota: Number(this.curso.cuota) || cursoOriginal.cuota,
+      idProfesor: Number(this.curso.idProfesor) || cursoOriginal.idProfesor
     };
   
     try {
@@ -194,7 +195,7 @@ async modificarProfesor() {
   }
 
   resetCurso() {
-    this.curso = { idCurso: '', nombre: '', codigo: '', duracion: '', cuota: '' };
+    this.curso = { idCurso: '', nombre: '', codigo: '', duracion: '', cuota: '', idProfesor: '' };
     this.idCursoSelect = '';
   }
 }
