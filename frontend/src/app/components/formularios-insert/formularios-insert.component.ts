@@ -16,6 +16,7 @@ export class FormulariosInsertComponent {
   alumno = { nombre: '', telefono: '' };
   profesor = { nombre: '', telefono: '' };
   curso = { nombre: '', codigo: '', duracion: '', cuota: '', idProfesor: '' };
+  inscripcion = { idAlumno: '', idCurso: '' }
 
 
   //Array para almacenar entidades
@@ -24,7 +25,7 @@ export class FormulariosInsertComponent {
   cursos: any[] = [];
 
 
-  
+
   // Emitir evento hacia el componente padre (acceso-datos)
   @Output() operacionCreate = new EventEmitter<void>();
   /* 
@@ -72,8 +73,8 @@ export class FormulariosInsertComponent {
 
   // Método para insertar Curso
   async insertarCurso() {
-    console.log('Curso antes de enviar:', this.curso);
-    if (this.curso.nombre && this.curso.codigo && this.curso.duracion && this.curso.cuota && this.curso.idProfesor) {      try {
+    if (this.curso.nombre && this.curso.codigo && this.curso.duracion && this.curso.cuota && this.curso.idProfesor) {
+      try {
         const response = await firstValueFrom(this.cursoService.insertarCurso(this.curso));
         console.log('Curso insertado:', response);
         this.operacionCreate.emit();  //Emito el evento de la operación al componente padre (acceso-datos)
@@ -84,6 +85,36 @@ export class FormulariosInsertComponent {
         alert('Error al insertar el curso');
       }
     }
+  }
+
+
+  // Método para inscribir un alumno en un curso
+  async inscribirAlumnoCurso() {
+    if (this.inscripcion.idAlumno && this.inscripcion.idCurso) {
+      try {
+        const response = await firstValueFrom(this.alumnoService.inscribirAlumno(this.inscripcion));
+        console.log('Inscripción realizada:', response);
+        this.operacionCreate.emit();  //Emito el evento de la operación al componente padre (acceso-datos)
+        alert('Inscripción realizada con éxito');
+        this.inscripcion = { idAlumno: '', idCurso: '' };
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error al realizar la inscripción');
+      }
+    }
+  }
+
+  // Obtener los alumnos existentes en BD
+  obtenerAlumnos() {
+    this.alumnoService.getAlumnos().subscribe({
+      next: (data) => {
+        console.log('Alumnos en BD: ', data);
+        this.alumnos = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener los alumnos.', error);
+      }
+    });
   }
 
   // Obtener los profesores existentes en BD
@@ -97,7 +128,20 @@ export class FormulariosInsertComponent {
         console.error('Error al obtener los profesores.', error);
       }
     });
-
-
   }
+
+  // Obtener los cursos existentes en BD
+  obtenerCursos() {
+    this.cursoService.getCursos().subscribe({
+      next: (data) => {
+        console.log('Cursos en BD: ', data);
+        this.cursos = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener los cursos.', error);
+      }
+    });
+  }
+
+
 }

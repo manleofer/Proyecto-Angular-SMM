@@ -9,19 +9,21 @@
         <legend class="float-none w-auto px-3 fw-bold text-dark">
           Alumno
         </legend>
-    
+
         <div class="mb-3">
           <label for="nombre" class="form-label fw-bold">Nombre</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="alumno.nombre" required/>
+          <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="alumno.nombre" required />
         </div>
-    
+
         <div class="mb-3">
           <label for="telefono" class="form-label fw-bold">Telefono</label>
-          <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="alumno.telefono" required/>
+          <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="alumno.telefono"
+            required />
         </div>
-    
-        <button type="submit"  id="botonInsertarAlumno" name="botonInsertarAlumno">Insertar Alumno</button>
-    
+
+        <button type="submit" class="btn btn-primary" id="botonInsertarAlumno" name="botonInsertarAlumno">Insertar
+          Alumno</button>
+
       </fieldset>
     </form>
   </div>
@@ -46,7 +48,8 @@
             [(ngModel)]="profesor.telefono" required />
         </div>
 
-        <button type="submit" id="botonInsertarProfesor" name="botonInsertarProfesor">Insertar Profesor</button>
+        <button type="submit" class="btn btn-primary" id="botonInsertarProfesor" name="botonInsertarProfesor">Insertar
+          Profesor</button>
 
       </fieldset>
     </form>
@@ -85,17 +88,51 @@
 
         <div class="mb-3">
           <label for="selectProfesorCurso" class="form-label fw-bold">Seleccionar profesor:</label>
-          <select id="selectProfesorCurso" (click)="obtenerProfesores()" [(ngModel)]="curso.idProfesor" name="idProfesor" class="form-control"
-              required>
-              <option value="0" disabled>Selecciona un profesor</option>
-              <option *ngFor="let prof of profesores" [value]="prof.idProfesor">{{ prof.nombre }}</option>
+          <select id="selectProfesorCurso" (click)="obtenerProfesores()" [(ngModel)]="curso.idProfesor"
+            name="idProfesor" class="form-control" required>
+            <option value="0" disabled>Selecciona un profesor</option>
+            <option *ngFor="let prof of profesores" [value]="prof.idProfesor">{{ prof.nombre }}</option>
           </select>
-      </div>
+        </div>
 
-        <button type="submit" id="botonInsertarCurso" name="botonInsertarCurso">Insertar Curso</button>
+        <button type="submit" class="btn btn-primary" id="botonInsertarCurso" name="botonInsertarCurso">Insertar
+          Curso</button>
 
       </fieldset>
 
     </form>
   </div>
+  <div id="divInsertAlumnoCurso">
+    <form #cursoForm="ngForm" class="border rounded-3 p-3 border-5" id="formularioInscripcion"
+      (ngSubmit)="inscribirAlumnoCurso()">
+      <h3 style="text-align: center">FORMULARIO INSCRIPCIÓN ALUMNO-CURSO</h3>
+      <fieldset class="border rounded-3 p-3 border-5 mb-5">
+        <legend class="float-none w-auto px-3 fw-bold text-dark">
+          Inscripción alumno-curso
+        </legend>
+
+        <div class="mb-3">
+          <label for="selectAlumnoCurso" class="form-label fw-bold">Seleccionar alumno:</label>
+          <select id="selectAlumnoCurso" (click)="obtenerAlumnos()" [(ngModel)]="inscripcion.idAlumno" name="idAlumno"
+            class="form-control" required>
+            <option value="0" disabled>Selecciona un alumno</option>
+            <option *ngFor="let alumno of alumnos" [value]="alumno.idAlumno">{{ alumno.nombre }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="selectCursoAlumno" class="form-label fw-bold">Seleccionar curso:</label>
+          <select id="selectCursoAlumno" (click)="obtenerCursos()" [(ngModel)]="inscripcion.idCurso" name="idCurso"
+            class="form-control" required>
+            <option value="0" disabled>Selecciona un curso</option>
+            <option *ngFor="let curso of cursos" [value]="curso.idCurso">{{ curso.nombre }}</option>
+          </select>
+          <br>
+          <button type="submit" class="btn btn-primary" id="botonInscribirAlumnoCurso"
+            name="botonInscribirAlumnoCurso">Inscribir Alumno</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
 </div>

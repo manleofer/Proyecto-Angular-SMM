@@ -83,5 +83,28 @@ const deleteAlumno = (req, res) => {
   });
 };
 
+//INSCRIBIR ALUMNO
+const inscribirAlumno = (req, res) => {
+  console.log("Datos recibidos:", req.body); //
+  const { idAlumno, idCurso } = req.body;
+
+  if (!idAlumno || !idCurso) {
+    return res
+      .status(400)
+      .json({ message: "Todos los campos son obligatorios" });
+  }
+
+  const sql = "INSERT INTO alumno_curso (idAlumno, idCurso) VALUES (?, ?)";
+  bbdd.query(sql, [idAlumno, idCurso], (error, result) => {
+    if (error) {
+      return res
+        .status(500)
+        .json({ error: "Error al realizar la inscripción", details: error });
+    }
+    res.status(201).json({
+      message: "Inscripción insertada con éxito",
+    });
+  });
+};
 //Exportar los métodos
-module.exports = { getAlumnos, createAlumno, updateAlumno, deleteAlumno };
+module.exports = { getAlumnos, createAlumno, updateAlumno, deleteAlumno, inscribirAlumno };

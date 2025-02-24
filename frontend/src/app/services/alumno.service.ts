@@ -37,6 +37,10 @@ export class AlumnoService {
     return this.http.delete<any>(`${this.apiUrl}/delete/${idAlumno}`);
   }
 
+  //Método para inscribir un alumno en un curso
+  inscribirAlumno(inscripcion: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/inscription`, inscripcion);
+  }
  
 }
 
