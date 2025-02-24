@@ -22,6 +22,26 @@
     </table>
   </div>
   <br>
+  <div id="listadoProfesores">
+    <h3>Listado de Profesores</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>TELÉFONO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prof of profesores">
+          <td>{{prof.idProfesor}}</td>
+          <td>{{prof.nombre}}</td>
+          <td>{{prof.telefono}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
   <div id="listadoCursos">
     <h3>Listado de Cursos</h3>
     <table class="table table-striped table-bordered">
@@ -41,26 +61,6 @@
           <td>{{curso.codigo}}</td>
           <td>{{curso.duracion}}</td>
           <td>{{curso.cuota}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <br>
-  <div id="listadoProfesores">
-    <h3>Listado de Profesores</h3>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NOMBRE</th>
-          <th>TELÉFONO</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let prof of profesores">
-          <td>{{prof.idProfesor}}</td>
-          <td>{{prof.nombre}}</td>
-          <td>{{prof.telefono}}</td>
         </tr>
       </tbody>
     </table>
