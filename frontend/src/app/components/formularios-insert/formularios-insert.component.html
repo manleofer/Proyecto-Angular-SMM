@@ -83,6 +83,15 @@
             required />
         </div>
 
+        <div class="mb-3">
+          <label for="selectProfesorCurso" class="form-label fw-bold">Seleccionar profesor:</label>
+          <select id="selectProfesorCurso" (click)="obtenerProfesores()" [(ngModel)]="curso.idProfesor" name="idProfesor" class="form-control"
+              required>
+              <option value="0" disabled>Selecciona un profesor</option>
+              <option *ngFor="let prof of profesores" [value]="prof.idProfesor">{{ prof.nombre }}</option>
+          </select>
+      </div>
+
         <button type="submit" id="botonInsertarCurso" name="botonInsertarCurso">Insertar Curso</button>
 
       </fieldset>

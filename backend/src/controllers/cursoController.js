@@ -18,17 +18,17 @@ const getCursos = (req, res) => {
 //CREAR CURSO
 const createCurso = (req, res) => {
   console.log("Datos recibidos:", req.body); //
-  const { nombre, codigo, duracion, cuota } = req.body;
+  const { nombre, codigo, duracion, cuota, idProfesor } = req.body;
 
-  if (!nombre || !codigo || !duracion || !cuota) {
+  if (!nombre || !codigo || !duracion || !cuota || !idProfesor) {
     return res
       .status(400)
       .json({ message: "Todos los campos son obligatorios" });
   }
 
   const sql =
-    "INSERT INTO curso (nombre, codigo, duracion, cuota) VALUES (?, ?, ?, ?)";
-  bbdd.query(sql, [nombre, codigo, duracion, cuota], (error, result) => {
+    "INSERT INTO curso (nombre, codigo, duracion, cuota, idProfesor) VALUES (?, ?, ?, ?, ?)";
+  bbdd.query(sql, [nombre, codigo, duracion, cuota, idProfesor], (error, result) => {
     if (error) {
       return res
         .status(500)

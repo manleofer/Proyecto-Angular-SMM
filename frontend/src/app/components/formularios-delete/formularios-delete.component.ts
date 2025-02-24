@@ -18,7 +18,7 @@ export class FormulariosDeleteComponent implements OnInit {
   profesores: any[] = [];
   cursos: any[] = [];
 
-  //Creo variable para almacenar el idAlumno del alumno seleccionado
+  //Creo variable para almacenar los id de cada entidad
   idAlumnoSelect: string = "";
   idProfesorSelect: string = "";
   idCursoSelect: string = "";
