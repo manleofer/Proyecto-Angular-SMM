@@ -3,7 +3,9 @@ const bbdd = require("../../config/bbdd");
 
 //CONSULTA CURSO
 const getCursos = (req, res) => {
-  const sql = "SELECT * FROM curso";
+  const sql = "SELECT curso.idCurso, curso.nombre, curso.codigo, curso.duracion, curso.cuota, curso.idProfesor, "
+    + "profesor.nombre AS nombreProfesor "
+    + "FROM curso JOIN profesor ON curso.idProfesor = profesor.idProfesor";
 
   bbdd.query(sql, (err, results) => {
     if (err) {
